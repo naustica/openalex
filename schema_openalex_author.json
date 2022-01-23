@@ -1,0 +1,132 @@
+[
+  {
+    "description": "The OpenAlex ID for this author.",
+    "mode": "NULLABLE",
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "description": "The ORCID for this author. ORCID global and unique ID for authors.",
+    "mode": "NULLABLE",
+    "name": "orcid",
+    "type": "STRING"
+  },
+  {
+    "description": "The name of the author as a single string.",
+    "mode": "NULLABLE",
+    "name": "display_name",
+    "type": "STRING"
+  },
+  {
+    "description": "Other ways that we've found this author's name displayed.",
+    "mode": "REPEATED",
+    "name": "display_name_alternatives",
+    "type": "STRING"
+  },
+  {
+    "description": "The number of  Works this this author has created.",
+    "mode": "NULLABLE",
+    "name": "works_count",
+    "type": "INTEGER"
+  },
+  {
+    "description": "The total number  Works that cite a work this author has created.",
+    "mode": "NULLABLE",
+    "name": "cited_by_count",
+    "type": "INTEGER"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "openalex",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "orcid",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "scopus",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "twitter",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "wikipedia",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "mag",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "ids",
+        "type": "RECORD",
+        "description": "All the persistent identifiers (PIDs) that we know about for this author, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible. The openalex ID is the same one you'll find at Author.id. All the IDs are strings except for mag, which is an integer."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "ror",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "country_code",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "type",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "last_known_institution",
+        "type": "RECORD",
+        "description": "This author's last known institutional affiliation. In this context last known means that we took all the Works where this author has an institutional affiliation, sorted them by publication date, and selected the most recent one."
+  },
+  {
+    "description": "A URL that will get you a list of all this author's works.",
+    "mode": "NULLABLE",
+    "name": "works_api_url",
+    "type": "STRING"
+  },
+  {
+    "description": "The last time anything in this author object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
+    "mode": "NULLABLE",
+    "name": "updated_date",
+    "type": "STRING"
+  }
+]

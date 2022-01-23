@@ -1,0 +1,100 @@
+[
+  {
+    "description": "The OpenAlex ID for this venue.",
+    "mode": "NULLABLE",
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "description": "The ISSN-L identifying this venue.",
+    "mode": "NULLABLE",
+    "name": "issn_l",
+    "type": "STRING"
+  },
+  {
+    "description": "The ISSNs used by this venue. Many publications have multiple ISSNs (see above), so ISSN-L should be used when possible.",
+    "mode": "REPEATED",
+    "name": "issn",
+    "type": "STRING"
+  },
+  {
+    "description": "The name of the venue.",
+    "mode": "NULLABLE",
+    "name": "display_name",
+    "type": "STRING"
+  },
+  {
+    "description": "The name of this venue's publisher.",
+    "mode": "NULLABLE",
+    "name": "publisher",
+    "type": "STRING"
+  },
+  {
+    "description": "The number of Works this this venue hosts.",
+    "mode": "NULLABLE",
+    "name": "works_count",
+    "type": "INTEGER"
+  },
+  {
+    "description": "The total number of Works that cite a Work hosted in this venue.",
+    "mode": "NULLABLE",
+    "name": "cited_by_count",
+    "type": "INTEGER"
+  },
+  {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "is_oa",
+    "type": "BOOLEAN"
+  },
+  {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "is_in_doaj",
+    "type": "BOOLEAN"
+  },
+  {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "homepage_url",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "openalex",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "issn_l",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "REPEATED",
+            "name": "issn",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "ids",
+        "type": "RECORD",
+        "description": "All the persistent identifiers (PIDs) that we know about for this venue, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible. "
+  },
+  {
+    "description": "A URL that will get you a list of all this venue's Works.",
+    "mode": "NULLABLE",
+    "name": "works_api_url",
+    "type": "STRING"
+  },
+  {
+    "description": "The last time anything in this Venue object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
+    "mode": "NULLABLE",
+    "name": "updated_date",
+    "type": "STRING"
+  }
+]
