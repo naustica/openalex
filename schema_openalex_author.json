@@ -118,6 +118,32 @@
         "description": "This author's last known institutional affiliation. In this context last known means that we took all the Works where this author has an institutional affiliation, sorted them by publication date, and selected the most recent one."
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "year",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "counts_by_year",
+        "type": "RECORD",
+        "description": "Author.works_count and Author.cited_by_count for each of the last ten years, binned by year."
+  },
+  {
     "description": "A URL that will get you a list of all this author's works.",
     "mode": "NULLABLE",
     "name": "works_api_url",

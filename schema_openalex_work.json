@@ -71,6 +71,42 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "issn_l",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "REPEATED",
+            "name": "issn",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "publisher",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "type",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "url",
             "type": "STRING",
             "description": "The URL where you can access this work."
@@ -162,6 +198,44 @@
             ],
                 "mode": "NULLABLE",
                 "name": "author",
+                "type": "RECORD",
+                "description": ""
+        },
+        {
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "id",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "ror",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "country_code",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type",
+                    "type": "STRING",
+                    "description": ""
+                }
+            ],
+                "mode": "REPEATED",
+                "name": "institutions",
                 "type": "RECORD",
                 "description": ""
         }
@@ -298,6 +372,56 @@
         "description": "List of MeSH tag objects. Only works found in PubMed have MeSH tags; for all other works, this is an empty list."
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "type",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "url",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_oa",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "version",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "license",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "alternate_host_venues",
+        "type": "RECORD",
+        "description": "List of HostVenue objects describing places this work lives."
+  },
+  {
     "description": "OpenAlex IDs for works that this work cites. These are citations that go from this work out to another work: This work ➞ Other works. ",
     "mode": "REPEATED",
     "name": "referenced_works",
@@ -308,6 +432,38 @@
     "mode": "REPEATED",
     "name": "related_works",
     "type": "STRING"
+  },
+  {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "cited_by_url_string",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "year",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "counts_by_year",
+        "type": "RECORD",
+        "description": ""
   },
   {
     "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",

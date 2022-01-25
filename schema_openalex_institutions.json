@@ -210,6 +210,32 @@
         "description": "Institutions related to this one."
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "year",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "counts_by_year",
+        "type": "RECORD",
+        "description": "works_count and cited_by_count for each of the last ten years, binned by year."
+  },
+  {
     "description": "A URL that will get you a list of all the Works affiliated with this institution.",
     "mode": "NULLABLE",
     "name": "works_api_url",
