@@ -16,12 +16,12 @@ def transform_file(input_file_path: str, output_file_path: str):
     with gzip.open(input_file_path, 'r') as file:
         for line in file:
             try: 
-                new_item = ujson.loads(item)
+                new_item = ujson.loads(line)
                 if isinstance(new_item, dict):
                     new_data.append(new_item)
             except:
                 with open(error_log_directory + '/' + 'error_log.txt', 'a') as error_log_file:
-                    error_log_file.write(item.decode('utf-8'))
+                    error_log_file.write(line.decode('utf-8'))
     
     with gzip.open(output_file_path, 'w') as output_file:
         result = [ujson.dumps(record,
