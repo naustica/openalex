@@ -4,7 +4,8 @@
 #SBATCH -N 1
 #SBATCH -n 1
 #SBATCH -c 16
-#SBATCH -t 20:00:00
+#SBATCH --mem-per-cpu=8G
+#SBATCH -t 08:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=nick.haupka@sub.uni-goettingen.de
 
