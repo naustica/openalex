@@ -1,4 +1,4 @@
-# Workflow for Processing and Loading OpenAlex snapshots into Google BigQuery
+# Workflow for Processing and Loading OpenAlex data into Google BigQuery
 
 This repository contains instructions on how to extract and transform OpenAlex data for data analysis with Google BigQuery.
 
