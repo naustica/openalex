@@ -6,9 +6,8 @@ import os
 import uuid
 
 
-works_directory = '/scratch/users/haupka/openalex-snapshot/data/works'
+input_directory = '/scratch/users/haupka/openalex-snapshot/data/works'
 output_directory = '/scratch/users/haupka/works'
-error_log_directory = '/scratch/users/haupka'
 
 
 def transform_file(input_file_path: str, output_file_path: str):
@@ -41,13 +40,13 @@ def transform_snapshot(max_workers: int = cpu_count()):
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
         futures = []
 
-        for directory in os.listdir(works_directory):
-            if os.path.isdir(works_directory + '/' + directory):
+        for directory in os.listdir(input_directory):
+            if os.path.isdir(input_directory + '/' + directory):
                 os.makedirs(output_directory + '/' + directory, exist_ok=True)
-                for input_file in os.listdir(works_directory + '/' + directory):
+                for input_file in os.listdir(input_directory + '/' + directory):
                     output_file_path = os.path.join(output_directory + '/' + directory)
                     future = executor.submit(transform_file,
-                                             input_file_path=works_directory + '/' + directory + '/' + input_file,
+                                             input_file_path=input_directory + '/' + directory + '/' + input_file,
                                              output_file_path=output_file_path)
                     futures.append(future)
 
