@@ -14,7 +14,7 @@ def transform_file(input_file_path: str, output_file_path: str):
     new_data = []
 
     with gzip.open(input_file_path, 'r') as file:
-        for i, line in enumerate(file, start=0):
+        for line in file:
 
             new_item = json.loads(line)
             if isinstance(new_item, dict):
