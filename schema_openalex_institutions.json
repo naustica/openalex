@@ -6,7 +6,7 @@
     "type": "STRING"
   },
   {
-    "description": "The ROR ID for this institution. ",
+    "description": "The ROR ID for this institution.",
     "mode": "NULLABLE",
     "name": "ror",
     "type": "STRING"
@@ -245,6 +245,12 @@
     "description": "The last time anything in this Institution changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",
+    "type": "STRING"
+  },
+  {
+    "description": "The date this Institution object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "mode": "NULLABLE",
+    "name": "created_date",
     "type": "STRING"
   }
 ]

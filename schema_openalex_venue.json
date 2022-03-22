@@ -122,5 +122,11 @@
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "STRING"
+  },
+  {
+    "description": "The date this Venue object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "mode": "NULLABLE",
+    "name": "created_date",
+    "type": "STRING"
   }
 ]

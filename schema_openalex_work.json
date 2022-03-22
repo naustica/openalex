@@ -238,12 +238,18 @@
                 "name": "institutions",
                 "type": "RECORD",
                 "description": ""
-        }
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "raw_affiliation_string",
+            "type": "STRING",
+            "description": "This author's affiliation as it originally came to us (on a webpage or in an API), as a raw unformatted string."
+        },
     ],
         "mode": "REPEATED",
         "name": "authorships",
         "type": "RECORD",
-        "description": "List of Authorship objects, each representing an author and their institution. "
+        "description": "List of Authorship objects, each representing an author and their institution."
   },
   {
     "description": "The number of citations to this work. These are the times that other works have cited this work: Other works ➞ This work.",
@@ -422,13 +428,13 @@
         "description": "List of HostVenue objects describing places this work lives."
   },
   {
-    "description": "OpenAlex IDs for works that this work cites. These are citations that go from this work out to another work: This work ➞ Other works. ",
+    "description": "OpenAlex IDs for works that this work cites. These are citations that go from this work out to another work: This work ➞ Other works.",
     "mode": "REPEATED",
     "name": "referenced_works",
     "type": "STRING"
   },
   {
-    "description": "OpenAlex IDs for works related to this work. ",
+    "description": "OpenAlex IDs for works related to this work.",
     "mode": "REPEATED",
     "name": "related_works",
     "type": "STRING"
@@ -469,6 +475,12 @@
     "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",
+    "type": "STRING"
+  },
+  {
+    "description": "The date this Work object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "mode": "NULLABLE",
+    "name": "created_date",
     "type": "STRING"
   }
 ]
