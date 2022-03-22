@@ -244,7 +244,7 @@
             "name": "raw_affiliation_string",
             "type": "STRING",
             "description": "This author's affiliation as it originally came to us (on a webpage or in an API), as a raw unformatted string."
-        },
+        }
     ],
         "mode": "REPEATED",
         "name": "authorships",
