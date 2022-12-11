@@ -42,19 +42,31 @@
     "type": "INTEGER"
   },
   {
-    "description": "",
+    "description": "Whether this is currently fully-open-access venue. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license. We say currently because the status of a Venue can change over time. It's common for journals to flip to Gold OA, after which they may make only future articles open or also open their back catalogs. It's entirely possible for a Venue to say is_oa: true, but for an article from last year to require a subscription.",
     "mode": "NULLABLE",
     "name": "is_oa",
     "type": "BOOLEAN"
   },
   {
-    "description": "",
+    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ).",
     "mode": "NULLABLE",
     "name": "is_in_doaj",
     "type": "BOOLEAN"
   },
   {
-    "description": "",
+    "description": "Alternate titles for this Venue, as obtained from the ISSN Centre and individual work records, like Crossref DOIs, that carry the Venue name as a string. These are commonly abbreviations or translations of the Venue's canonical name.",
+    "mode": "REPEATED",
+    "name": "alternate_titles",
+    "type": "STRING"
+  },
+  {
+    "description": "An abbreviated title obtained from the ISSN Centre.",
+    "mode": "NULLABLE",
+    "name": "abbreviated_title",
+    "type": "STRING"
+  },
+  {
+    "description": "The starting page for navigating the contents of this venue; the homepage for this venue's website.",
     "mode": "NULLABLE",
     "name": "homepage_url",
     "type": "STRING"
@@ -65,25 +77,81 @@
             "mode": "NULLABLE",
             "name": "openalex",
             "type": "STRING",
-            "description": ""
+            "description": "This venue's OpenAlex ID. Same as Venue.id"
         },
         {
             "mode": "NULLABLE",
             "name": "issn_l",
             "type": "STRING",
-            "description": ""
+            "description": "This venue's ISSN-L. Same as Venue.issn_l"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "mag",
+            "type": "INTEGER",
+            "description": "This venue's Microsoft Academic Graph ID"
         },
         {
             "mode": "REPEATED",
             "name": "issn",
             "type": "STRING",
-            "description": ""
+            "description": "A list of this venue's ISSNs. Same as Venue.issn"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "fatcat",
+            "type": "STRING",
+            "description": "This venue's Fatcat ID"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "wikidata",
+            "type": "STRING",
+            "description": "This venue's Wikidata ID"
         }
     ],
         "mode": "NULLABLE",
         "name": "ids",
         "type": "RECORD",
         "description": "All the persistent identifiers (PIDs) that we know about for this venue, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible. "
+  },
+  {
+    "description": "The Venue's article processing charge in US Dollars, if available from DOAJ.",
+    "mode": "NULLABLE",
+    "name": "apc_usd",
+    "type": "INTEGER"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "url",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "organization",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "societies",
+        "type": "RECORD",
+        "description": "Societies on whose behalf the Venue is published and maintained, obtained from our crowdsourced list."
+  },
+  {
+    "description": "The country that this venue is associated with, represented as an ISO two-letter country code.",
+    "mode": "NULLABLE",
+    "name": "country_code",
+    "type": "STRING"
+  },
+  {
+    "description": "The type of venue",
+    "mode": "NULLABLE",
+    "name": "type",
+    "type": "STRING"
   },
   {
     "fields": [
