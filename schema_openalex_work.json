@@ -71,51 +71,65 @@
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "issn_l",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "REPEATED",
-            "name": "issn",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "publisher",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "type",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "url",
-            "type": "STRING",
-            "description": "The URL where you can access this work."
-        },
-        {
-            "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
-            "description": "Set to true if the work hosted here can be read for free, without registration."
+            "description": "True if this work is Open Access (OA)."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "landing_page_url",
+            "type": "STRING",
+            "description": "The landing page URL for this location."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "pdf_url",
+            "type": "STRING",
+            "description": "A URL where you can find this location as a PDF."
+        },
+        {
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "id",
+                    "type": "STRING",
+                    "description": "The OpenAlex ID for this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": "The name of the source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "issn_l",
+                    "type": "STRING",
+                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "issn",
+                    "type": "STRING",
+                    "description": "The ISSNs used by this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization",
+                    "type": "STRING",
+                    "description": "The host organization for this source as an OpenAlex ID."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type",
+                    "type": "STRING",
+                    "description": "The type of source."
+                }
+            ],
+                "mode": "NULLABLE",
+                "name": "source",
+                "type": "RECORD",
+                "description": "A dehydrated Source object."
         },
         {
             "mode": "NULLABLE",
@@ -127,13 +141,13 @@
             "mode": "NULLABLE",
             "name": "license",
             "type": "STRING",
-            "description": "The license applied to this work at this host."
+            "description": "The location's publishing license."
         }
     ],
         "mode": "NULLABLE",
-        "name": "host_venue",
+        "name": "primary_location",
         "type": "RECORD",
-        "description": "A HostVenue object describing how and where this work is being hosted online."
+        "description": "A Location object with the primary location of this work."
   },
   {
     "description": "The type or genre of the work.",
@@ -381,51 +395,165 @@
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "type",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "url",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
-            "description": ""
+            "description": "True if this work is Open Access (OA)."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "landing_page_url",
+            "type": "STRING",
+            "description": "The landing page URL for this location."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "pdf_url",
+            "type": "STRING",
+            "description": "A URL where you can find this location as a PDF."
+        },
+        {
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "id",
+                    "type": "STRING",
+                    "description": "The OpenAlex ID for this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": "The name of the source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "issn_l",
+                    "type": "STRING",
+                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "issn",
+                    "type": "STRING",
+                    "description": "The ISSNs used by this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization",
+                    "type": "STRING",
+                    "description": "The host organization for this source as an OpenAlex ID."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type",
+                    "type": "STRING",
+                    "description": "The type of source."
+                }
+            ],
+                "mode": "NULLABLE",
+                "name": "source",
+                "type": "RECORD",
+                "description": "A dehydrated Source object."
         },
         {
             "mode": "NULLABLE",
             "name": "version",
             "type": "STRING",
-            "description": ""
+            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
         },
         {
             "mode": "NULLABLE",
             "name": "license",
             "type": "STRING",
-            "description": ""
+            "description": "The location's publishing license."
         }
     ],
         "mode": "REPEATED",
-        "name": "alternate_host_venues",
+        "name": "locations",
         "type": "RECORD",
-        "description": "List of HostVenue objects describing places this work lives."
+        "description": "A list of Location objects describing all unique places where this work lives."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "is_oa",
+            "type": "BOOLEAN",
+            "description": "True if this work is Open Access (OA)."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "landing_page_url",
+            "type": "STRING",
+            "description": "The landing page URL for this location."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "pdf_url",
+            "type": "STRING",
+            "description": "A URL where you can find this location as a PDF."
+        },
+        {
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "id",
+                    "type": "STRING",
+                    "description": "The OpenAlex ID for this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": "The name of the source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "issn_l",
+                    "type": "STRING",
+                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "issn",
+                    "type": "STRING",
+                    "description": "The ISSNs used by this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization",
+                    "type": "STRING",
+                    "description": "The host organization for this source as an OpenAlex ID."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type",
+                    "type": "STRING",
+                    "description": "The type of source."
+                }
+            ],
+                "mode": "NULLABLE",
+                "name": "source",
+                "type": "RECORD",
+                "description": "A dehydrated Source object."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "version",
+            "type": "STRING",
+            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "license",
+            "type": "STRING",
+            "description": "The location's publishing license."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "best_oa_location",
+        "type": "RECORD",
+        "description": "A Location object with the best available open access location for this work."
   },
   {
     "description": "OpenAlex IDs for works that this work cites. These are citations that go from this work out to another work: This work ➞ Other works.",
