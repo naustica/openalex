@@ -150,6 +150,32 @@
     "type": "STRING"
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "2yr_mean_citedness",
+            "type": "FLOAT",
+            "description": "The 2-year mean citedness for this author. Also known as impact factor."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "h_index",
+            "type": "INTEGER",
+            "description": "The h-index for this author."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "i10_index",
+            "type": "INTEGER",
+            "description": "The i-10 index for this author."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "summary_stats",
+        "type": "RECORD",
+        "description": "Citation metrics for this author."
+  },
+  {
     "description": "The last time anything in this author object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",

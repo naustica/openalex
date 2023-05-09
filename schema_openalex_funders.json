@@ -1,0 +1,178 @@
+[
+  {
+    "description": "A list of alternate titles for this funder.",
+    "mode": "REPEATED",
+    "name": "alternate_titles",
+    "type": "STRING"
+  },
+  {
+    "description": "The total number Works that cite a work linked to this funder.",
+    "mode": "NULLABLE",
+    "name": "cited_by_count",
+    "type": "Integer"
+  },
+  {
+    "description": "The country where this funder is located, represented as an ISO two-letter country code.",
+    "mode": "NULLABLE",
+    "name": "country_code",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "year",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "counts_by_year",
+        "type": "RECORD",
+        "description": "The values of works_count and cited_by_count for each of the last ten years, binned by year."
+  },
+  {
+    "description": "The date this Funder object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "mode": "NULLABLE",
+    "name": "created_date",
+    "type": "STRING"
+  },
+  {
+    "description": "A short description of this funder, taken from Wikidata.",
+    "mode": "NULLABLE",
+    "name": "description",
+    "type": "STRING"
+  },
+  {
+    "description": "The primary name of the funder.",
+    "mode": "NULLABLE",
+    "name": "display_name",
+    "type": "STRING"
+  },
+  {
+    "description": "The URL for this funder's primary homepage.",
+    "mode": "NULLABLE",
+    "name": "homepage_url",
+    "type": "STRING"
+  },
+  {
+    "description": "The OpenAlex ID for this funder.",
+    "mode": "NULLABLE",
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "openalex",
+            "type": "STRING",
+            "description": "This funder's OpenAlex ID."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "ror",
+            "type": "STRING",
+            "description": "This funder's ROR ID."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "wikidata",
+            "type": "STRING",
+            "description": "This funder's Wikidata ID."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "ids",
+        "type": "RECORD",
+        "description": "All the external identifiers that we know about for this funder. IDs are expressed as URIs whenever possible."
+  },
+  {
+    "description": "Same as image_url, but it's a smaller image.",
+    "mode": "NULLABLE",
+    "name": "dimage_thumbnail_url",
+    "type": "STRING"
+  },
+  {
+    "description": "URL where you can get an image representing this funder. Usually this a hotlink to a Wikimedia image, and usually it's a seal or logo.",
+    "mode": "NULLABLE",
+    "name": "image_url",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "role",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "roles",
+        "type": "RECORD",
+        "description": "List of role objects, which include the role (one of institution, funder, or publisher), the id (OpenAlex ID), and the works_count."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "2yr_mean_citedness",
+            "type": "FLOAT",
+            "description": "The 2-year mean citedness for this funder. Also known as impact factor."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "h_index",
+            "type": "INTEGER",
+            "description": "The h-index for this funder."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "i10_index",
+            "type": "INTEGER",
+            "description": "The i-10 index for this funder."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "summary_stats",
+        "type": "RECORD",
+        "description": "Citation metrics for this funder"
+  },
+  {
+    "description": "The last time anything in this funder object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
+    "mode": "NULLABLE",
+    "name": "updated_date",
+    "type": "STRING"
+  },
+  {
+    "description": "The number of works linked to this funder.",
+    "mode": "NULLABLE",
+    "name": "works_count",
+    "type": "INTEGER"
+  }
+]

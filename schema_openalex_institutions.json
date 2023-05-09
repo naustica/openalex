@@ -236,6 +236,32 @@
         "description": "works_count and cited_by_count for each of the last ten years, binned by year."
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "2yr_mean_citedness",
+            "type": "FLOAT",
+            "description": "The 2-year mean citedness for this institution. Also known as impact factor."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "h_index",
+            "type": "INTEGER",
+            "description": "The h-index for this institution."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "i10_index",
+            "type": "INTEGER",
+            "description": "The i-10 index for this institution."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "summary_stats",
+        "type": "RECORD",
+        "description": "Citation metrics for this institution."
+  },
+  {
     "description": "A URL that will get you a list of all the Works affiliated with this institution.",
     "mode": "NULLABLE",
     "name": "works_api_url",

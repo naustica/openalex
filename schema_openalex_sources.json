@@ -30,6 +30,12 @@
     "type": "STRING"
   },
   {
+    "description": "The display_name from the host_organization, shown for convenience.",
+    "mode": "NULLABLE",
+    "name": "host_organization_name",
+    "type": "STRING"
+  },
+  {
     "description": "The number of Works this this source hosts.",
     "mode": "NULLABLE",
     "name": "works_count",
@@ -116,6 +122,26 @@
         "description": "All the external identifiers that we know about for this source. IDs are expressed as URIs whenever possible."
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "price",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "currency",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "apc_prices",
+        "type": "RECORD",
+        "description": "List of objects, each with price (Integer) and currency (String)."
+  },
+  {
     "description": "The source's article processing charge in US Dollars, if available from DOAJ. ",
     "mode": "NULLABLE",
     "name": "apc_usd",
@@ -184,6 +210,32 @@
     "mode": "NULLABLE",
     "name": "works_api_url",
     "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "2yr_mean_citedness",
+            "type": "FLOAT",
+            "description": "The 2-year mean citedness for this source. Also known as impact factor."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "h_index",
+            "type": "INTEGER",
+            "description": "The h-index for this source."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "i10_index",
+            "type": "INTEGER",
+            "description": "The i-10 index for this source."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "summary_stats",
+        "type": "RECORD",
+        "description": "Citation metrics for this source."
   },
   {
     "description": "The last time anything in this Source object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",

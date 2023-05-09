@@ -255,6 +255,12 @@
         },
         {
             "mode": "NULLABLE",
+            "name": "is_corresponding",
+            "type": "BOOLEAN",
+            "description": "If true, this is the corresponding author for this work. If false, this is not the corresponding author. If null, either this work has no corresponding author, or we are not aware of it."
+        },
+        {
+            "mode": "NULLABLE",
             "name": "raw_affiliation_string",
             "type": "STRING",
             "description": "This author's affiliation as it originally came to us (on a webpage or in an API), as a raw unformatted string."
@@ -266,10 +272,68 @@
         "description": "List of Authorship objects, each representing an author and their institution."
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "price",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "currency",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "provenance",
+            "type": "STRING",
+            "description": " Either openapc or doaj."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "price_usd",
+            "type": "INTEGER",
+            "description": "The APC converted into USD."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "apc_prices",
+        "type": "RECORD",
+        "description": "Objects containing information about the APC (article processing charge) for this work."
+  },
+  {
     "description": "The number of citations to this work. These are the times that other works have cited this work: Other works ➞ This work.",
     "mode": "NULLABLE",
     "name": "cited_by_count",
     "type": "INTEGER"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "funder",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "funder_display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "award_id",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "grants",
+        "type": "RECORD",
+        "description": "List of grant objects, which include the Funder and the award ID, if available. Our grants data comes from Crossref, and is currently fairly limited."
   },
   {
     "fields": [
