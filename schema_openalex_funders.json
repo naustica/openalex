@@ -102,7 +102,7 @@
   {
     "description": "Same as image_url, but it's a smaller image.",
     "mode": "NULLABLE",
-    "name": "dimage_thumbnail_url",
+    "name": "image_thumbnail_url",
     "type": "STRING"
   },
   {
