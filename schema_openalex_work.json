@@ -174,6 +174,12 @@
             "name": "oa_url",
             "type": "STRING",
             "description": "The best Open Access (OA) URL for this work."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "any_repository_has_fulltext",
+            "type": "BOOLEAN",
+            "description": "True if any of this work's locations has location.is_oa=true and location.source.type=repository."
         }
     ],
         "mode": "NULLABLE",
@@ -299,7 +305,7 @@
         }
     ],
         "mode": "NULLABLE",
-        "name": "apc_prices",
+        "name": "apc_payment",
         "type": "RECORD",
         "description": "Objects containing information about the APC (article processing charge) for this work."
   },
@@ -456,6 +462,12 @@
         "description": "List of MeSH tag objects. Only works found in PubMed have MeSH tags; for all other works, this is an empty list."
   },
   {
+      "mode": "NULLABLE",
+      "name": "language",
+      "type": "STRING",
+      "description": "The language of the work in ISO 639-1 format."
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",
@@ -536,6 +548,12 @@
         "name": "locations",
         "type": "RECORD",
         "description": "A list of Location objects describing all unique places where this work lives."
+  },
+  {
+      "mode": "NULLABLE",
+      "name": "locations_count",
+      "type": "INTEGER",
+      "description": "Number of locations for this work."
   },
   {
     "fields": [
