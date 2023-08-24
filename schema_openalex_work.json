@@ -1,193 +1,5 @@
 [
-  {
-    "description": "The OpenAlex ID for this work.",
-    "mode": "NULLABLE",
-    "name": "id",
-    "type": "STRING"
-  },
-  {
-    "description": "The DOI for the work.",
-    "mode": "NULLABLE",
-    "name": "doi",
-    "type": "STRING"
-  },
-  {
-    "description": "The title of this work.",
-    "mode": "NULLABLE",
-    "name": "title",
-    "type": "STRING"
-  },
-  {
-    "description": "Exactly the same as Work.title. It's useful for Works to include a display_name property, since all the other entities have one.",
-    "mode": "NULLABLE",
-    "name": "display_name",
-    "type": "STRING"
-  },
-  {
-    "description": "The year this work was published.",
-    "mode": "NULLABLE",
-    "name": "publication_year",
-    "type": "INTEGER"
-  },
-  {
-    "description": "The day when this work was published, formatted as an ISO 8601 date.",
-    "mode": "NULLABLE",
-    "name": "publication_date",
-    "type": "STRING"
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "openalex",
-            "type": "STRING",
-            "description": "The OpenAlex ID, which is also found at Work.id"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "doi",
-            "type": "STRING",
-            "description": "The DOI. This is most likely, but not necessarily, a Crossref DOI"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "mag",
-            "type": "INTEGER",
-            "description": "the Microsoft Academic Graph ID"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "pmid",
-            "type": "STRING",
-            "description": "The Pubmed Identifier"
-        }
-    ],
-        "mode": "NULLABLE",
-        "name": "ids",
-        "type": "RECORD",
-        "description": "All the persistent identifiers (PIDs) that we know about for this work, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible."
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "is_oa",
-            "type": "BOOLEAN",
-            "description": "True if this work is Open Access (OA)."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "landing_page_url",
-            "type": "STRING",
-            "description": "The landing page URL for this location."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "pdf_url",
-            "type": "STRING",
-            "description": "A URL where you can find this location as a PDF."
-        },
-        {
-            "fields": [
-                {
-                    "mode": "NULLABLE",
-                    "name": "id",
-                    "type": "STRING",
-                    "description": "The OpenAlex ID for this source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": "The name of the source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "issn_l",
-                    "type": "STRING",
-                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "issn",
-                    "type": "STRING",
-                    "description": "The ISSNs used by this source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization",
-                    "type": "STRING",
-                    "description": "The host organization for this source as an OpenAlex ID."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type",
-                    "type": "STRING",
-                    "description": "The type of source."
-                }
-            ],
-                "mode": "NULLABLE",
-                "name": "source",
-                "type": "RECORD",
-                "description": "A dehydrated Source object."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "version",
-            "type": "STRING",
-            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "license",
-            "type": "STRING",
-            "description": "The location's publishing license."
-        }
-    ],
-        "mode": "NULLABLE",
-        "name": "primary_location",
-        "type": "RECORD",
-        "description": "A Location object with the primary location of this work."
-  },
-  {
-    "description": "The type or genre of the work.",
-    "mode": "NULLABLE",
-    "name": "type",
-    "type": "STRING"
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "is_oa",
-            "type": "BOOLEAN",
-            "description": "True if this work is Open Access (OA). "
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "oa_status",
-            "type": "STRING",
-            "description": "The Open Access (OA) status of this work."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "oa_url",
-            "type": "STRING",
-            "description": "The best Open Access (OA) URL for this work."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "any_repository_has_fulltext",
-            "type": "BOOLEAN",
-            "description": "True if any of this work's locations has location.is_oa=true and location.source.type=repository."
-        }
-    ],
-        "mode": "NULLABLE",
-        "name": "open_access",
-        "type": "RECORD",
-        "description": "Information about the access status of this work, as an OpenAccess object."
-  },
-  {
+    {
     "fields": [
         {
             "mode": "NULLABLE",
@@ -281,7 +93,7 @@
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "price",
+            "name": "value",
             "type": "INTEGER",
             "description": ""
         },
@@ -295,51 +107,133 @@
             "mode": "NULLABLE",
             "name": "provenance",
             "type": "STRING",
-            "description": " Either openapc or doaj."
+            "description": "The source of this data. Currently the only value is “doaj” (DOAJ)"
         },
         {
             "mode": "NULLABLE",
-            "name": "price_usd",
+            "name": "value_usd",
             "type": "INTEGER",
             "description": "The APC converted into USD."
         }
     ],
         "mode": "NULLABLE",
-        "name": "apc_payment",
+        "name": "apc_list",
         "type": "RECORD",
-        "description": "Objects containing information about the APC (article processing charge) for this work."
-  },
-  {
-    "description": "The number of citations to this work. These are the times that other works have cited this work: Other works ➞ This work.",
-    "mode": "NULLABLE",
-    "name": "cited_by_count",
-    "type": "INTEGER"
+        "description": "Information about this work's APC (article processing charge)."
   },
   {
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "funder",
+            "name": "value",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "currency",
             "type": "STRING",
             "description": ""
         },
         {
             "mode": "NULLABLE",
-            "name": "funder_display_name",
+            "name": "provenance",
             "type": "STRING",
-            "description": ""
+            "description": "Currently either openapc or doaj, but more will be added; see below for details."
         },
         {
             "mode": "NULLABLE",
-            "name": "award_id",
-            "type": "STRING",
-            "description": ""
+            "name": "value_usd",
+            "type": "INTEGER",
+            "description": "The APC converted into USD."
         }
     ],
-        "mode": "REPEATED",
-        "name": "grants",
+        "mode": "NULLABLE",
+        "name": "apc_paid",
         "type": "RECORD",
-        "description": "List of grant objects, which include the Funder and the award ID, if available. Our grants data comes from Crossref, and is currently fairly limited."
+        "description": "Information about the paid APC (article processing charge) for this work."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "is_oa",
+            "type": "BOOLEAN",
+            "description": "True if this work is Open Access (OA)."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "landing_page_url",
+            "type": "STRING",
+            "description": "The landing page URL for this location."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "pdf_url",
+            "type": "STRING",
+            "description": "A URL where you can find this location as a PDF."
+        },
+        {
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "id",
+                    "type": "STRING",
+                    "description": "The OpenAlex ID for this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": "The name of the source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "issn_l",
+                    "type": "STRING",
+                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "issn",
+                    "type": "STRING",
+                    "description": "The ISSNs used by this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization",
+                    "type": "STRING",
+                    "description": "The host organization for this source as an OpenAlex ID."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type",
+                    "type": "STRING",
+                    "description": "The type of source."
+                }
+            ],
+                "mode": "NULLABLE",
+                "name": "source",
+                "type": "RECORD",
+                "description": "A dehydrated Source object."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "version",
+            "type": "STRING",
+            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "license",
+            "type": "STRING",
+            "description": "The location's publishing license."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "best_oa_location",
+        "type": "RECORD",
+        "description": "A Location object with the best available open access location for this work."
   },
   {
     "fields": [
@@ -374,16 +268,16 @@
         "description": "Old-timey bibliographic info for this work. This is mostly useful only in citation/reference contexts."
   },
   {
-    "description": "True if we know this work has been retracted.",
+    "description": "",
     "mode": "NULLABLE",
-    "name": "is_retracted",
-    "type": "BOOLEAN"
+    "name": "cited_by_api_url",
+    "type": "STRING"
   },
   {
-    "description": "True if we think this work is paratext.",
+    "description": "The number of citations to this work. These are the times that other works have cited this work: Other works ➞ This work.",
     "mode": "NULLABLE",
-    "name": "is_paratext",
-    "type": "BOOLEAN"
+    "name": "cited_by_count",
+    "type": "INTEGER"
   },
   {
     "fields": [
@@ -424,48 +318,154 @@
         "description": "List of dehydrated Concept objects."
   },
   {
+    "description": "OpenAlex IDs of any authors for which authorships.is_corresponding is true.",
+    "mode": "REPEATED",
+    "name": "corresponding_author_ids",
+    "type": "STRING"
+  },
+  {
+    "description": "OpenAlex IDs of any institutions found within an authorship for which authorships.is_corresponding is true.",
+    "mode": "REPEATED",
+    "name": "corresponding_institution_ids",
+    "type": "STRING"
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "descriptor_ui",
-            "type": "STRING",
+            "name": "year",
+            "type": "INTEGER",
             "description": ""
         },
         {
             "mode": "NULLABLE",
-            "name": "descriptor_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "qualifier_ui",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "qualifier_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_major_topic",
-            "type": "BOOLEAN",
+            "name": "cited_by_count",
+            "type": "INTEGER",
             "description": ""
         }
     ],
         "mode": "REPEATED",
-        "name": "mesh",
+        "name": "counts_by_year",
         "type": "RECORD",
-        "description": "List of MeSH tag objects. Only works found in PubMed have MeSH tags; for all other works, this is an empty list."
+        "description": ""
+  },
+  {
+    "description": "The date this Work object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "mode": "NULLABLE",
+    "name": "created_date",
+    "type": "STRING"
+  },
+  {
+    "description": "Exactly the same as Work.title. It's useful for Works to include a display_name property, since all the other entities have one.",
+    "mode": "NULLABLE",
+    "name": "display_name",
+    "type": "STRING"
+  },
+  {
+    "description": "The DOI for the work.",
+    "mode": "NULLABLE",
+    "name": "doi",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "funder",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "funder_display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "award_id",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "grants",
+        "type": "RECORD",
+        "description": "List of grant objects, which include the Funder and the award ID, if available. Our grants data comes from Crossref, and is currently fairly limited."
+  },
+  {
+    "description": "The OpenAlex ID for this work.",
+    "mode": "NULLABLE",
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "openalex",
+            "type": "STRING",
+            "description": "The OpenAlex ID, which is also found at Work.id"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "doi",
+            "type": "STRING",
+            "description": "The DOI. This is most likely, but not necessarily, a Crossref DOI"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "mag",
+            "type": "INTEGER",
+            "description": "the Microsoft Academic Graph ID"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "pmid",
+            "type": "STRING",
+            "description": "The Pubmed Identifier"
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "ids",
+        "type": "RECORD",
+        "description": "All the persistent identifiers (PIDs) that we know about for this work, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible."
+  },
+  {
+    "description": "Number of distinct institutions among the authorships for this work.",
+    "mode": "NULLABLE",
+    "name": "institutions_distinct_count",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Set to true if the work hosted here can be read for free, without registration.",
+    "mode": "NULLABLE",
+    "name": "is_oa",
+    "type": "BOOLEAN"
+  },
+  {
+    "description": "True if we think this work is paratext.",
+    "mode": "NULLABLE",
+    "name": "is_paratext",
+    "type": "BOOLEAN"
+  },
+  {
+    "description": "True if we know this work has been retracted.",
+    "mode": "NULLABLE",
+    "name": "is_retracted",
+    "type": "BOOLEAN"
   },
   {
       "mode": "NULLABLE",
       "name": "language",
       "type": "STRING",
       "description": "The language of the work in ISO 639-1 format."
+  },
+  {
+      "mode": "NULLABLE",
+      "name": "license",
+      "type": "STRING",
+      "description": "The license applied to this work at this host. Most toll-access works don't have an explicit license (they're under all rights reserved copyright), so this field generally has content only if is_oa is true."
   },
   {
     "fields": [
@@ -559,6 +559,76 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "descriptor_ui",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "descriptor_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "qualifier_ui",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "qualifier_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_major_topic",
+            "type": "BOOLEAN",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "mesh",
+        "type": "RECORD",
+        "description": "List of MeSH tag objects. Only works found in PubMed have MeSH tags; for all other works, this is an empty list."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "is_oa",
+            "type": "BOOLEAN",
+            "description": "True if this work is Open Access (OA). "
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "oa_status",
+            "type": "STRING",
+            "description": "The Open Access (OA) status of this work."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "oa_url",
+            "type": "STRING",
+            "description": "The best Open Access (OA) URL for this work."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "any_repository_has_fulltext",
+            "type": "BOOLEAN",
+            "description": "True if any of this work's locations has location.is_oa=true and location.source.type=repository."
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "open_access",
+        "type": "RECORD",
+        "description": "Information about the access status of this work, as an OpenAccess object."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
             "description": "True if this work is Open Access (OA)."
@@ -633,9 +703,21 @@
         }
     ],
         "mode": "NULLABLE",
-        "name": "best_oa_location",
+        "name": "primary_location",
         "type": "RECORD",
-        "description": "A Location object with the best available open access location for this work."
+        "description": "A Location object with the primary location of this work."
+  },
+  {
+    "description": "The day when this work was published, formatted as an ISO 8601 date.",
+    "mode": "NULLABLE",
+    "name": "publication_date",
+    "type": "STRING"
+  },
+  {
+    "description": "The year this work was published.",
+    "mode": "NULLABLE",
+    "name": "publication_year",
+    "type": "INTEGER"
   },
   {
     "description": "OpenAlex IDs for works that this work cites. These are citations that go from this work out to another work: This work ➞ Other works.",
@@ -650,47 +732,27 @@
     "type": "STRING"
   },
   {
-    "description": "",
+    "description": "The title of this work.",
     "mode": "NULLABLE",
-    "name": "cited_by_url_string",
+    "name": "title",
     "type": "STRING"
   },
   {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "year",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "works_count",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "counts_by_year",
-        "type": "RECORD",
-        "description": ""
+    "description": "The type of the work.",
+    "mode": "NULLABLE",
+    "name": "type",
+    "type": "STRING"
+  },
+  {
+    "description": "Legacy type information, using Crossref's type controlled vocabulary.",
+    "mode": "NULLABLE",
+    "name": "type_crossref",
+    "type": "STRING"
   },
   {
     "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",
-    "type": "STRING"
-  },
-  {
-    "description": "The date this Work object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
-    "mode": "NULLABLE",
-    "name": "created_date",
     "type": "STRING"
   }
 ]
