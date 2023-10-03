@@ -1,26 +1,96 @@
 [
   {
-    "description": "The OpenAlex ID for this source.",
+    "description": "An abbreviated title obtained from the ISSN Centre.",
     "mode": "NULLABLE",
-    "name": "id",
+    "name": "abbreviated_title",
     "type": "STRING"
   },
   {
-    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources.",
-    "mode": "NULLABLE",
-    "name": "issn_l",
-    "type": "STRING"
-  },
-  {
-    "description": "The ISSNs used by this source. Many publications have multiple ISSNs (see above), so ISSN-L should be used when possible.",
+    "description": "Alternate titles for this source, as obtained from the ISSN Centre and individual work records, like Crossref DOIs, that carry the source name as a string. These are commonly abbreviations or translations of the source's canonical name.",
     "mode": "REPEATED",
-    "name": "issn",
+    "name": "alternate_titles",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "price",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "currency",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "apc_prices",
+        "type": "RECORD",
+        "description": "List of objects, each with price (Integer) and currency (String)."
+  },
+  {
+    "description": "The source's article processing charge in US Dollars, if available from DOAJ. ",
+    "mode": "NULLABLE",
+    "name": "apc_usd",
+    "type": "INTEGER"
+  },
+  {
+    "description": "The total number of Works that cite a Work hosted in this source.",
+    "mode": "NULLABLE",
+    "name": "cited_by_count",
+    "type": "INTEGER"
+  },
+  {
+    "description": "The country that this source is associated with, represented as an ISO two-letter country code.",
+    "mode": "NULLABLE",
+    "name": "country_code",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "year",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "counts_by_year",
+        "type": "RECORD",
+        "description": "works_count and cited_by_count for each of the last ten years, binned by year."
+  },
+  {
+    "description": "The date this Source object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "mode": "NULLABLE",
+    "name": "created_date",
     "type": "STRING"
   },
   {
     "description": "The name of the source.",
     "mode": "NULLABLE",
     "name": "display_name",
+    "type": "STRING"
+  },
+  {
+    "description": "The starting page for navigating the contents of this source; the homepage for this source's website.",
+    "mode": "NULLABLE",
+    "name": "homepage_url",
     "type": "STRING"
   },
   {
@@ -36,45 +106,9 @@
     "type": "STRING"
   },
   {
-    "description": "The number of Works this this source hosts.",
+    "description": "The OpenAlex ID for this source.",
     "mode": "NULLABLE",
-    "name": "works_count",
-    "type": "INTEGER"
-  },
-  {
-    "description": "The total number of Works that cite a Work hosted in this source.",
-    "mode": "NULLABLE",
-    "name": "cited_by_count",
-    "type": "INTEGER"
-  },
-  {
-    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license.",
-    "mode": "NULLABLE",
-    "name": "is_oa",
-    "type": "BOOLEAN"
-  },
-  {
-    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ).",
-    "mode": "NULLABLE",
-    "name": "is_in_doaj",
-    "type": "BOOLEAN"
-  },
-  {
-    "description": "Alternate titles for this source, as obtained from the ISSN Centre and individual work records, like Crossref DOIs, that carry the source name as a string. These are commonly abbreviations or translations of the source's canonical name.",
-    "mode": "REPEATED",
-    "name": "alternate_titles",
-    "type": "STRING"
-  },
-  {
-    "description": "An abbreviated title obtained from the ISSN Centre.",
-    "mode": "NULLABLE",
-    "name": "abbreviated_title",
-    "type": "STRING"
-  },
-  {
-    "description": "The starting page for navigating the contents of this source; the homepage for this source's website.",
-    "mode": "NULLABLE",
-    "name": "homepage_url",
+    "name": "id",
     "type": "STRING"
   },
   {
@@ -122,30 +156,28 @@
         "description": "All the external identifiers that we know about for this source. IDs are expressed as URIs whenever possible."
   },
   {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "price",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "currency",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "apc_prices",
-        "type": "RECORD",
-        "description": "List of objects, each with price (Integer) and currency (String)."
+    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ).",
+    "mode": "NULLABLE",
+    "name": "is_in_doaj",
+    "type": "BOOLEAN"
   },
   {
-    "description": "The source's article processing charge in US Dollars, if available from DOAJ. ",
+    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license.",
     "mode": "NULLABLE",
-    "name": "apc_usd",
-    "type": "INTEGER"
+    "name": "is_oa",
+    "type": "BOOLEAN"
+  },
+  {
+    "description": "The ISSNs used by this source. Many publications have multiple ISSNs (see above), so ISSN-L should be used when possible.",
+    "mode": "REPEATED",
+    "name": "issn",
+    "type": "STRING"
+  },
+  {
+    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources.",
+    "mode": "NULLABLE",
+    "name": "issn_l",
+    "type": "STRING"
   },
   {
     "fields": [
@@ -166,50 +198,6 @@
         "name": "societies",
         "type": "RECORD",
         "description": "Societies on whose behalf the source is published and maintained, obtained from our crowdsourced list."
-  },
-  {
-    "description": "The country that this source is associated with, represented as an ISO two-letter country code.",
-    "mode": "NULLABLE",
-    "name": "country_code",
-    "type": "STRING"
-  },
-  {
-    "description": "The type of source",
-    "mode": "NULLABLE",
-    "name": "type",
-    "type": "STRING"
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "year",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "works_count",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "counts_by_year",
-        "type": "RECORD",
-        "description": "works_count and cited_by_count for each of the last ten years, binned by year."
-  },
-  {
-    "description": "A URL that will get you a list of all this source's Works.",
-    "mode": "NULLABLE",
-    "name": "works_api_url",
-    "type": "STRING"
   },
   {
     "fields": [
@@ -238,15 +226,27 @@
         "description": "Citation metrics for this source."
   },
   {
+    "description": "The type of source",
+    "mode": "NULLABLE",
+    "name": "type",
+    "type": "STRING"
+  },
+  {
     "description": "The last time anything in this Source object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "STRING"
   },
   {
-    "description": "The date this Source object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "description": "A URL that will get you a list of all this source's Works.",
     "mode": "NULLABLE",
-    "name": "created_date",
+    "name": "works_api_url",
     "type": "STRING"
-  }
+  },
+  {
+    "description": "The number of Works this this source hosts.",
+    "mode": "NULLABLE",
+    "name": "works_count",
+    "type": "INTEGER"
+  } 
 ]

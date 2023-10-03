@@ -1,14 +1,40 @@
 [
   {
-    "description": "The OpenAlex ID for this author.",
+    "description": "The total number  Works that cite a work this author has created.",
     "mode": "NULLABLE",
-    "name": "id",
-    "type": "STRING"
+    "name": "cited_by_count",
+    "type": "INTEGER"
   },
   {
-    "description": "The ORCID for this author. ORCID global and unique ID for authors.",
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "year",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "counts_by_year",
+        "type": "RECORD",
+        "description": "Author.works_count and Author.cited_by_count for each of the last ten years, binned by year."
+  },
+  {
+    "description": "The date this Author object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
     "mode": "NULLABLE",
-    "name": "orcid",
+    "name": "created_date",
     "type": "STRING"
   },
   {
@@ -24,16 +50,10 @@
     "type": "STRING"
   },
   {
-    "description": "The number of  Works this this author has created.",
+    "description": "The OpenAlex ID for this author.",
     "mode": "NULLABLE",
-    "name": "works_count",
-    "type": "INTEGER"
-  },
-  {
-    "description": "The total number  Works that cite a work this author has created.",
-    "mode": "NULLABLE",
-    "name": "cited_by_count",
-    "type": "INTEGER"
+    "name": "id",
+    "type": "STRING"
   },
   {
     "fields": [
@@ -118,35 +138,9 @@
         "description": "This author's last known institutional affiliation. In this context last known means that we took all the Works where this author has an institutional affiliation, sorted them by publication date, and selected the most recent one."
   },
   {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "year",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "works_count",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "counts_by_year",
-        "type": "RECORD",
-        "description": "Author.works_count and Author.cited_by_count for each of the last ten years, binned by year."
-  },
-  {
-    "description": "A URL that will get you a list of all this author's works.",
+    "description": "The ORCID for this author. ORCID global and unique ID for authors.",
     "mode": "NULLABLE",
-    "name": "works_api_url",
+    "name": "orcid",
     "type": "STRING"
   },
   {
@@ -182,9 +176,15 @@
     "type": "STRING"
   },
   {
-    "description": "The date this Author object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "description": "A URL that will get you a list of all this author's works.",
     "mode": "NULLABLE",
-    "name": "created_date",
+    "name": "works_api_url",
     "type": "STRING"
+  },
+  {
+    "description": "The number of  Works this this author has created.",
+    "mode": "NULLABLE",
+    "name": "works_count",
+    "type": "INTEGER"
   }
 ]

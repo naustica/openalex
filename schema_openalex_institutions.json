@@ -1,21 +1,53 @@
 [
   {
-    "description": "The OpenAlex ID for this institution.",
-    "mode": "NULLABLE",
-    "name": "id",
-    "type": "STRING"
+    "fields": [
+      {
+          "mode": "NULLABLE",
+          "name": "id",
+          "type": "STRING",
+          "description": ""
+      },
+      {
+          "mode": "NULLABLE",
+          "name": "ror",
+          "type": "STRING",
+          "description": ""
+      },
+      {
+          "mode": "NULLABLE",
+          "name": "display_name",
+          "type": "STRING",
+          "description": ""
+      },
+      {
+          "mode": "NULLABLE",
+          "name": "country_code",
+          "type": "STRING",
+          "description": ""
+      },
+      {
+          "mode": "NULLABLE",
+          "name": "type",
+          "type": "STRING",
+          "description": ""
+      },
+      {
+          "mode": "NULLABLE",
+          "name": "relationship",
+          "type": "STRING",
+          "description": ""
+      }
+   ],
+      "mode": "REPEATED",
+      "name": "associated_institutions",
+      "type": "RECORD",
+      "description": "Institutions related to this one."
   },
   {
-    "description": "The ROR ID for this institution.",
+    "description": "The total number Works that cite a work created by an author affiliated with this institution. Or less formally: the number of citations this institution has collected.",
     "mode": "NULLABLE",
-    "name": "ror",
-    "type": "STRING"
-  },
-  {
-    "description": "The primary name of the institution.",
-    "mode": "NULLABLE",
-    "name": "display_name",
-    "type": "STRING"
+    "name": "cited_by_count",
+    "type": "INTEGER"
   },
   {
     "description": "The country where this institution is located, represented as an ISO two-letter country code.",
@@ -24,27 +56,41 @@
     "type": "STRING"
   },
   {
-    "description": "The institution's primary type, using the ROR type controlled vocabulary. ",
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "year",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "counts_by_year",
+        "type": "RECORD",
+        "description": "works_count and cited_by_count for each of the last ten years, binned by year."
+  },
+  {
+    "description": "The date this Institution object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
     "mode": "NULLABLE",
-    "name": "type",
+    "name": "created_date",
     "type": "STRING"
   },
   {
-    "description": "The URL for institution's primary homepage.",
+    "description": "The primary name of the institution.",
     "mode": "NULLABLE",
-    "name": "homepage_url",
-    "type": "STRING"
-  },
-  {
-    "description": "URL where you can get an image representing this institution. Usually this is hosted on Wikipedia, and usually it's a seal or logo.",
-    "mode": "NULLABLE",
-    "name": "image_url",
-    "type": "STRING"
-  },
-  {
-    "description": "Same as image_url, but it's a smaller image.",
-    "mode": "NULLABLE",
-    "name": "image_thumbnail_url",
+    "name": "display_name",
     "type": "STRING"
   },
   {
@@ -58,62 +104,6 @@
     "mode": "REPEATED",
     "name": "display_name_alternatives",
     "type": "STRING"
-  },
-  {
-    "description": "The number of Works created by authors affiliated with this institution. Or less formally: the number of works coming out of this institution.",
-    "mode": "NULLABLE",
-    "name": "works_count",
-    "type": "INTEGER"
-  },
-  {
-    "description": "The total number Works that cite a work created by an author affiliated with this institution. Or less formally: the number of citations this institution has collected.",
-    "mode": "NULLABLE",
-    "name": "cited_by_count",
-    "type": "INTEGER"
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "openalex",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "ror",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "grid",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "wikipedia",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "wikidata",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "mag",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
-        "mode": "NULLABLE",
-        "name": "ids",
-        "type": "RECORD",
-        "description": "All the persistent identifiers (PIDs) that we know about for this institution, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible. They're all strings except for mag, which is a long integer."
   },
   {
     "fields": [
@@ -166,10 +156,22 @@
         "description": "A bunch of stuff we know about the location of this institution."
   },
   {
+    "description": "The URL for institution's primary homepage.",
+    "mode": "NULLABLE",
+    "name": "homepage_url",
+    "type": "STRING"
+  },
+  {
+    "description": "The OpenAlex ID for this institution.",
+    "mode": "NULLABLE",
+    "name": "id",
+    "type": "STRING"
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "id",
+            "name": "openalex",
             "type": "STRING",
             "description": ""
         },
@@ -181,59 +183,51 @@
         },
         {
             "mode": "NULLABLE",
-            "name": "display_name",
+            "name": "grid",
             "type": "STRING",
             "description": ""
         },
         {
             "mode": "NULLABLE",
-            "name": "country_code",
+            "name": "wikipedia",
             "type": "STRING",
             "description": ""
         },
         {
             "mode": "NULLABLE",
-            "name": "type",
+            "name": "wikidata",
             "type": "STRING",
             "description": ""
         },
         {
             "mode": "NULLABLE",
-            "name": "relationship",
+            "name": "mag",
             "type": "STRING",
             "description": ""
         }
     ],
-        "mode": "REPEATED",
-        "name": "associated_institutions",
+        "mode": "NULLABLE",
+        "name": "ids",
         "type": "RECORD",
-        "description": "Institutions related to this one."
+        "description": "All the persistent identifiers (PIDs) that we know about for this institution, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible. They're all strings except for mag, which is a long integer."
   },
   {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "year",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "works_count",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "counts_by_year",
-        "type": "RECORD",
-        "description": "works_count and cited_by_count for each of the last ten years, binned by year."
+    "description": "Same as image_url, but it's a smaller image.",
+    "mode": "NULLABLE",
+    "name": "image_thumbnail_url",
+    "type": "STRING"
+  },
+  {
+    "description": "URL where you can get an image representing this institution. Usually this is hosted on Wikipedia, and usually it's a seal or logo.",
+    "mode": "NULLABLE",
+    "name": "image_url",
+    "type": "STRING"
+  },
+  {
+    "description": "The ROR ID for this institution.",
+    "mode": "NULLABLE",
+    "name": "ror",
+    "type": "STRING"
   },
   {
     "fields": [
@@ -262,9 +256,9 @@
         "description": "Citation metrics for this institution."
   },
   {
-    "description": "A URL that will get you a list of all the Works affiliated with this institution.",
+    "description": "The institution's primary type, using the ROR type controlled vocabulary. ",
     "mode": "NULLABLE",
-    "name": "works_api_url",
+    "name": "type",
     "type": "STRING"
   },
   {
@@ -274,9 +268,15 @@
     "type": "STRING"
   },
   {
-    "description": "The date this Institution object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "description": "A URL that will get you a list of all the Works affiliated with this institution.",
     "mode": "NULLABLE",
-    "name": "created_date",
+    "name": "works_api_url",
     "type": "STRING"
-  }
+  },
+  {
+    "description": "The number of Works created by authors affiliated with this institution. Or less formally: the number of works coming out of this institution.",
+    "mode": "NULLABLE",
+    "name": "works_count",
+    "type": "INTEGER"
+  } 
 ]
