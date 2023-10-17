@@ -559,44 +559,6 @@
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "descriptor_ui",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "descriptor_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "qualifier_ui",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "qualifier_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_major_topic",
-            "type": "BOOLEAN",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "mesh",
-        "type": "RECORD",
-        "description": "List of MeSH tag objects. Only works found in PubMed have MeSH tags; for all other works, this is an empty list."
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
             "description": "True if this work is Open Access (OA). "
@@ -723,12 +685,6 @@
     "description": "OpenAlex IDs for works that this work cites. These are citations that go from this work out to another work: This work ➞ Other works.",
     "mode": "REPEATED",
     "name": "referenced_works",
-    "type": "STRING"
-  },
-  {
-    "description": "OpenAlex IDs for works related to this work.",
-    "mode": "REPEATED",
-    "name": "related_works",
     "type": "STRING"
   },
   {
