@@ -18,12 +18,21 @@ def transform_file(input_file_path: str, output_file_path: str):
 
             new_item = json.loads(line)
             if isinstance(new_item, dict):
-                new_data.append(new_item)
+                doi = new_item.get('doi')
+                inverted_index = new_item.get('abstract_inverted_index')
+                mesh = new_item.get('mesh')
+                related_works = new_item.get('related_works')
 
-            # reduce array length -> out of memory error
-            if len(new_data) == 10000:
-                write_file(new_data, output_file_path)
-                new_data = []
+                if doi:
+                    new_item['doi'] = doi.lstrip('https://doi.org/')
+                if inverted_index:
+                    new_item.pop('abstract_inverted_index')
+                if mesh:
+                    new_item.pop('mesh')
+                if related_works:
+                    new_item.pop('related_works')
+                
+                new_data.append(new_item)
 
         write_file(new_data, output_file_path)
 
