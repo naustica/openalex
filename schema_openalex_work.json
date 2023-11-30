@@ -368,6 +368,12 @@
     "type": "STRING"
   },
   {
+    "description": "If a work's full text is searchable in OpenAlex (has_fulltext is true), this tells you how we got the text.",
+    "mode": "NULLABLE",
+    "name": "fulltext_origin",
+    "type": "STRING"
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",
@@ -686,6 +692,32 @@
     "mode": "REPEATED",
     "name": "referenced_works",
     "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "score",
+            "type": "FLOAT",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "sustainable_development_goals",
+        "type": "RECORD",
+        "description": "The United Nations' 17 Sustainable Development Goals are a collection of goals at the heart of a global shared blueprint for peace and prosperity for people and the planet."
   },
   {
     "description": "The title of this work.",
