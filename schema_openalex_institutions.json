@@ -224,6 +224,70 @@
     "type": "STRING"
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "host_organization",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "host_organization_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "REPEATED",
+            "name": "host_organization_lineage",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "repositories",
+        "type": "RECORD",
+        "description": "Repositories (Sources with type: repository) that have this institution as their host_organization."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "role",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "works_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "roles",
+        "type": "RECORD",
+        "description": "List of role objects, which include the role (one of institution, funder, or publisher), the id (OpenAlex ID), and the works_count."
+  },
+  {
     "description": "The ROR ID for this institution.",
     "mode": "NULLABLE",
     "name": "ror",

@@ -62,6 +62,12 @@
     "type": "STRING"
   },
   {
+    "description": "The number of grants linked to this funder.",
+    "mode": "NULLABLE",
+    "name": "grants_count",
+    "type": "INTEGER"
+  },
+  {
     "description": "The URL for this funder's primary homepage.",
     "mode": "NULLABLE",
     "name": "homepage_url",

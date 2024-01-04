@@ -219,15 +219,15 @@
         },
         {
             "mode": "NULLABLE",
-            "name": "version",
-            "type": "STRING",
-            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
-        },
-        {
-            "mode": "NULLABLE",
             "name": "license",
             "type": "STRING",
             "description": "The location's publishing license."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "version",
+            "type": "STRING",
+            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
         }
     ],
         "mode": "NULLABLE",
@@ -330,6 +330,12 @@
     "type": "STRING"
   },
   {
+    "description": "Number of distinct country_codes among the authorships for this work.",
+    "mode": "NULLABLE",
+    "name": "countries_distinct_count",
+    "type": "INTEGER"
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",
@@ -400,6 +406,12 @@
         "description": "List of grant objects, which include the Funder and the award ID, if available. Our grants data comes from Crossref, and is currently fairly limited."
   },
   {
+    "description": "Set to true if the work's full text is searchable in OpenAlex. This does not necessarily mean that the full text is available to you, dear reader; rather, it means that we have indexed the full text and can use it to help power searches. If you are trying to find the full text for yourself, try looking in open_access.oa_url.",
+    "mode": "NULLABLE",
+    "name": "has_fulltext",
+    "type": "BOOLEAN"
+  },
+  {
     "description": "The OpenAlex ID for this work.",
     "mode": "NULLABLE",
     "name": "id",
@@ -444,12 +456,6 @@
     "type": "INTEGER"
   },
   {
-    "description": "Set to true if the work hosted here can be read for free, without registration.",
-    "mode": "NULLABLE",
-    "name": "is_oa",
-    "type": "BOOLEAN"
-  },
-  {
     "description": "True if we think this work is paratext.",
     "mode": "NULLABLE",
     "name": "is_paratext",
@@ -460,6 +466,26 @@
     "mode": "NULLABLE",
     "name": "is_retracted",
     "type": "BOOLEAN"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "keyword",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "score",
+            "type": "FLOAT",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "keywords",
+        "type": "RECORD",
+        "description": "Keywords extracted from the work's title, along with confidence scores from the extraction model."
   },
   {
       "mode": "NULLABLE",
@@ -567,7 +593,7 @@
             "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
-            "description": "True if this work is Open Access (OA). "
+            "description": "True if this work is Open Access (OA)."
         },
         {
             "mode": "NULLABLE",

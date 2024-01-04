@@ -1,5 +1,51 @@
 [
   {
+      "fields": [
+          {
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "id",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "ror",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "country_code",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type",
+                    "type": "STRING",
+                    "description": ""
+                }
+            ],
+                "mode": "NULLABLE",
+                "name": "institution",
+                "type": "RECORD",
+                "description": ""
+          }
+      ],
+      "mode": "REPEATED",
+      "name": "affiliations",
+      "type": "RECORD",
+      "description": "List of objects, representing the affiliations this author has claimed in their publications."
+  },
+  {
     "description": "The total number  Works that cite a work this author has created.",
     "mode": "NULLABLE",
     "name": "cited_by_count",
@@ -132,8 +178,8 @@
             "description": ""
         }
     ],
-        "mode": "NULLABLE",
-        "name": "last_known_institution",
+        "mode": "REPEATED",
+        "name": "last_known_institutions",
         "type": "RECORD",
         "description": "This author's last known institutional affiliation. In this context last known means that we took all the Works where this author has an institutional affiliation, sorted them by publication date, and selected the most recent one."
   },
