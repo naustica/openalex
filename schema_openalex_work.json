@@ -450,6 +450,12 @@
         "description": "All the persistent identifiers (PIDs) that we know about for this work, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible."
   },
   {
+    "description": "The sources this work is indexed in. Possible values: arxiv, crossref, doaj, pubmed.",
+    "mode": "REPEATED",
+    "name": "indexed_in",
+    "type": "STRING"
+  },
+  {
     "description": "Number of distinct institutions among the authorships for this work.",
     "mode": "NULLABLE",
     "name": "institutions_distinct_count",
@@ -700,6 +706,92 @@
         "name": "primary_location",
         "type": "RECORD",
         "description": "A Location object with the primary location of this work."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "score",
+            "type": "FLOAT",
+            "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "subfield",
+              "type": "RECORD",
+              "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "field",
+              "type": "RECORD",
+              "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "domain",
+              "type": "RECORD",
+              "description": ""
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "primary_topic",
+        "type": "RECORD",
+        "description": "The top ranked Topic for this work."
   },
   {
     "description": "The day when this work was published, formatted as an ISO 8601 date.",
