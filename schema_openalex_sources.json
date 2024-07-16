@@ -162,6 +162,12 @@
         "description": "All the external identifiers that we know about for this source. IDs are expressed as URIs whenever possible."
   },
   {
+    "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world.",
+    "mode": "NULLABLE",
+    "name": "is_core",
+    "type": "BOOLEAN"
+  },
+  {
     "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ).",
     "mode": "NULLABLE",
     "name": "is_in_doaj",
