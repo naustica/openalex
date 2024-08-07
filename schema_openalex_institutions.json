@@ -218,9 +218,21 @@
     "type": "STRING"
   },
   {
+    "description": "True if this institution is a super system.",
+    "mode": "NULLABLE",
+    "name": "is_super_system",
+    "type": "BOOLEAN"
+  },
+  {
     "description": "URL where you can get an image representing this institution. Usually this is hosted on Wikipedia, and usually it's a seal or logo.",
     "mode": "NULLABLE",
     "name": "image_url",
+    "type": "STRING"
+  },
+  {
+    "description": "OpenAlex IDs of institutions. The list will include this institution's ID, as well as any parent institutions. If this institution has no parent institutions, this list will only contain its own ID.",
+    "mode": "REPEATED",
+    "name": "lineage",
     "type": "STRING"
   },
   {

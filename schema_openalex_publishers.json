@@ -106,6 +106,12 @@
     "type": "STRING"
   },
   {
+    "description": "OpenAlex IDs of publishers.",
+    "mode": "REPEATED",
+    "name": "lineage",
+    "type": "STRING"
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",
