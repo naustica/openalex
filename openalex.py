@@ -22,6 +22,8 @@ def transform_file(input_file_path: str, output_file_path: str):
                 inverted_index = new_item.get('abstract_inverted_index')
                 mesh = new_item.get('mesh')
                 related_works = new_item.get('related_works')
+                
+                new_item['has_abstract'] = bool(inverted_index)
 
                 if doi:
                     new_item['doi'] = doi.lstrip('https://doi.org/')

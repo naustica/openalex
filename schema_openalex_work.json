@@ -380,6 +380,12 @@
     "type": "STRING"
   },
   {
+    "description": "The Field-weighted Citation Impact (FWCI), calculated for a work as the ratio of citations received / citations expected in the year of publications and three following years.",
+    "mode": "NULLABLE",
+    "name": "fwci",
+    "type": "FLOAT"
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",
@@ -404,6 +410,12 @@
         "name": "grants",
         "type": "RECORD",
         "description": "List of grant objects, which include the Funder and the award ID, if available. Our grants data comes from Crossref, and is currently fairly limited."
+  },
+  {
+    "description": "Set to true if the work's abstract is searchable in OpenAlex.",
+    "mode": "NULLABLE",
+    "name": "has_abstract",
+    "type": "BOOLEAN"
   },
   {
     "description": "Set to true if the work's full text is searchable in OpenAlex. This does not necessarily mean that the full text is available to you, dear reader; rather, it means that we have indexed the full text and can use it to help power searches. If you are trying to find the full text for yourself, try looking in open_access.oa_url.",
