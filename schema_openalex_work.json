@@ -78,10 +78,10 @@
             "description": "If true, this is the corresponding author for this work. If false, this is not the corresponding author. If null, either this work has no corresponding author, or we are not aware of it."
         },
         {
-            "mode": "NULLABLE",
-            "name": "raw_affiliation_string",
+            "mode": "REPEATED",
+            "name": "raw_affiliation_strings",
             "type": "STRING",
-            "description": "This author's affiliation as it originally came to us (on a webpage or in an API), as a raw unformatted string."
+            "description": "This author's affiliation as it originally came to us (on a webpage or in an API), as a list of raw unformatted strings. If there is only one affiliation, it will be a list of length one."
         }
     ],
         "mode": "REPEATED",
@@ -871,6 +871,6 @@
     "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",
-    "type": "STRING"
+    "type": "TIMESTAMP"
   }
 ]
