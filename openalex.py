@@ -36,6 +36,11 @@ def transform_file(input_file_path: str, output_file_path: str):
                 
                 new_data.append(new_item)
 
+            # fix out of memory error
+            if len(new_data) == 10000:
+                write_file(new_data, output_file_path)
+                new_data.clear()
+
         write_file(new_data, output_file_path)
 
 
