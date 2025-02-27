@@ -37,7 +37,13 @@
                 "mode": "NULLABLE",
                 "name": "institution",
                 "type": "RECORD",
-                "description": ""
+                "description": "A dehydrated Institution object"
+          },
+          {
+                    "mode": "REPEATED",
+                    "name": "years",
+                    "type": "INTEGER",
+                    "description": "A list of the years in which this author claimed an affiliation with this institution"
           }
       ],
       "mode": "REPEATED",

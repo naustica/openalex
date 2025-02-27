@@ -2,10 +2,24 @@
     {
     "fields": [
         {
-            "mode": "NULLABLE",
-            "name": "author_position",
-            "type": "STRING",
-            "description": "A summarized description of this author's position in the work's author list. Possible values are first, middle, and last. "
+            "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "raw_affiliation_string",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "institution_ids",
+                    "type": "STRING",
+                    "description": ""
+                }
+            ],
+                "mode": "REPEATED",
+                "name": "affiliations",
+                "type": "RECORD",
+                "description": "Each institutional affiliation that this author has claimed will be listed here: the raw affiliation string that we found, along with the OpenAlex Institution ID or IDs that we matched it to."
         },
         {
             "fields": [
@@ -31,7 +45,19 @@
                 "mode": "NULLABLE",
                 "name": "author",
                 "type": "RECORD",
-                "description": ""
+                "description": "An author of this work, as a dehydrated Author object."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "author_position",
+            "type": "STRING",
+            "description": "A summarized description of this author's position in the work's author list. Possible values are first, middle, and last."
+        },
+        {
+            "mode": "REPEATED",
+            "name": "countries",
+            "type": "STRING",
+            "description": "The country or countries for this author."
         },
         {
             "fields": [
@@ -69,7 +95,7 @@
                 "mode": "REPEATED",
                 "name": "institutions",
                 "type": "RECORD",
-                "description": ""
+                "description": "The institutional affiliations this author claimed in the context of this work, as dehydrated Institution objects."
         },
         {
             "mode": "NULLABLE",
@@ -82,6 +108,12 @@
             "name": "raw_affiliation_strings",
             "type": "STRING",
             "description": "This author's affiliation as it originally came to us (on a webpage or in an API), as a list of raw unformatted strings. If there is only one affiliation, it will be a list of length one."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "raw_author_name",
+            "type": "STRING",
+            "description": "This author's name as it originally came to us (on a webpage or in an API), as a raw unformatted string."
         }
     ],
         "mode": "REPEATED",
@@ -266,6 +298,32 @@
         "name": "biblio",
         "type": "RECORD",
         "description": "Old-timey bibliographic info for this work. This is mostly useful only in citation/reference contexts."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "value",
+            "type": "FLOAT",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_in_top_1_percent",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_in_top_10_percent",
+            "type": "BOOLEAN",
+            "description": ""
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "citation_normalized_percentile",
+        "type": "RECORD",
+        "description": "The percentile of this work's citation count normalized by work type, publication year, and subfield. This field represents the same information as the FWCI expressed as a percentile. Learn more in the reference article: Field Weighted Citation Impact (FWCI)."
   },
   {
     "description": "",
