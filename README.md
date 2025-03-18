@@ -27,7 +27,7 @@ is applied to the `works` entity. Data transformation is
 carried out on the High Performance Cluster of the 
 [GWDG Göttingen](https://gwdg.de/en/hpc/). However, you can also 
 use the script on other servers with only minor adjustments. Entities 
-like `authors`, `publishers`, `institutions`, `funders` and `source` 
+like `authors`, `publishers`, `institutions`, `funders` and `sources` 
 are not affected by the data transformation step.
 
 ```bash
@@ -55,7 +55,7 @@ $ bq load --ignore_unknown_values --source_format=NEWLINE_DELIMITED_JSON subugoe
 
 ## Notes
 
-- Following fields are not included in the works schema:
+- Following fields are not included in the `works` schema:
 `mesh`, `related_works`, `concepts`.
 - An additional field `has_abstract` is added during the data 
 transformation step that replaces the field `abstract_inverted_index`.
