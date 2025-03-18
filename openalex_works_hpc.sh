@@ -11,4 +11,4 @@
 
 module load python
 
-python3 openalex.py
+python3 works.py

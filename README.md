@@ -31,7 +31,7 @@ like `authors`, `publishers`, `institutions`, `funders` and `source`
 are not affected by the data transformation step.
 
 ```bash
-$ sbatch openalex_hpc.sh
+$ sbatch openalex_works_hpc.sh
 ```
 
 ## Uploading Files to Google Bucket
