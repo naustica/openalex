@@ -4,8 +4,9 @@ This repository contains instructions on how to extract and transform OpenAlex d
 
 ## Requirements
 
-The following package is required for this workflow.
+The following packages are required for this workflow.
 
+- [AWS](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Python3](https://www.python.org)
   - [gsutil](https://pypi.org/project/gsutil/)
 
@@ -46,7 +47,7 @@ $ gsutil -m cp -r /scratch/users/haupka/works gs://bigschol
 ## Creating a BigQuery Table
 
 Use `bq load` to create a table in BigQuery with data stored in a 
-Google Bucket. 
+Google Bucket. Schemas for the tables can be found [here](schemas/).
 
 ```bash
 $ bq load --ignore_unknown_values --source_format=NEWLINE_DELIMITED_JSON subugoe-collaborative:openalex.works gs://bigschol/works/*.gz schema_openalex_work.json
