@@ -36,8 +36,8 @@ $ sbatch openalex_works_hpc.sh
 
 ## Uploading Files to Google Bucket
 
-Files can be uploaded to a Google Bucket using `gsutil`. Note that we have
-only transformed data in the `works` entity. All other data can be found 
+Files can be uploaded to a Google Bucket using `gsutil`. Note that only 
+data in the `works` entity has been transformed. All other data can be found 
 in `openalex-snapshot/data`.
 
 ```bash
@@ -47,7 +47,7 @@ $ gsutil -m cp -r /scratch/users/haupka/works gs://bigschol
 ## Creating a BigQuery Table
 
 Use `bq load` to create a table in BigQuery with data stored in a 
-Google Bucket. Schemas for the tables can be found [here](schemas/).
+Google Bucket. Schemas for the tables can be found [here](schemas).
 
 ```bash
 $ bq load --ignore_unknown_values --source_format=NEWLINE_DELIMITED_JSON subugoe-collaborative:openalex.works gs://bigschol/works/*.gz schema_openalex_work.json
