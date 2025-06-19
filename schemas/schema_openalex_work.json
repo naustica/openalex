@@ -60,10 +60,22 @@
             "description": "The country or countries for this author."
         },
         {
+            "mode": "REPEATED",
+            "name": "country_ids",
+            "type": "STRING",
+            "description": ""
+        },
+        {
             "fields": [
                 {
                     "mode": "NULLABLE",
                     "name": "id",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "lineage",
                     "type": "STRING",
                     "description": ""
                 },
@@ -87,7 +99,19 @@
                 },
                 {
                     "mode": "NULLABLE",
+                    "name": "country_id",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
                     "name": "type",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type_id",
                     "type": "STRING",
                     "description": ""
                 }
@@ -120,6 +144,18 @@
         "name": "authorships",
         "type": "RECORD",
         "description": "List of Authorship objects, each representing an author and their institution."
+  },
+  {
+    "mode": "NULLABLE",
+    "name": "authors_count",
+    "type": "INTEGER",
+    "description": ""
+  },
+  {
+    "mode": "NULLABLE",
+    "name": "authorships_truncated",
+    "type": "BOOLEAN",
+    "description": ""
   },
   {
     "fields": [
@@ -189,9 +225,33 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "doi",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_accepted",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_core",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
             "description": "True if this work is Open Access (OA)."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_published",
+            "type": "BOOLEAN",
+            "description": ""
         },
         {
             "mode": "NULLABLE",
@@ -212,6 +272,24 @@
                     "name": "id",
                     "type": "STRING",
                     "description": "The OpenAlex ID for this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_in_doaj",
+                    "type": "BOOLEAN",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_indexed_in_scopus",
+                    "type": "BOOLEAN",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_oa",
+                    "type": "BOOLEAN",
+                    "description": ""
                 },
                 {
                     "mode": "NULLABLE",
@@ -238,10 +316,28 @@
                     "description": "The host organization for this source as an OpenAlex ID."
                 },
                 {
+                    "mode": "REPEATED",
+                    "name": "host_organization_lineage",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization_name",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
                     "mode": "NULLABLE",
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type_id",
+                    "type": "STRING",
+                    "description": ""
                 }
             ],
                 "mode": "NULLABLE",
@@ -254,6 +350,12 @@
             "name": "license",
             "type": "STRING",
             "description": "The location's publishing license."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "license_id",
+            "type": "STRING",
+            "description": ""
         },
         {
             "mode": "NULLABLE",
@@ -341,6 +443,26 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "max",
+            "type": "FLOAT",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "min",
+            "type": "FLOAT",
+            "description": ""
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "cited_by_percentile_year",
+        "type": "RECORD",
+        "description": ""
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
             "name": "id",
             "type": "STRING",
             "description": ""
@@ -374,6 +496,12 @@
         "name": "concepts",
         "type": "RECORD",
         "description": "List of dehydrated Concept objects."
+  },
+  {
+      "mode": "NULLABLE",
+      "name": "concepts_count",
+      "type": "INTEGER",
+      "description": ""
   },
   {
     "description": "OpenAlex IDs of any authors for which authorships.is_corresponding is true.",
@@ -420,6 +548,12 @@
     "type": "STRING"
   },
   {
+    "description": "",
+    "mode": "REPEATED",
+    "name": "datasets",
+    "type": "STRING"
+  },
+  {
     "description": "Exactly the same as Work.title. It's useful for Works to include a display_name property, since all the other entities have one.",
     "mode": "NULLABLE",
     "name": "display_name",
@@ -429,6 +563,12 @@
     "description": "The DOI for the work.",
     "mode": "NULLABLE",
     "name": "doi",
+    "type": "STRING"
+  },
+  {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "doi_registration_agency",
     "type": "STRING"
   },
   {
@@ -491,6 +631,12 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "arxiv_id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "openalex",
             "type": "STRING",
             "description": "The OpenAlex ID, which is also found at Work.id"
@@ -506,6 +652,12 @@
             "name": "mag",
             "type": "INTEGER",
             "description": "the Microsoft Academic Graph ID"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "pmcid",
+            "type": "STRING",
+            "description": ""
         },
         {
             "mode": "NULLABLE",
@@ -547,6 +699,18 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "keyword",
             "type": "STRING",
             "description": ""
@@ -571,6 +735,12 @@
   },
   {
       "mode": "NULLABLE",
+      "name": "language_id",
+      "type": "STRING",
+      "description": ""
+  },
+  {
+      "mode": "NULLABLE",
       "name": "license",
       "type": "STRING",
       "description": "The license applied to this work at this host. Most toll-access works don't have an explicit license (they're under all rights reserved copyright), so this field generally has content only if is_oa is true."
@@ -579,9 +749,27 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "doi",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_accepted",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
             "description": "True if this work is Open Access (OA)."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_published",
+            "type": "BOOLEAN",
+            "description": ""
         },
         {
             "mode": "NULLABLE",
@@ -602,6 +790,30 @@
                     "name": "id",
                     "type": "STRING",
                     "description": "The OpenAlex ID for this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_core",
+                    "type": "BOOLEAN",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_in_doaj",
+                    "type": "BOOLEAN",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_indexed_in_scopus",
+                    "type": "BOOLEAN",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_oa",
+                    "type": "BOOLEAN",
+                    "description": ""
                 },
                 {
                     "mode": "NULLABLE",
@@ -628,10 +840,28 @@
                     "description": "The host organization for this source as an OpenAlex ID."
                 },
                 {
+                    "mode": "REPEATED",
+                    "name": "host_organization_lineage",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization_name",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
                     "mode": "NULLABLE",
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type_id",
+                    "type": "STRING",
+                    "description": ""
                 }
             ],
                 "mode": "NULLABLE",
@@ -650,6 +880,12 @@
             "name": "license",
             "type": "STRING",
             "description": "The location's publishing license."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "license_id",
+            "type": "STRING",
+            "description": ""
         }
     ],
         "mode": "REPEATED",
@@ -699,9 +935,27 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "doi",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_accepted",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
             "description": "True if this work is Open Access (OA)."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "is_published",
+            "type": "BOOLEAN",
+            "description": ""
         },
         {
             "mode": "NULLABLE",
@@ -722,6 +976,30 @@
                     "name": "id",
                     "type": "STRING",
                     "description": "The OpenAlex ID for this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_core",
+                    "type": "BOOLEAN",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_in_doaj",
+                    "type": "BOOLEAN",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_indexed_in_scopus",
+                    "type": "BOOLEAN",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_oa",
+                    "type": "BOOLEAN",
+                    "description": ""
                 },
                 {
                     "mode": "NULLABLE",
@@ -748,10 +1026,28 @@
                     "description": "The host organization for this source as an OpenAlex ID."
                 },
                 {
+                    "mode": "REPEATED",
+                    "name": "host_organization_lineage",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization_name",
+                    "type": "STRING",
+                    "description": ""
+                },
+                {
                     "mode": "NULLABLE",
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "type_id",
+                    "type": "STRING",
+                    "description": ""
                 }
             ],
                 "mode": "NULLABLE",
@@ -770,6 +1066,12 @@
             "name": "license",
             "type": "STRING",
             "description": "The location's publishing license."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "license_id",
+            "type": "STRING",
+            "description": ""
         }
     ],
         "mode": "NULLABLE",
@@ -882,6 +1184,32 @@
     "type": "STRING"
   },
   {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "referenced_works_count",
+    "type": "INTEGER"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "2yr_cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "cited_by_count",
+            "type": "INTEGER",
+            "description": ""
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "summary_stats",
+        "type": "RECORD",
+        "description": ""
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",
@@ -908,6 +1236,92 @@
         "description": "The United Nations' 17 Sustainable Development Goals are a collection of goals at the heart of a global shared blueprint for peace and prosperity for people and the planet."
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "score",
+            "type": "FLOAT",
+            "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "subfield",
+              "type": "RECORD",
+              "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "field",
+              "type": "RECORD",
+              "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "domain",
+              "type": "RECORD",
+              "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "topics",
+        "type": "RECORD",
+        "description": "The top ranked Topics for this work. We provide up to 3 topics per work."
+  },
+  {
     "description": "The title of this work.",
     "mode": "NULLABLE",
     "name": "title",
@@ -926,9 +1340,21 @@
     "type": "STRING"
   },
   {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "type_id",
+    "type": "STRING"
+  },
+  {
     "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "TIMESTAMP"
+  },
+  {
+    "description": "",
+    "mode": "REPEATED",
+    "name": "versions",
+    "type": "STRING"
   }
 ]
