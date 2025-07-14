@@ -60,12 +60,6 @@
             "description": "The country or countries for this author."
         },
         {
-            "mode": "REPEATED",
-            "name": "country_ids",
-            "type": "STRING",
-            "description": ""
-        },
-        {
             "fields": [
                 {
                     "mode": "NULLABLE",
@@ -99,19 +93,7 @@
                 },
                 {
                     "mode": "NULLABLE",
-                    "name": "country_id",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
                     "name": "type",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type_id",
                     "type": "STRING",
                     "description": ""
                 }
@@ -237,12 +219,6 @@
         },
         {
             "mode": "NULLABLE",
-            "name": "is_core",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
             "description": "True if this work is Open Access (OA)."
@@ -272,6 +248,12 @@
                     "name": "id",
                     "type": "STRING",
                     "description": "The OpenAlex ID for this source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "is_core",
+                    "type": "BOOLEAN",
+                    "description": ""
                 },
                 {
                     "mode": "NULLABLE",
@@ -332,12 +314,6 @@
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type_id",
-                    "type": "STRING",
-                    "description": ""
                 }
             ],
                 "mode": "NULLABLE",
@@ -350,12 +326,6 @@
             "name": "license",
             "type": "STRING",
             "description": "The location's publishing license."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "license_id",
-            "type": "STRING",
-            "description": ""
         },
         {
             "mode": "NULLABLE",
@@ -711,12 +681,6 @@
         },
         {
             "mode": "NULLABLE",
-            "name": "keyword",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
             "name": "score",
             "type": "FLOAT",
             "description": ""
@@ -732,12 +696,6 @@
       "name": "language",
       "type": "STRING",
       "description": "The language of the work in ISO 639-1 format."
-  },
-  {
-      "mode": "NULLABLE",
-      "name": "language_id",
-      "type": "STRING",
-      "description": ""
   },
   {
       "mode": "NULLABLE",
@@ -856,12 +814,6 @@
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type_id",
-                    "type": "STRING",
-                    "description": ""
                 }
             ],
                 "mode": "NULLABLE",
@@ -880,12 +832,6 @@
             "name": "license",
             "type": "STRING",
             "description": "The location's publishing license."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "license_id",
-            "type": "STRING",
-            "description": ""
         }
     ],
         "mode": "REPEATED",
@@ -1042,12 +988,6 @@
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type_id",
-                    "type": "STRING",
-                    "description": ""
                 }
             ],
                 "mode": "NULLABLE",
@@ -1066,12 +1006,6 @@
             "name": "license",
             "type": "STRING",
             "description": "The location's publishing license."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "license_id",
-            "type": "STRING",
-            "description": ""
         }
     ],
         "mode": "NULLABLE",
@@ -1322,6 +1256,12 @@
         "description": "The top ranked Topics for this work. We provide up to 3 topics per work."
   },
   {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "topics_count",
+    "type": "INTEGER"
+  },
+  {
     "description": "The title of this work.",
     "mode": "NULLABLE",
     "name": "title",
@@ -1340,12 +1280,6 @@
     "type": "STRING"
   },
   {
-    "description": "",
-    "mode": "NULLABLE",
-    "name": "type_id",
-    "type": "STRING"
-  },
-  {
     "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",
@@ -1358,3 +1292,4 @@
     "type": "STRING"
   }
 ]
+
