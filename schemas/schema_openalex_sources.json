@@ -100,12 +100,6 @@
     "type": "STRING"
   },
   {
-    "description": "This will only be included if the host_organization is a publisher (and not if the host_organization is an institution).",
-    "mode": "REPEATED",
-    "name": "host_organization_lineage",
-    "type": "STRING"
-  },
-  {
     "description": "The display_name from the host_organization, shown for convenience.",
     "mode": "NULLABLE",
     "name": "host_organization_name",
@@ -190,6 +184,12 @@
     "mode": "NULLABLE",
     "name": "issn_l",
     "type": "STRING"
+  },
+  {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "oa_flip_year",
+    "type": "INTEGER"
   },
   {
     "fields": [

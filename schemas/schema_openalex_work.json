@@ -144,7 +144,7 @@
         {
             "mode": "NULLABLE",
             "name": "value",
-            "type": "INTEGER",
+            "type": "FLOAT",
             "description": ""
         },
         {
@@ -162,7 +162,7 @@
         {
             "mode": "NULLABLE",
             "name": "value_usd",
-            "type": "INTEGER",
+            "type": "FLOAT",
             "description": "The APC converted into USD."
         }
     ],
@@ -176,7 +176,7 @@
         {
             "mode": "NULLABLE",
             "name": "value",
-            "type": "INTEGER",
+            "type": "FLOAT",
             "description": ""
         },
         {
@@ -194,7 +194,7 @@
         {
             "mode": "NULLABLE",
             "name": "value_usd",
-            "type": "INTEGER",
+            "type": "FLOAT",
             "description": "The APC converted into USD."
         }
     ],
@@ -231,18 +231,48 @@
         },
         {
             "mode": "NULLABLE",
+            "name": "is_unpaywall_record",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "landing_page_url",
             "type": "STRING",
             "description": "The landing page URL for this location."
         },
         {
             "mode": "NULLABLE",
-            "name": "pdf_url",
+            "name": "license",
             "type": "STRING",
-            "description": "A URL where you can find this location as a PDF."
+            "description": "The location's publishing license."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "location_type",
+            "type": "STRING",
+            "description": ""
         },
         {
             "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": "The name of the source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization",
+                    "type": "STRING",
+                    "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field)."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization_name",
+                    "type": "STRING",
+                    "description": "The display_name from the host_organization, shown for convenience."
+                },
                 {
                     "mode": "NULLABLE",
                     "name": "id",
@@ -253,37 +283,19 @@
                     "mode": "NULLABLE",
                     "name": "is_core",
                     "type": "BOOLEAN",
-                    "description": ""
+                    "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world. The list of core sources can be found here."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "is_in_doaj",
                     "type": "BOOLEAN",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_indexed_in_scopus",
-                    "type": "BOOLEAN",
-                    "description": ""
+                    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "is_oa",
                     "type": "BOOLEAN",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": "The name of the source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "issn_l",
-                    "type": "STRING",
-                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
+                    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
                 },
                 {
                     "mode": "REPEATED",
@@ -293,27 +305,21 @@
                 },
                 {
                     "mode": "NULLABLE",
-                    "name": "host_organization",
+                    "name": "issn_l",
                     "type": "STRING",
-                    "description": "The host organization for this source as an OpenAlex ID."
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "host_organization_lineage",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization_name",
-                    "type": "STRING",
-                    "description": ""
+                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "raw_type",
+                    "type": "STRING",
+                    "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
                 }
             ],
                 "mode": "NULLABLE",
@@ -323,15 +329,33 @@
         },
         {
             "mode": "NULLABLE",
-            "name": "license",
+            "name": "pdf_url",
             "type": "STRING",
-            "description": "The location's publishing license."
+            "description": "A URL where you can find this location as a PDF."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "provenance",
+            "type": "STRING",
+            "description": ""
         },
         {
             "mode": "NULLABLE",
             "name": "version",
             "type": "STRING",
             "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "raw_type",
+            "type": "STRING",
+            "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "raw_source_name",
+            "type": "STRING",
+            "description": ""
         }
     ],
         "mode": "NULLABLE",
@@ -518,12 +542,6 @@
     "type": "STRING"
   },
   {
-    "description": "",
-    "mode": "REPEATED",
-    "name": "datasets",
-    "type": "STRING"
-  },
-  {
     "description": "Exactly the same as Work.title. It's useful for Works to include a display_name property, since all the other entities have one.",
     "mode": "NULLABLE",
     "name": "display_name",
@@ -539,12 +557,6 @@
     "description": "",
     "mode": "NULLABLE",
     "name": "doi_registration_agency",
-    "type": "STRING"
-  },
-  {
-    "description": "If a work's full text is searchable in OpenAlex (has_fulltext is true), this tells you how we got the text.",
-    "mode": "NULLABLE",
-    "name": "fulltext_origin",
     "type": "STRING"
   },
   {
@@ -583,12 +595,6 @@
     "description": "Set to true if the work's abstract is searchable in OpenAlex.",
     "mode": "NULLABLE",
     "name": "has_abstract",
-    "type": "BOOLEAN"
-  },
-  {
-    "description": "Set to true if the work's full text is searchable in OpenAlex. This does not necessarily mean that the full text is available to you, dear reader; rather, it means that we have indexed the full text and can use it to help power searches. If you are trying to find the full text for yourself, try looking in open_access.oa_url.",
-    "mode": "NULLABLE",
-    "name": "has_fulltext",
     "type": "BOOLEAN"
   },
   {
@@ -731,18 +737,48 @@
         },
         {
             "mode": "NULLABLE",
+            "name": "is_unpaywall_record",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "landing_page_url",
             "type": "STRING",
             "description": "The landing page URL for this location."
         },
         {
             "mode": "NULLABLE",
-            "name": "pdf_url",
+            "name": "license",
             "type": "STRING",
-            "description": "A URL where you can find this location as a PDF."
+            "description": "The location's publishing license."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "location_type",
+            "type": "STRING",
+            "description": ""
         },
         {
             "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": "The name of the source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization",
+                    "type": "STRING",
+                    "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field)."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization_name",
+                    "type": "STRING",
+                    "description": "The display_name from the host_organization, shown for convenience."
+                },
                 {
                     "mode": "NULLABLE",
                     "name": "id",
@@ -753,37 +789,19 @@
                     "mode": "NULLABLE",
                     "name": "is_core",
                     "type": "BOOLEAN",
-                    "description": ""
+                    "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world. The list of core sources can be found here."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "is_in_doaj",
                     "type": "BOOLEAN",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_indexed_in_scopus",
-                    "type": "BOOLEAN",
-                    "description": ""
+                    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "is_oa",
                     "type": "BOOLEAN",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": "The name of the source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "issn_l",
-                    "type": "STRING",
-                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
+                    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
                 },
                 {
                     "mode": "REPEATED",
@@ -793,27 +811,21 @@
                 },
                 {
                     "mode": "NULLABLE",
-                    "name": "host_organization",
+                    "name": "issn_l",
                     "type": "STRING",
-                    "description": "The host organization for this source as an OpenAlex ID."
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "host_organization_lineage",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization_name",
-                    "type": "STRING",
-                    "description": ""
+                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "raw_type",
+                    "type": "STRING",
+                    "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
                 }
             ],
                 "mode": "NULLABLE",
@@ -823,15 +835,33 @@
         },
         {
             "mode": "NULLABLE",
+            "name": "pdf_url",
+            "type": "STRING",
+            "description": "A URL where you can find this location as a PDF."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "provenance",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "version",
             "type": "STRING",
             "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
         },
         {
             "mode": "NULLABLE",
-            "name": "license",
+            "name": "raw_type",
             "type": "STRING",
-            "description": "The location's publishing license."
+            "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "raw_source_name",
+            "type": "STRING",
+            "description": ""
         }
     ],
         "mode": "REPEATED",
@@ -905,18 +935,48 @@
         },
         {
             "mode": "NULLABLE",
+            "name": "is_unpaywall_record",
+            "type": "BOOLEAN",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "landing_page_url",
             "type": "STRING",
             "description": "The landing page URL for this location."
         },
         {
             "mode": "NULLABLE",
-            "name": "pdf_url",
+            "name": "license",
             "type": "STRING",
-            "description": "A URL where you can find this location as a PDF."
+            "description": "The location's publishing license."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "location_type",
+            "type": "STRING",
+            "description": ""
         },
         {
             "fields": [
+                {
+                    "mode": "NULLABLE",
+                    "name": "display_name",
+                    "type": "STRING",
+                    "description": "The name of the source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization",
+                    "type": "STRING",
+                    "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field)."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "host_organization_name",
+                    "type": "STRING",
+                    "description": "The display_name from the host_organization, shown for convenience."
+                },
                 {
                     "mode": "NULLABLE",
                     "name": "id",
@@ -927,37 +987,19 @@
                     "mode": "NULLABLE",
                     "name": "is_core",
                     "type": "BOOLEAN",
-                    "description": ""
+                    "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world. The list of core sources can be found here."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "is_in_doaj",
                     "type": "BOOLEAN",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_indexed_in_scopus",
-                    "type": "BOOLEAN",
-                    "description": ""
+                    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "is_oa",
                     "type": "BOOLEAN",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": "The name of the source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "issn_l",
-                    "type": "STRING",
-                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
+                    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
                 },
                 {
                     "mode": "REPEATED",
@@ -967,27 +1009,21 @@
                 },
                 {
                     "mode": "NULLABLE",
-                    "name": "host_organization",
+                    "name": "issn_l",
                     "type": "STRING",
-                    "description": "The host organization for this source as an OpenAlex ID."
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "host_organization_lineage",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization_name",
-                    "type": "STRING",
-                    "description": ""
+                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
                 },
                 {
                     "mode": "NULLABLE",
                     "name": "type",
                     "type": "STRING",
                     "description": "The type of source."
+                },
+                {
+                    "mode": "NULLABLE",
+                    "name": "raw_type",
+                    "type": "STRING",
+                    "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
                 }
             ],
                 "mode": "NULLABLE",
@@ -997,15 +1033,33 @@
         },
         {
             "mode": "NULLABLE",
+            "name": "pdf_url",
+            "type": "STRING",
+            "description": "A URL where you can find this location as a PDF."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "provenance",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
             "name": "version",
             "type": "STRING",
             "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
         },
         {
             "mode": "NULLABLE",
-            "name": "license",
+            "name": "raw_type",
             "type": "STRING",
-            "description": "The location's publishing license."
+            "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "raw_source_name",
+            "type": "STRING",
+            "description": ""
         }
     ],
         "mode": "NULLABLE",
@@ -1274,22 +1328,10 @@
     "type": "STRING"
   },
   {
-    "description": "Legacy type information, using Crossref's type controlled vocabulary.",
-    "mode": "NULLABLE",
-    "name": "type_crossref",
-    "type": "STRING"
-  },
-  {
     "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "TIMESTAMP"
-  },
-  {
-    "description": "",
-    "mode": "REPEATED",
-    "name": "versions",
-    "type": "STRING"
   }
 ]
 
