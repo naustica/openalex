@@ -24,7 +24,7 @@ def transform_file(input_file_path: str, output_file_path: str) -> None:
                 related_works = new_item.get('related_works')
                 
                 new_item['has_abstract'] = bool(inverted_index)
-                new_item['input_file'] = input_file_path.replace(f'{input_directory}/', '')
+                new_item['input_file'] = input_file_path.lstrip(input_directory)
 
                 if doi:
                     new_item['doi'] = doi.lstrip('https://doi.org/')
