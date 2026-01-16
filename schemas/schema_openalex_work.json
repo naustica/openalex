@@ -2,6 +2,50 @@
     {
     "fields": [
         {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "funder_award_id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "funder_id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "funder_display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "doi",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "awards",
+        "type": "RECORD",
+        "description": "List of dehydrated Award objects representing awards or grants associated with this work."
+    },
+    {
+    "fields": [
+        {
             "fields": [
                 {
                     "mode": "NULLABLE",
@@ -569,27 +613,27 @@
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "funder",
+            "name": "id",
             "type": "STRING",
             "description": ""
         },
         {
             "mode": "NULLABLE",
-            "name": "funder_display_name",
+            "name": "display_name",
             "type": "STRING",
             "description": ""
         },
         {
             "mode": "NULLABLE",
-            "name": "award_id",
+            "name": "ror",
             "type": "STRING",
             "description": ""
         }
     ],
         "mode": "REPEATED",
-        "name": "grants",
+        "name": "funders",
         "type": "RECORD",
-        "description": "List of grant objects, which include the Funder and the award ID, if available. Our grants data comes from Crossref, and is currently fairly limited."
+        "description": "List of dehydrated Funder objects representing the funders of this work."
   },
   {
     "description": "Set to true if the work's abstract is searchable in OpenAlex.",
@@ -669,6 +713,12 @@
     "description": "True if we know this work has been retracted.",
     "mode": "NULLABLE",
     "name": "is_retracted",
+    "type": "BOOLEAN"
+  },
+  {
+    "description": "True if this work is part of the XPAC (Expansion Pack) dataset.",
+    "mode": "NULLABLE",
+    "name": "is_xpac",
     "type": "BOOLEAN"
   },
   {
