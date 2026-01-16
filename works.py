@@ -6,14 +6,14 @@ import os
 import uuid
 
 
-input_directory = '/scratch/users/haupka/openalex-snapshot/data/works'
-output_directory = '/scratch/users/haupka/works'
+input_directory = '/projects/scc/UGOE/UZEI/ULSB/scc_ulsb_wag/dir.project/openalex-snapshot/data/works'
+output_directory = '/projects/scc/UGOE/UZEI/ULSB/scc_ulsb_wag/dir.project/works'
 
 
-def transform_file(input_file_path: str, output_file_path: str):
+def transform_file(input_file_path: str, output_file_path: str) -> None:
     new_data = []
 
-    with gzip.open(input_file_path, 'r') as file:
+    with gzip.open(input_file_path, mode='r') as file:
         for line in file:
 
             new_item = json.loads(line)
@@ -24,6 +24,7 @@ def transform_file(input_file_path: str, output_file_path: str):
                 related_works = new_item.get('related_works')
                 
                 new_item['has_abstract'] = bool(inverted_index)
+                new_item['input_file'] = input_file_path.replace(f'{input_directory}/', '')
 
                 if doi:
                     new_item['doi'] = doi.lstrip('https://doi.org/')
@@ -44,15 +45,15 @@ def transform_file(input_file_path: str, output_file_path: str):
         write_file(new_data, output_file_path)
 
 
-def write_file(data, output_file_path: str):
+def write_file(data, output_file_path: str) -> None:
 
-    with gzip.open(output_file_path + '/' + str(uuid.uuid4()) + '.gz', 'w') as output_file:
+    with gzip.open(output_file_path + '/' + str(uuid.uuid4()) + '.gz', mode='w') as output_file:
         result = [json.dumps(record, ensure_ascii=False).encode('utf-8') for record in data]
         for line in result:
             output_file.write(line + bytes('\n', encoding='utf8'))
 
 
-def transform_snapshot(max_workers: int = cpu_count()):
+def transform_snapshot(max_workers: int = cpu_count()) -> None:
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
         futures = []
 

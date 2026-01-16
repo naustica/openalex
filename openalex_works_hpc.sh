@@ -1,6 +1,5 @@
 #!/bin/bash
-#SBATCH -p medium
-#SBATCH -C scratch
+#SBATCH -p scc-cpu
 #SBATCH -N 1
 #SBATCH -n 1
 #SBATCH -c 16
