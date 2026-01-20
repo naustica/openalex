@@ -704,6 +704,12 @@
     "type": "INTEGER"
   },
   {
+    "description": "The raw file name of the data record.",
+    "mode": "NULLABLE",
+    "name": "input_file",
+    "type": "STRING"
+  },
+  {
     "description": "True if we think this work is paratext.",
     "mode": "NULLABLE",
     "name": "is_paratext",
