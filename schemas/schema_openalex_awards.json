@@ -1,0 +1,388 @@
+[
+  {
+    "description": "The OpenAlex ID for this award.",
+    "mode": "NULLABLE",
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "description": "The name or title of the award, if available.",
+    "mode": "NULLABLE",
+    "name": "display_name",
+    "type": "STRING"
+  },
+  {
+    "description": "A description of the award, if available.",
+    "mode": "NULLABLE",
+    "name": "description",
+    "type": "STRING"
+  },
+  {
+    "description": "The award identifier as assigned by the funder (e.g., the grant number).",
+    "mode": "NULLABLE",
+    "name": "funder_award_id",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "The OpenAlex ID for the funder"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "The name of the funder"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "ror",
+            "type": "STRING",
+            "description": "The ROR ID for the funder"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "doi",
+            "type": "STRING",
+            "description": "The DOI for the funder"
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "funder",
+        "type": "RECORD",
+        "description": "Information about the funder that issued this award. Contains:"
+  },
+  {
+    "description": "A list of OpenAlex Work IDs that were funded by this award.",
+    "mode": "REPEATED",
+    "name": "funded_outputs",
+    "type": "STRING"
+  },
+  {
+    "description": "The number of works funded by this award.",
+    "mode": "NULLABLE",
+    "name": "funded_outputs_count",
+    "type": "INTEGER"
+  },
+  {
+    "description": "The monetary amount of the award, if available.",
+    "mode": "NULLABLE",
+    "name": "amount",
+    "type": "FLOAT"
+  },
+  {
+    "description": "The currency of the award amount (e.g., USD, EUR), if available.",
+    "mode": "NULLABLE",
+    "name": "currency",
+    "type": "STRING"
+  },
+  {
+    "description": "The type of funding provided (e.g., grant, fellowship), if available.",
+    "mode": "NULLABLE",
+    "name": "funding_type",
+    "type": "STRING"
+  },
+  {
+    "description": "The specific funding scheme or program under which the award was made, if available.",
+    "mode": "NULLABLE",
+    "name": "funder_scheme",
+    "type": "STRING"
+  },
+  {
+    "description": "The start date of the award, formatted as an ISO 8601 date string, if available.",
+    "mode": "NULLABLE",
+    "name": "start_date",
+    "type": "DATE"
+  },
+  {
+    "description": "The end date of the award, formatted as an ISO 8601 date string, if available.",
+    "mode": "NULLABLE",
+    "name": "end_date",
+    "type": "DATE"
+  },
+  {
+    "description": "The year when the award started, if available.",
+    "mode": "NULLABLE",
+    "name": "start_year",
+    "type": "INTEGER"
+  },
+  {
+    "description": "The year when the award ends or ended, if available.",
+    "mode": "NULLABLE",
+    "name": "end_year",
+    "type": "INTEGER"
+  },
+  {
+    "description": "A URL for the award's landing page, if available.",
+    "mode": "NULLABLE",
+    "name": "landing_page_url",
+    "type": "STRING"
+  },
+  {
+    "description": "The DOI for this award, if available.",
+    "mode": "NULLABLE",
+    "name": "doi",
+    "type": "STRING"
+  },
+  {
+    "description": "The source of this award data.",
+    "mode": "NULLABLE",
+    "name": "provenance",
+    "type": "STRING"
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "given_name",
+            "type": "STRING",
+            "description": "The given name of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "family_name",
+            "type": "STRING",
+            "description": "The family name of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "orcid",
+            "type": "STRING",
+            "description": "The ORCID identifier of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "role_start",
+            "type": "STRING",
+            "description": "When the investigator started this role"
+        },
+        {
+        "fields": [
+          {
+              "mode": "NULLABLE",
+              "name": "name",
+              "type": "STRING",
+              "description": ""
+          },
+          {
+              "mode": "NULLABLE",
+              "name": "country",
+              "type": "STRING",
+              "description": ""
+          },
+          {
+          "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "id",
+                "type": "STRING",
+                "description": ""
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "type",
+                "type": "STRING",
+                "description": ""
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "asserted_by",
+                "type": "STRING",
+                "description": ""
+            }
+          ],
+            "mode": "REPEATED",
+            "name": "ids",
+            "type": "RECORD",
+            "description": ""
+          }
+        ],
+          "mode": "NULLABLE",
+          "name": "affiliation",
+          "type": "RECORD",
+          "description": "The investigator's institutional affiliation"
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "lead_investigator",
+        "type": "RECORD",
+        "description": "Information about the lead investigator (principal investigator) for this award, if available."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "given_name",
+            "type": "STRING",
+            "description": "The given name of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "family_name",
+            "type": "STRING",
+            "description": "The family name of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "orcid",
+            "type": "STRING",
+            "description": "The ORCID identifier of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "role_start",
+            "type": "STRING",
+            "description": "When the investigator started this role"
+        },
+        {
+        "fields": [
+          {
+              "mode": "NULLABLE",
+              "name": "name",
+              "type": "STRING",
+              "description": ""
+          },
+          {
+              "mode": "NULLABLE",
+              "name": "country",
+              "type": "STRING",
+              "description": ""
+          },
+          {
+          "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "id",
+                "type": "STRING",
+                "description": ""
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "type",
+                "type": "STRING",
+                "description": ""
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "asserted_by",
+                "type": "STRING",
+                "description": ""
+            }
+          ],
+            "mode": "REPEATED",
+            "name": "ids",
+            "type": "RECORD",
+            "description": ""
+          }
+        ],
+          "mode": "NULLABLE",
+          "name": "affiliation",
+          "type": "RECORD",
+          "description": "The investigator's institutional affiliation"
+        }
+    ],
+        "mode": "NULLABLE",
+        "name": "co_lead_investigator",
+        "type": "RECORD",
+        "description": "Information about the co-lead investigator, if available."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "given_name",
+            "type": "STRING",
+            "description": "The given name of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "family_name",
+            "type": "STRING",
+            "description": "The family name of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "orcid",
+            "type": "STRING",
+            "description": "The ORCID identifier of the investigator"
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "role_start",
+            "type": "STRING",
+            "description": "When the investigator started this role"
+        },
+        {
+        "fields": [
+          {
+              "mode": "NULLABLE",
+              "name": "name",
+              "type": "STRING",
+              "description": ""
+          },
+          {
+              "mode": "NULLABLE",
+              "name": "country",
+              "type": "STRING",
+              "description": ""
+          },
+          {
+          "fields": [
+            {
+                "mode": "NULLABLE",
+                "name": "id",
+                "type": "STRING",
+                "description": ""
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "type",
+                "type": "STRING",
+                "description": ""
+            },
+            {
+                "mode": "NULLABLE",
+                "name": "asserted_by",
+                "type": "STRING",
+                "description": ""
+            }
+          ],
+            "mode": "REPEATED",
+            "name": "ids",
+            "type": "RECORD",
+            "description": ""
+          }
+        ],
+          "mode": "NULLABLE",
+          "name": "affiliation",
+          "type": "RECORD",
+          "description": "The investigator's institutional affiliation"
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "investigators",
+        "type": "RECORD",
+        "description": "A list of all investigators associated with this award."
+  },
+  {
+    "description": "A URL that returns a list of works funded by this award.",
+    "mode": "NULLABLE",
+    "name": "works_api_url",
+    "type": "STRING"
+  },
+  {
+    "description": "The date this Award object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "mode": "NULLABLE",
+    "name": "created_date",
+    "type": "STRING"
+  },
+  {
+    "description": "The last time anything in this award object changed, expressed as an ISO 8601 date string.",
+    "mode": "NULLABLE",
+    "name": "updated_date",
+    "type": "STRING"
+  }
+]
