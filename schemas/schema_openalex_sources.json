@@ -238,6 +238,92 @@
         "description": "Citation metrics for this source."
   },
   {
+    "fields": [
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "score",
+            "type": "FLOAT",
+            "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "subfield",
+              "type": "RECORD",
+              "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "field",
+              "type": "RECORD",
+              "description": ""
+        },
+        {
+          "fields": [
+              {
+                  "mode": "NULLABLE",
+                  "name": "id",
+                  "type": "STRING",
+                  "description": ""
+              },
+              {
+                  "mode": "NULLABLE",
+                  "name": "display_name",
+                  "type": "STRING",
+                  "description": ""
+              }
+          ],
+              "mode": "NULLABLE",
+              "name": "domain",
+              "type": "RECORD",
+              "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "topics",
+        "type": "RECORD",
+        "description": ""
+  },
+  {
     "description": "The type of source",
     "mode": "NULLABLE",
     "name": "type",

@@ -52,12 +52,6 @@
                     "name": "raw_affiliation_string",
                     "type": "STRING",
                     "description": ""
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "institution_ids",
-                    "type": "STRING",
-                    "description": ""
                 }
             ],
                 "mode": "REPEATED",
