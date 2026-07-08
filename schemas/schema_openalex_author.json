@@ -52,6 +52,12 @@
       "description": "List of objects, representing the affiliations this author has claimed in their publications."
   },
   {
+    "description": "",
+    "mode": "NULLABLE",
+    "name": "block_key",
+    "type": "STRING"
+  },
+  {
     "description": "The total number  Works that cite a work this author has created.",
     "mode": "NULLABLE",
     "name": "cited_by_count",

@@ -52,6 +52,12 @@
                     "name": "raw_affiliation_string",
                     "type": "STRING",
                     "description": ""
+                },
+                {
+                    "mode": "REPEATED",
+                    "name": "institution_ids",
+                    "type": "STRING",
+                    "description": ""
                 }
             ],
                 "mode": "REPEATED",
@@ -158,6 +164,12 @@
             "name": "raw_author_name",
             "type": "STRING",
             "description": "This author's name as it originally came to us (on a webpage or in an API), as a raw unformatted string."
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "raw_orcid",
+            "type": "STRING",
+            "description": ""
         }
     ],
         "mode": "REPEATED",
@@ -245,7 +257,7 @@
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "doi",
+            "name": "id",
             "type": "STRING",
             "description": ""
         },
@@ -763,7 +775,7 @@
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "doi",
+            "name": "id",
             "type": "STRING",
             "description": ""
         },
@@ -961,7 +973,7 @@
     "fields": [
         {
             "mode": "NULLABLE",
-            "name": "doi",
+            "name": "id",
             "type": "STRING",
             "description": ""
         },

@@ -26,6 +26,26 @@ def transform_file(input_file_path: str, output_file_path: str) -> None:
                 new_item['has_abstract'] = bool(inverted_index)
                 new_item['input_file'] = input_file_path.lstrip(input_directory)
 
+                authorships = new_item.get('authorships')
+
+                if authorships:
+
+                    for author in authorships:
+
+                        for affiliation in author.get('affiliations', {}):
+
+                            institution_ids = affiliation.get('institution_ids', [])
+
+                            if isinstance(institution_ids, list):
+
+                                while any([i is None for i in institution_ids]):
+                                    null_value_idx = institution_ids.index(None)
+                                    institution_ids.pop(null_value_idx)
+
+                            affiliation['institution_ids'] = institution_ids
+
+                new_item['authorships'] = authorships
+
                 if doi:
                     new_item['doi'] = doi.lstrip('https://doi.org/')
                 if inverted_index:
