@@ -1289,6 +1289,26 @@
     "fields": [
         {
             "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": ""
+        },
+        {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": ""
+        }
+    ],
+        "mode": "REPEATED",
+        "name": "study_designs",
+        "type": "RECORD",
+        "description": "How the research inside the work was done, as study design objects."
+  },
+  {
+    "fields": [
+        {
+            "mode": "NULLABLE",
             "name": "id",
             "type": "STRING",
             "description": ""

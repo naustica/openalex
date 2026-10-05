@@ -6,7 +6,7 @@ import os
 import uuid
 
 
-input_directory = '/projects/scc/UGOE/UZEI/ULSB/scc_ulsb_wag/dir.project/openalex-snapshot/data/works'
+input_directory = '/projects/scc/UGOE/UZEI/ULSB/scc_ulsb_wag/dir.project/openalex-snapshot/works'
 output_directory = '/projects/scc/UGOE/UZEI/ULSB/scc_ulsb_wag/dir.project/works'
 
 

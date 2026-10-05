@@ -202,6 +202,18 @@
     "type": "STRING"
   },
   {
+    "description": "Every ORCID iD trusted on this author’s works, as URLs, with the primary orcid always first.",
+    "mode": "REPEATED",
+    "name": "observed_orcids",
+    "type": "STRING"
+  },
+  {
+    "description": "The exact raw author-name strings, as they appeared on the source works, that were clustered into this author during disambiguation.",
+    "mode": "REPEATED",
+    "name": "raw_author_names",
+    "type": "STRING"
+  },
+  {
     "fields": [
         {
             "mode": "NULLABLE",

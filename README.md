@@ -8,7 +8,7 @@ The following packages are required for this workflow.
 
 - [AWS](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Python3](https://www.python.org)
-  - [gsutil](https://pypi.org/project/gsutil/)
+- [Google Cloud SDK](https://docs.cloud.google.com/sdk/gcloud/reference/storage)
 
 
 ## Download Snapshot
@@ -17,7 +17,7 @@ OpenAlex snapshots are available through AWS. Instructions for downloading
 can be found here: https://docs.openalex.org/download-all-data/download-to-your-machine.
 
 ```bash
-$ aws s3 sync 's3://openalex' 'openalex-snapshot' --no-sign-request
+$ aws s3 sync 's3://openalex/data/jsonl' 'openalex-snapshot/' --no-sign-request
 ```
 
 ## Data transformation
@@ -36,12 +36,12 @@ $ sbatch openalex_works_hpc.sh
 
 ## Uploading Files to Google Bucket
 
-Files can be uploaded to a Google Bucket using `gsutil`. Note that only 
+Files can be uploaded to a Google Bucket using `gcloud`. Note that only 
 data in the `works` entity has been transformed. All other data can be found 
 in `openalex-snapshot/data`.
 
 ```bash
-$ gsutil -m cp -r /scratch/users/haupka/works gs://bigschol
+$ gcloud storage cp --recursive /scratch/users/haupka/works gs://bigschol
 ```
 
 ## Creating a BigQuery Table
