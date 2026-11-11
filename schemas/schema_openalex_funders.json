@@ -1,40 +1,44 @@
 [
   {
-    "description": "A list of alternate titles for this funder. Example: [\"NSF\"]",
-    "mode": "REPEATED",
     "name": "alternate_titles",
-    "type": "STRING"
+    "type": "STRING",
+    "mode": "REPEATED",
+    "description": "A list of alternate titles for this funder. Example: [\"NSF\"]"
   },
   {
-    "description": "The total number Works that cite a work linked to this funder.",
-    "mode": "NULLABLE",
     "name": "cited_by_count",
-    "type": "Integer"
-  },
-  {
-    "description": "The country where this funder is located, represented as an ISO two-letter country code. Example: US",
+    "type": "Integer",
     "mode": "NULLABLE",
-    "name": "country_code",
-    "type": "STRING"
+    "description": "The total number Works that cite a work linked to this funder."
   },
   {
+    "name": "country_code",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The country where this funder is located, represented as an ISO two-letter country code. Example: US"
+  },
+  {
+    "name": "counts_by_year",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "description": "The values of works_count and cited_by_count for each of the last ten years, binned by year.",
     "fields": [
       {
-        "mode": "NULLABLE",
         "name": "year",
         "type": "INTEGER",
+        "mode": "NULLABLE",
         "description": "The year the counts refer to. Example: 2024"
       },
       {
-        "mode": "NULLABLE",
         "name": "works_count",
         "type": "INTEGER",
+        "mode": "NULLABLE",
         "description": "Number of works published in that year."
       },
       {
-        "mode": "NULLABLE",
         "name": "cited_by_count",
         "type": "INTEGER",
+        "mode": "NULLABLE",
         "description": "Number of citations received in that year."
       },
       {
@@ -43,66 +47,66 @@
         "mode": "NULLABLE",
         "description": "Number of open access works linked to this funder in the given year."
       }
-    ],
-    "mode": "REPEATED",
-    "name": "counts_by_year",
-    "type": "RECORD",
-    "description": "The values of works_count and cited_by_count for each of the last ten years, binned by year."
+    ]
   },
   {
-    "description": "The date this Funder object was created in the OpenAlex dataset, expressed as an ISO 8601 date string. Example: 2017-08-08",
-    "mode": "NULLABLE",
     "name": "created_date",
-    "type": "STRING"
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The date this Funder object was created in the OpenAlex dataset, expressed as an ISO 8601 date string. Example: 2017-08-08"
   },
   {
-    "description": "A short description of this funder, taken from Wikidata.",
-    "mode": "NULLABLE",
     "name": "description",
-    "type": "STRING"
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "A short description of this funder, taken from Wikidata."
   },
   {
-    "description": "The primary name of the funder. Example: National Science Foundation",
-    "mode": "NULLABLE",
     "name": "display_name",
-    "type": "STRING"
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The primary name of the funder. Example: National Science Foundation"
   },
   {
-    "description": "The number of grants linked to this funder. Example: (legacy name of awards_count)",
-    "mode": "NULLABLE",
     "name": "grants_count",
-    "type": "INTEGER"
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "The number of grants linked to this funder. Example: (legacy name of awards_count)"
   },
   {
-    "description": "The URL for this funder's primary homepage.",
-    "mode": "NULLABLE",
     "name": "homepage_url",
-    "type": "STRING"
-  },
-  {
-    "description": "The OpenAlex ID for this funder. Example: https://openalex.org/F4320306076",
+    "type": "STRING",
     "mode": "NULLABLE",
-    "name": "id",
-    "type": "STRING"
+    "description": "The URL for this funder's primary homepage."
   },
   {
+    "name": "id",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The OpenAlex ID for this funder. Example: https://openalex.org/F4320306076"
+  },
+  {
+    "name": "ids",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "description": "External identifiers OpenAlex holds for this funder. IDs are expressed as URIs where possible.",
     "fields": [
       {
-        "mode": "NULLABLE",
         "name": "openalex",
         "type": "STRING",
+        "mode": "NULLABLE",
         "description": "This funder's OpenAlex ID. Example: https://openalex.org/F4320306076"
       },
       {
-        "mode": "NULLABLE",
         "name": "ror",
         "type": "STRING",
+        "mode": "NULLABLE",
         "description": "This funder's ROR ID. Example: https://ror.org/021nxhr62"
       },
       {
-        "mode": "NULLABLE",
         "name": "wikidata",
         "type": "STRING",
+        "mode": "NULLABLE",
         "description": "This funder's Wikidata ID. Example: https://www.wikidata.org/wiki/Q304878"
       },
       {
@@ -117,87 +121,83 @@
         "mode": "NULLABLE",
         "description": "DOI of the funder (Crossref Funder Registry). Example: https://doi.org/10.13039/100000001"
       }
-    ],
-    "mode": "NULLABLE",
-    "name": "ids",
-    "type": "RECORD",
-    "description": "External identifiers OpenAlex holds for this funder. IDs are expressed as URIs where possible."
+    ]
   },
   {
-    "description": "Same as image_url, but it's a smaller image.",
-    "mode": "NULLABLE",
     "name": "image_thumbnail_url",
-    "type": "STRING"
-  },
-  {
-    "description": "URL of an image representing this funder, usually a logo or seal hosted on Wikimedia.",
+    "type": "STRING",
     "mode": "NULLABLE",
-    "name": "image_url",
-    "type": "STRING"
+    "description": "Same as image_url, but it's a smaller image."
   },
   {
+    "name": "image_url",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "URL of an image representing this funder, usually a logo or seal hosted on Wikimedia."
+  },
+  {
+    "name": "roles",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "description": "List of role objects, which include the role (one of institution, funder, or publisher), the id (OpenAlex ID), and the works_count.",
     "fields": [
       {
-        "mode": "NULLABLE",
         "name": "role",
         "type": "STRING",
+        "mode": "NULLABLE",
         "description": "Role this organisation plays in OpenAlex. Possible values: institution | funder | publisher"
       },
       {
-        "mode": "NULLABLE",
         "name": "id",
         "type": "STRING",
+        "mode": "NULLABLE",
         "description": "OpenAlex ID of the entity record for that role. Example: https://openalex.org/I27837315, https://openalex.org/F4320306076, https://openalex.org/P4310320595"
       },
       {
-        "mode": "NULLABLE",
         "name": "works_count",
         "type": "INTEGER",
+        "mode": "NULLABLE",
         "description": "Number of works linked to the organisation in that role."
       }
-    ],
-    "mode": "REPEATED",
-    "name": "roles",
-    "type": "RECORD",
-    "description": "List of role objects, which include the role (one of institution, funder, or publisher), the id (OpenAlex ID), and the works_count."
+    ]
   },
   {
+    "name": "summary_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "description": "Citation metrics for this funder",
     "fields": [
       {
-        "mode": "NULLABLE",
         "name": "2yr_mean_citedness",
         "type": "FLOAT",
+        "mode": "NULLABLE",
         "description": "The 2-year mean citedness for this funder. Also known as impact factor. Example: 3.14"
       },
       {
-        "mode": "NULLABLE",
         "name": "h_index",
         "type": "INTEGER",
+        "mode": "NULLABLE",
         "description": "The h-index for this funder. Example: 42"
       },
       {
-        "mode": "NULLABLE",
         "name": "i10_index",
         "type": "INTEGER",
+        "mode": "NULLABLE",
         "description": "The i-10 index for this funder. Example: 120"
       }
-    ],
-    "mode": "NULLABLE",
-    "name": "summary_stats",
-    "type": "RECORD",
-    "description": "Citation metrics for this funder"
+    ]
   },
   {
-    "description": "The last time anything in this funder object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts. Example: 2026-10-12T05:31:44.211000",
-    "mode": "NULLABLE",
     "name": "updated_date",
-    "type": "STRING"
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The last time anything in this funder object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts. Example: 2026-10-12T05:31:44.211000"
   },
   {
-    "description": "The number of works linked to this funder.",
-    "mode": "NULLABLE",
     "name": "works_count",
-    "type": "INTEGER"
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "The number of works linked to this funder."
   },
   {
     "name": "is_global_south",
