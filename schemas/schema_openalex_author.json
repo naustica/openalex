@@ -1,260 +1,456 @@
 [
   {
-      "fields": [
-          {
-            "fields": [
-                {
-                    "mode": "NULLABLE",
-                    "name": "id",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "ror",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "country_code",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type",
-                    "type": "STRING",
-                    "description": ""
-                }
-            ],
-                "mode": "NULLABLE",
-                "name": "institution",
-                "type": "RECORD",
-                "description": "A dehydrated Institution object"
-          },
-          {
-                    "mode": "REPEATED",
-                    "name": "years",
-                    "type": "INTEGER",
-                    "description": "A list of the years in which this author claimed an affiliation with this institution"
-          }
-      ],
-      "mode": "REPEATED",
-      "name": "affiliations",
-      "type": "RECORD",
-      "description": "List of objects, representing the affiliations this author has claimed in their publications."
-  },
-  {
-    "description": "",
-    "mode": "NULLABLE",
-    "name": "block_key",
-    "type": "STRING"
-  },
-  {
-    "description": "The total number  Works that cite a work this author has created.",
-    "mode": "NULLABLE",
-    "name": "cited_by_count",
-    "type": "INTEGER"
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "year",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "works_count",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "counts_by_year",
-        "type": "RECORD",
-        "description": "Author.works_count and Author.cited_by_count for each of the last ten years, binned by year."
-  },
-  {
-    "description": "The date this Author object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
-    "mode": "NULLABLE",
-    "name": "created_date",
-    "type": "STRING"
-  },
-  {
-    "description": "The name of the author as a single string.",
-    "mode": "NULLABLE",
-    "name": "display_name",
-    "type": "STRING"
-  },
-  {
-    "description": "Other ways that we've found this author's name displayed.",
+    "name": "affiliations",
+    "type": "RECORD",
     "mode": "REPEATED",
-    "name": "display_name_alternatives",
-    "type": "STRING"
-  },
-  {
-    "description": "The OpenAlex ID for this author.",
-    "mode": "NULLABLE",
-    "name": "id",
-    "type": "STRING"
-  },
-  {
+    "description": "List of objects, representing the affiliations this author has claimed in their publications.",
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "openalex",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "orcid",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "scopus",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "twitter",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "wikipedia",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "mag",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
-        "mode": "NULLABLE",
-        "name": "ids",
+      {
+        "name": "institution",
         "type": "RECORD",
-        "description": "All the persistent identifiers (PIDs) that we know about for this author, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible. The openalex ID is the same one you'll find at Author.id. All the IDs are strings except for mag, which is an integer."
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
+        "mode": "NULLABLE",
+        "description": "A dehydrated Institution object",
+        "fields": [
+          {
             "name": "id",
             "type": "STRING",
-            "description": ""
-        },
-        {
             "mode": "NULLABLE",
+            "description": "OpenAlex ID of the institution. Example: https://openalex.org/I27837315"
+          },
+          {
             "name": "ror",
             "type": "STRING",
-            "description": ""
-        },
-        {
             "mode": "NULLABLE",
+            "description": "ROR ID of the institution. Example: https://ror.org/00jmfr291"
+          },
+          {
             "name": "display_name",
             "type": "STRING",
-            "description": ""
-        },
-        {
             "mode": "NULLABLE",
+            "description": "Name of the institution. Example: University of Michigan–Ann Arbor"
+          },
+          {
             "name": "country_code",
             "type": "STRING",
-            "description": ""
-        },
-        {
             "mode": "NULLABLE",
+            "description": "Country of the institution (ISO alpha-2). Example: US"
+          },
+          {
             "name": "type",
             "type": "STRING",
-            "description": ""
-        }
-    ],
+            "mode": "NULLABLE",
+            "description": "Institution type (ROR vocabulary). Possible values: education | healthcare | company | archive | nonprofit | government | facility | funder | other"
+          },
+          {
+            "name": "lineage",
+            "type": "STRING",
+            "mode": "REPEATED",
+            "description": "OpenAlex IDs of this institution and all its parent institutions. Example: [\"https://openalex.org/I27837315\"]"
+          }
+        ]
+      },
+      {
+        "name": "years",
+        "type": "INTEGER",
         "mode": "REPEATED",
-        "name": "last_known_institutions",
-        "type": "RECORD",
-        "description": "This author's last known institutional affiliation. In this context last known means that we took all the Works where this author has an institutional affiliation, sorted them by publication date, and selected the most recent one."
+        "description": "A list of the years in which this author claimed an affiliation with this institution Example: [2016, 2015]"
+      }
+    ]
   },
   {
-    "description": "The ORCID for this author. ORCID global and unique ID for authors.",
+    "name": "block_key",
+    "type": "STRING",
     "mode": "NULLABLE",
-    "name": "orcid",
-    "type": "STRING"
+    "description": "Name-based blocking key OpenAlex uses to group candidate profiles during author disambiguation."
   },
   {
-    "description": "Every ORCID iD trusted on this author’s works, as URLs, with the primary orcid always first.",
+    "name": "cited_by_count",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "The total number  Works that cite a work this author has created. Example: 6500"
+  },
+  {
+    "name": "counts_by_year",
+    "type": "RECORD",
     "mode": "REPEATED",
-    "name": "observed_orcids",
-    "type": "STRING"
-  },
-  {
-    "description": "The exact raw author-name strings, as they appeared on the source works, that were clustered into this author during disambiguation.",
-    "mode": "REPEATED",
-    "name": "raw_author_names",
-    "type": "STRING"
-  },
-  {
+    "description": "Author.works_count and Author.cited_by_count for each of the last ten years, binned by year.",
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "2yr_mean_citedness",
-            "type": "FLOAT",
-            "description": "The 2-year mean citedness for this author. Also known as impact factor."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "h_index",
-            "type": "INTEGER",
-            "description": "The h-index for this author."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "i10_index",
-            "type": "INTEGER",
-            "description": "The i-10 index for this author."
-        }
-    ],
+      {
+        "name": "year",
+        "type": "INTEGER",
         "mode": "NULLABLE",
-        "name": "summary_stats",
-        "type": "RECORD",
-        "description": "Citation metrics for this author."
+        "description": "The year the counts refer to. Example: 2024"
+      },
+      {
+        "name": "works_count",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Number of works the author published in that year. Example: 3"
+      },
+      {
+        "name": "cited_by_count",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Citations the author's works received in that year. Example: 410"
+      },
+      {
+        "name": "oa_works_count",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Number of open access works by this author in the given year. Example: 3"
+      }
+    ]
   },
   {
-    "description": "The last time anything in this author object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
+    "name": "created_date",
+    "type": "STRING",
     "mode": "NULLABLE",
+    "description": "The date this Author object was created in the OpenAlex dataset, expressed as an ISO 8601 date string. Example: 2017-08-08"
+  },
+  {
+    "name": "display_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The name of the author as a single string. Example: Heather Piwowar"
+  },
+  {
+    "name": "display_name_alternatives",
+    "type": "STRING",
+    "mode": "REPEATED",
+    "description": "Other forms of this author's name found by OpenAlex in source metadata. Example: [\"H. Piwowar\", \"Heather A. Piwowar\"]"
+  },
+  {
+    "name": "id",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The OpenAlex ID for this author. Example: https://openalex.org/A5023888391"
+  },
+  {
+    "name": "ids",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "description": "Persistent identifiers OpenAlex holds for this author, keyed by namespace. IDs are expressed as URIs where possible. ids.openalex equals id.",
+    "fields": [
+      {
+        "name": "openalex",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The OpenAlex ID, same as id. Example: https://openalex.org/A5023888391"
+      },
+      {
+        "name": "orcid",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "ORCID iD of the author, as a URL. Example: https://orcid.org/0000-0003-1613-5981"
+      },
+      {
+        "name": "scopus",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Scopus author profile URL (legacy)."
+      },
+      {
+        "name": "twitter",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Twitter/X profile (legacy)."
+      },
+      {
+        "name": "wikipedia",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Wikipedia page URL."
+      },
+      {
+        "name": "mag",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Microsoft Academic Graph ID (legacy)."
+      }
+    ]
+  },
+  {
+    "name": "last_known_institutions",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "description": "This author's last known institutional affiliation(s): the affiliation on the author's most recently published work that has one.",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the institution. Example: https://openalex.org/I27837315"
+      },
+      {
+        "name": "ror",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "ROR ID of the institution. Example: https://ror.org/00jmfr291"
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the institution."
+      },
+      {
+        "name": "country_code",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Country of the institution (ISO alpha-2). Example: DE, US, GB"
+      },
+      {
+        "name": "type",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Institution type (ROR vocabulary). Possible values: education | healthcare | company | ..."
+      },
+      {
+        "name": "lineage",
+        "type": "STRING",
+        "mode": "REPEATED",
+        "description": "OpenAlex IDs of this institution and all its parent institutions. Example: [\"https://openalex.org/I27837315\"]"
+      }
+    ]
+  },
+  {
+    "name": "orcid",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The ORCID for this author. ORCID global and unique ID for authors. Example: https://orcid.org/0000-0003-1613-5981"
+  },
+  {
+    "name": "observed_orcids",
+    "type": "STRING",
+    "mode": "REPEATED",
+    "description": "Every ORCID iD trusted on this author’s works, as URLs, with the primary orcid always first. Example: [\"https://orcid.org/0000-0003-1613-5981\"]"
+  },
+  {
+    "name": "raw_author_names",
+    "type": "STRING",
+    "mode": "REPEATED",
+    "description": "The exact raw author-name strings, as they appeared on the source works, that were clustered into this author during disambiguation. Example: [\"Piwowar, Heather\", \"H. A. Piwowar\"]"
+  },
+  {
+    "name": "summary_stats",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "description": "Citation metrics for this author.",
+    "fields": [
+      {
+        "name": "2yr_mean_citedness",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "The 2-year mean citedness for this author. Also known as impact factor. Example: 3.14"
+      },
+      {
+        "name": "h_index",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The h-index for this author. Example: 42"
+      },
+      {
+        "name": "i10_index",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "The i-10 index for this author. Example: 120"
+      }
+    ]
+  },
+  {
     "name": "updated_date",
-    "type": "STRING"
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The last time anything in this author object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts. Example: 2026-10-12T05:31:44.211000"
   },
   {
-    "description": "A URL that will get you a list of all this author's works.",
-    "mode": "NULLABLE",
     "name": "works_api_url",
-    "type": "STRING"
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "OpenAlex API URL listing this author's works. Example: https://api.openalex.org/works?filter=author.id:A5023888391"
   },
   {
-    "description": "The number of  Works this this author has created.",
-    "mode": "NULLABLE",
     "name": "works_count",
-    "type": "INTEGER"
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Number of works by this author. Example: 85"
+  },
+  {
+    "name": "full_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The author's full name as recorded on the profile. Example: Heather A. Piwowar"
+  },
+  {
+    "name": "topics",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "description": "Topics this author has published on most, with the number of works per topic.",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the topic. Example: https://openalex.org/T10102"
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "name": "count",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Number of this author's works tagged with the topic. Example: 23"
+      },
+      {
+        "name": "subfield",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "description": "The subfield this topic belongs to.",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ]
+      },
+      {
+        "name": "field",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "description": "The field this topic belongs to.",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ]
+      },
+      {
+        "name": "domain",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "description": "The domain this topic belongs to.",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "topic_share",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "description": "Topics weighted by their share of this author's works.",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the topic. Example: https://openalex.org/T10102"
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "name": "value",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "Share of this author's works tagged with the topic. Example: 0.0004"
+      },
+      {
+        "name": "subfield",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "description": "The subfield this topic belongs to.",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ]
+      },
+      {
+        "name": "field",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "description": "The field this topic belongs to.",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ]
+      },
+      {
+        "name": "domain",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "description": "The domain this topic belongs to.",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ]
+      }
+    ]
   }
 ]
