@@ -1,728 +1,764 @@
 [
-    {
+  {
     "fields": [
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the award."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Title of the award, if known."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "funder_award_id",
+        "type": "STRING",
+        "description": "Award or grant number as assigned by the funder. Example: R01GM123456"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "funder_id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the funder that issued the award. Example: https://openalex.org/F4320306076"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "funder_display_name",
+        "type": "STRING",
+        "description": "Name of the funder that issued the award. Example: National Science Foundation"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "doi",
+        "type": "STRING",
+        "description": "DOI of the award, if registered."
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "awards",
+    "type": "RECORD",
+    "description": "List of dehydrated Award objects representing awards or grants associated with this work."
+  },
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "raw_affiliation_string",
+            "type": "STRING",
+            "description": "One affiliation string exactly as it appeared in the source metadata. Example: School of Information, University of Michigan, Ann Arbor, MI, USA"
+          },
+          {
+            "mode": "REPEATED",
+            "name": "institution_ids",
+            "type": "STRING",
+            "description": "OpenAlex institution IDs matched to this raw affiliation string. Example: [\"https://openalex.org/I27837315\"]"
+          }
+        ],
+        "mode": "REPEATED",
+        "name": "affiliations",
+        "type": "RECORD",
+        "description": "Affiliations as stated on this work: each raw affiliation string from the source metadata, together with the OpenAlex institution ID(s) it was matched to."
+      },
+      {
+        "fields": [
+          {
             "mode": "NULLABLE",
             "name": "id",
             "type": "STRING",
-            "description": ""
-        },
-        {
+            "description": "OpenAlex ID of the author. Example: https://openalex.org/A5023888391"
+          },
+          {
             "mode": "NULLABLE",
             "name": "display_name",
             "type": "STRING",
-            "description": ""
-        },
-        {
+            "description": "Display name of the author profile. Example: Heather Piwowar"
+          },
+          {
             "mode": "NULLABLE",
-            "name": "funder_award_id",
+            "name": "orcid",
             "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "funder_id",
+            "description": "ORCID iD of the author profile, as a URL. Example: https://orcid.org/0000-0003-1613-5981"
+          },
+          {
+            "name": "observed_orcids",
             "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "funder_display_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "doi",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "awards",
-        "type": "RECORD",
-        "description": "List of dehydrated Award objects representing awards or grants associated with this work."
-    },
-    {
-    "fields": [
-        {
-            "fields": [
-                {
-                    "mode": "NULLABLE",
-                    "name": "raw_affiliation_string",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "institution_ids",
-                    "type": "STRING",
-                    "description": ""
-                }
-            ],
-                "mode": "REPEATED",
-                "name": "affiliations",
-                "type": "RECORD",
-                "description": "Each institutional affiliation that this author has claimed will be listed here: the raw affiliation string that we found, along with the OpenAlex Institution ID or IDs that we matched it to."
-        },
-        {
-            "fields": [
-                {
-                    "mode": "NULLABLE",
-                    "name": "id",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "orcid",
-                    "type": "STRING",
-                    "description": ""
-                }
-            ],
-                "mode": "NULLABLE",
-                "name": "author",
-                "type": "RECORD",
-                "description": "An author of this work, as a dehydrated Author object."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "author_position",
-            "type": "STRING",
-            "description": "A summarized description of this author's position in the work's author list. Possible values are first, middle, and last."
-        },
-        {
             "mode": "REPEATED",
-            "name": "countries",
-            "type": "STRING",
-            "description": "The country or countries for this author."
-        },
-        {
-            "fields": [
-                {
-                    "mode": "NULLABLE",
-                    "name": "id",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "lineage",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "ror",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "country_code",
-                    "type": "STRING",
-                    "description": ""
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type",
-                    "type": "STRING",
-                    "description": ""
-                }
-            ],
-                "mode": "REPEATED",
-                "name": "institutions",
-                "type": "RECORD",
-                "description": "The institutional affiliations this author claimed in the context of this work, as dehydrated Institution objects."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_corresponding",
-            "type": "BOOLEAN",
-            "description": "If true, this is the corresponding author for this work. If false, this is not the corresponding author. If null, either this work has no corresponding author, or we are not aware of it."
-        },
-        {
-            "mode": "REPEATED",
-            "name": "raw_affiliation_strings",
-            "type": "STRING",
-            "description": "This author's affiliation as it originally came to us (on a webpage or in an API), as a list of raw unformatted strings. If there is only one affiliation, it will be a list of length one."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "raw_author_name",
-            "type": "STRING",
-            "description": "This author's name as it originally came to us (on a webpage or in an API), as a raw unformatted string."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "raw_orcid",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "authorships",
+            "description": "ORCIDs observed for this author across source metadata, beyond the one assigned to the profile. Example: [\"https://orcid.org/0000-0003-1613-5981\"]"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "author",
         "type": "RECORD",
-        "description": "List of Authorship objects, each representing an author and their institution."
+        "description": "An author of this work, as a dehydrated Author object."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "author_position",
+        "type": "STRING",
+        "description": "A summarized description of this author's position in the work's author list. Possible values are first, middle, and last. Possible values: first | middle | last"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "countries",
+        "type": "STRING",
+        "description": "The country or countries for this author. Example: [\"US\", \"CA\"]"
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "OpenAlex ID of the institution. Example: https://openalex.org/I27837315"
+          },
+          {
+            "mode": "REPEATED",
+            "name": "lineage",
+            "type": "STRING",
+            "description": "OpenAlex IDs of this institution and all its parent institutions. Example: [\"https://openalex.org/I27837315\"]"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "Name of the institution. Example: University of Michigan–Ann Arbor"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "ror",
+            "type": "STRING",
+            "description": "ROR ID of the institution. Example: https://ror.org/00jmfr291"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "country_code",
+            "type": "STRING",
+            "description": "Country of the institution (ISO alpha-2). Example: DE, US, GB"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "type",
+            "type": "STRING",
+            "description": "Institution type (ROR vocabulary). Possible values: education | healthcare | company | archive | nonprofit | government | facility | funder | other"
+          }
+        ],
+        "mode": "REPEATED",
+        "name": "institutions",
+        "type": "RECORD",
+        "description": "The institutional affiliations this author claimed in the context of this work, as dehydrated Institution objects."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_corresponding",
+        "type": "BOOLEAN",
+        "description": "True if this author is the corresponding author of the work, false if not. Null if the work has no corresponding author or OpenAlex has no information on it."
+      },
+      {
+        "mode": "REPEATED",
+        "name": "raw_affiliation_strings",
+        "type": "STRING",
+        "description": "This author's affiliations exactly as they appear in the source metadata (publisher page, Crossref, repository, etc.), unprocessed. One string per affiliation. Example: [\"School of Information, University of Michigan, Ann Arbor, MI, USA\"]"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "raw_author_name",
+        "type": "STRING",
+        "description": "This author's name exactly as it appears in the source metadata, unprocessed. Example: Heather A. Piwowar"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "raw_orcid",
+        "type": "STRING",
+        "description": "ORCID exactly as asserted in the source metadata for this authorship, before OpenAlex validation. Example: 0000-0003-1613-5981"
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "authorships",
+    "type": "RECORD",
+    "description": "List of Authorship objects, each representing an author and their institution."
   },
   {
     "mode": "NULLABLE",
     "name": "authors_count",
     "type": "INTEGER",
-    "description": ""
+    "description": "Number of authorships on this work, up to 5,000 (snapshot-only field). Example: 9"
   },
   {
     "mode": "NULLABLE",
     "name": "authorships_truncated",
     "type": "BOOLEAN",
-    "description": ""
+    "description": "Legacy field from the pre-Walden schema: true if the authorship list was cut short. No longer delivered."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "value",
-            "type": "FLOAT",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "currency",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "provenance",
-            "type": "STRING",
-            "description": "The source of this data. Currently the only value is “doaj” (DOAJ)"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "value_usd",
-            "type": "FLOAT",
-            "description": "The APC converted into USD."
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "apc_list",
-        "type": "RECORD",
-        "description": "Information about this work's APC (article processing charge)."
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "value",
-            "type": "FLOAT",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "currency",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "provenance",
-            "type": "STRING",
-            "description": "Currently either openapc or doaj, but more will be added; see below for details."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "value_usd",
-            "type": "FLOAT",
-            "description": "The APC converted into USD."
-        }
-    ],
+        "name": "value",
+        "type": "FLOAT",
+        "description": "List price of the APC in the original currency. Example: 1095"
+      },
+      {
         "mode": "NULLABLE",
-        "name": "apc_paid",
-        "type": "RECORD",
-        "description": "Information about the paid APC (article processing charge) for this work."
+        "name": "currency",
+        "type": "STRING",
+        "description": "ISO 4217 currency code of the list price. Example: USD, EUR, GBP"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "provenance",
+        "type": "STRING",
+        "description": "The source of this data. Currently the only value is “doaj” (DOAJ) Example: doaj"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "value_usd",
+        "type": "FLOAT",
+        "description": "The APC converted into USD. Example: 1095"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "apc_list",
+    "type": "RECORD",
+    "description": "Information about this work's APC (article processing charge)."
   },
   {
     "fields": [
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "value",
+        "type": "FLOAT",
+        "description": "Amount actually paid in the original currency. Example: 1095"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "currency",
+        "type": "STRING",
+        "description": "ISO 4217 currency code of the amount paid. Example: USD, EUR"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "provenance",
+        "type": "STRING",
+        "description": "Source of the paid-APC data, documented as openapc or doaj. Note: null for every 2024 work in the 2026-10-14 load."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "value_usd",
+        "type": "FLOAT",
+        "description": "The APC converted into USD. Example: 1095"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "apc_paid",
+    "type": "RECORD",
+    "description": "Information about the paid APC (article processing charge) for this work."
+  },
+  {
+    "fields": [
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "ID of this location, namespaced by where it was harvested from. Example: doi:10.7717/peerj.4375, pmh:oai:arXiv.org:2301.00001"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_accepted",
+        "type": "BOOLEAN",
+        "description": "True if this location holds the accepted manuscript or the published version."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_oa",
+        "type": "BOOLEAN",
+        "description": "True if this location is free to read."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_published",
+        "type": "BOOLEAN",
+        "description": "True if this location holds the published version (version of record)."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_unpaywall_record",
+        "type": "BOOLEAN",
+        "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "landing_page_url",
+        "type": "STRING",
+        "description": "The landing page URL for this location. Example: https://doi.org/10.7717/peerj.4375"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "license",
+        "type": "STRING",
+        "description": "The location's publishing license; null for most closed works. Observed values: cc-by | cc-by-nc-nd | cc-by-nc | cc-by-sa | cc-by-nc-sa | cc-by-nd | public-domain | other-oa"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "location_type",
+        "type": "STRING",
+        "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "The name of the source. Example: PeerJ"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "host_organization",
+            "type": "STRING",
+            "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field). Example: https://openalex.org/P4310320595"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "host_organization_name",
+            "type": "STRING",
+            "description": "The display_name from the host_organization, shown for convenience. Example: PeerJ"
+          },
+          {
             "mode": "NULLABLE",
             "name": "id",
             "type": "STRING",
-            "description": ""
-        },
-        {
+            "description": "The OpenAlex ID for this source. Example: https://openalex.org/S1983995261"
+          },
+          {
             "mode": "NULLABLE",
-            "name": "is_accepted",
+            "name": "is_core",
             "type": "BOOLEAN",
-            "description": ""
-        },
-        {
+            "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world."
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "is_in_doaj",
+            "type": "BOOLEAN",
+            "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
+          },
+          {
             "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
-            "description": "True if this work is Open Access (OA)."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_published",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_unpaywall_record",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "landing_page_url",
+            "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
+          },
+          {
+            "mode": "REPEATED",
+            "name": "issn",
             "type": "STRING",
-            "description": "The landing page URL for this location."
-        },
-        {
+            "description": "The ISSNs used by this source. Example: [\"2167-8359\"]"
+          },
+          {
             "mode": "NULLABLE",
-            "name": "license",
+            "name": "issn_l",
             "type": "STRING",
-            "description": "The location's publishing license."
-        },
-        {
+            "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources. Example: 2167-8359"
+          },
+          {
             "mode": "NULLABLE",
-            "name": "location_type",
+            "name": "type",
             "type": "STRING",
-            "description": ""
-        },
-        {
-            "fields": [
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": "The name of the source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization",
-                    "type": "STRING",
-                    "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field)."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization_name",
-                    "type": "STRING",
-                    "description": "The display_name from the host_organization, shown for convenience."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "id",
-                    "type": "STRING",
-                    "description": "The OpenAlex ID for this source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_core",
-                    "type": "BOOLEAN",
-                    "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world. The list of core sources can be found here."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_in_doaj",
-                    "type": "BOOLEAN",
-                    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_oa",
-                    "type": "BOOLEAN",
-                    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "issn",
-                    "type": "STRING",
-                    "description": "The ISSNs used by this source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "issn_l",
-                    "type": "STRING",
-                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type",
-                    "type": "STRING",
-                    "description": "The type of source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "raw_type",
-                    "type": "STRING",
-                    "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
-                }
-            ],
-                "mode": "NULLABLE",
-                "name": "source",
-                "type": "RECORD",
-                "description": "A dehydrated Source object."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "pdf_url",
-            "type": "STRING",
-            "description": "A URL where you can find this location as a PDF."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "provenance",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "version",
-            "type": "STRING",
-            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
-        },
-        {
+            "description": "The type of source. Possible values: journal | repository | conference | ebook platform | book series | metadata | other. Null when the location has no matched source (about 4% of 2024 works)."
+          },
+          {
             "mode": "NULLABLE",
             "name": "raw_type",
             "type": "STRING",
-            "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "raw_source_name",
+            "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+          },
+          {
+            "name": "listed_in",
             "type": "STRING",
-            "description": ""
-        }
-    ],
+            "mode": "REPEATED",
+            "description": "Indexes and lists the source of this location appears in (e.g. DOAJ, Scopus). Example: [\"doaj\"]"
+          },
+          {
+            "name": "host_organization_lineage",
+            "type": "STRING",
+            "mode": "REPEATED",
+            "description": "OpenAlex IDs of the source's host organization and all its parent organizations. Example: [\"https://openalex.org/P4310320595\"]"
+          },
+          {
+            "name": "host_organization_lineage_names",
+            "type": "STRING",
+            "mode": "REPEATED",
+            "description": "Display names matching source.host_organization_lineage, in the same order."
+          }
+        ],
         "mode": "NULLABLE",
-        "name": "best_oa_location",
+        "name": "source",
         "type": "RECORD",
-        "description": "A Location object with the best available open access location for this work."
+        "description": "A dehydrated Source object."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "pdf_url",
+        "type": "STRING",
+        "description": "Direct URL of the PDF at this location, if known. Example: https://peerj.com/articles/4375.pdf"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "provenance",
+        "type": "STRING",
+        "description": "Which OpenAlex pipeline delivered this location (snapshot-only field). Observed values (2024 works): datacite | crossref | repo | pubmed | mag"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "version",
+        "type": "STRING",
+        "description": "The version of the work, based on the DRIVER Guidelines versioning scheme; often null (e.g. for DataCite records). Possible values: publishedVersion | submittedVersion | acceptedVersion"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "raw_type",
+        "type": "STRING",
+        "description": "The work type as given by the harvested source, in that source's own vocabulary (e.g. Crossref types for Crossref records). Example: journal-article (Crossref), info:eu-repo/semantics/article (repository)"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "raw_source_name",
+        "type": "STRING",
+        "description": "Name of the hosting source exactly as it appeared in the harvested metadata. Example: PeerJ"
+      },
+      {
+        "name": "doi",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "DOI of this location, if it has its own (e.g. a preprint DOI). Example: https://doi.org/10.7717/peerj.4375"
+      },
+      {
+        "name": "license_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the license of this location. Example: https://openalex.org/licenses/cc-by"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "best_oa_location",
+    "type": "RECORD",
+    "description": "A Location object with the best available open access location for this work."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "volume",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "issue",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "first_page",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "last_page",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "biblio",
-        "type": "RECORD",
-        "description": "Old-timey bibliographic info for this work. This is mostly useful only in citation/reference contexts."
+        "name": "volume",
+        "type": "STRING",
+        "description": "Volume number. Example: 6"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "issue",
+        "type": "STRING",
+        "description": "Issue number. Example: 3"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "first_page",
+        "type": "STRING",
+        "description": "First page. Example: e4375"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "last_page",
+        "type": "STRING",
+        "description": "Last page. Example: e4375"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "biblio",
+    "type": "RECORD",
+    "description": "Bibliographic details (volume, issue, pages), mainly useful for citations."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "value",
-            "type": "FLOAT",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_in_top_1_percent",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_in_top_10_percent",
-            "type": "BOOLEAN",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "citation_normalized_percentile",
-        "type": "RECORD",
-        "description": "The percentile of this work's citation count normalized by work type, publication year, and subfield. This field represents the same information as the FWCI expressed as a percentile. Learn more in the reference article: Field Weighted Citation Impact (FWCI)."
+        "name": "value",
+        "type": "FLOAT",
+        "description": "Citation percentile as a fraction (0-1), normalised by type, year and subfield. Example: 0.999"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_in_top_1_percent",
+        "type": "BOOLEAN",
+        "description": "True if the work is in the top 1% by normalised citations."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_in_top_10_percent",
+        "type": "BOOLEAN",
+        "description": "True if the work is in the top 10% by normalised citations."
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "citation_normalized_percentile",
+    "type": "RECORD",
+    "description": "The percentile of this work's citation count normalized by work type, publication year, and subfield. This field represents the same information as the FWCI expressed as a percentile. Learn more in the reference article: Field Weighted Citation Impact (FWCI)."
   },
   {
-    "description": "",
+    "description": "Legacy field from the pre-Walden schema: API URL listing citing works. No longer delivered. Example: https://api.openalex.org/works?filter=cites:W2741809807",
     "mode": "NULLABLE",
     "name": "cited_by_api_url",
     "type": "STRING"
   },
   {
-    "description": "The number of citations to this work. These are the times that other works have cited this work: Other works ➞ This work.",
+    "description": "The number of citations to this work. These are the times that other works have cited this work: Other works ➞ This work. Example: 1150",
     "mode": "NULLABLE",
     "name": "cited_by_count",
     "type": "INTEGER"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "max",
-            "type": "FLOAT",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "min",
-            "type": "FLOAT",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "cited_by_percentile_year",
-        "type": "RECORD",
-        "description": ""
+        "name": "max",
+        "type": "FLOAT",
+        "description": "Upper bound of the citation percentile. Example: 100"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "min",
+        "type": "FLOAT",
+        "description": "Lower bound of the citation percentile. Example: 99"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "cited_by_percentile_year",
+    "type": "RECORD",
+    "description": "Percentile range of this work's citation count among works from the same publication year."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "wikidata",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "level",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "score",
-            "type": "FLOAT",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the concept. Example: https://openalex.org/C41008148"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "wikidata",
+        "type": "STRING",
+        "description": "Wikidata ID of the concept. Example: https://www.wikidata.org/wiki/Q21198"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the concept. Example: Computer science"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "level",
+        "type": "INTEGER",
+        "description": "Level in the concept hierarchy (0 = most general, 5 = most specific). Possible values: 0 | 1 | 2 | 3 | 4 | 5"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "score",
+        "type": "FLOAT",
+        "description": "Strength of the association between work and concept (0-1)."
+      }
     ],
-        "mode": "REPEATED",
-        "name": "concepts",
-        "type": "RECORD",
-        "description": "List of dehydrated Concept objects."
+    "mode": "REPEATED",
+    "name": "concepts",
+    "type": "RECORD",
+    "description": "List of dehydrated Concept objects."
   },
   {
-      "mode": "NULLABLE",
-      "name": "concepts_count",
-      "type": "INTEGER",
-      "description": ""
+    "mode": "NULLABLE",
+    "name": "concepts_count",
+    "type": "INTEGER",
+    "description": "Legacy field from the pre-Walden schema: number of concepts. No longer delivered."
   },
   {
-    "description": "OpenAlex IDs of any authors for which authorships.is_corresponding is true.",
+    "description": "OpenAlex IDs of any authors for which authorships.is_corresponding is true. Example: [\"https://openalex.org/A5023888391\"]",
     "mode": "REPEATED",
     "name": "corresponding_author_ids",
     "type": "STRING"
   },
   {
-    "description": "OpenAlex IDs of any institutions found within an authorship for which authorships.is_corresponding is true.",
+    "description": "OpenAlex IDs of any institutions found within an authorship for which authorships.is_corresponding is true. Example: [\"https://openalex.org/I27837315\"]",
     "mode": "REPEATED",
     "name": "corresponding_institution_ids",
     "type": "STRING"
   },
   {
-    "description": "Number of distinct country_codes among the authorships for this work.",
+    "description": "Number of distinct country_codes among the authorships for this work. Example: 2",
     "mode": "NULLABLE",
     "name": "countries_distinct_count",
     "type": "INTEGER"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "year",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "year",
+        "type": "INTEGER",
+        "description": "The year the counts refer to. Example: 2024"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "cited_by_count",
+        "type": "INTEGER",
+        "description": "Number of citations received in that year. Example: 85"
+      }
     ],
-        "mode": "REPEATED",
-        "name": "counts_by_year",
-        "type": "RECORD",
-        "description": ""
+    "mode": "REPEATED",
+    "name": "counts_by_year",
+    "type": "RECORD",
+    "description": "Citations received in each of the last ten years."
   },
   {
-    "description": "The date this Work object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "description": "The date this Work object was created in the OpenAlex dataset, expressed as an ISO 8601 date string. Example: 2017-08-08",
     "mode": "NULLABLE",
     "name": "created_date",
     "type": "STRING"
   },
   {
-    "description": "Exactly the same as Work.title. It's useful for Works to include a display_name property, since all the other entities have one.",
+    "description": "Exactly the same as Work.title. It's useful for Works to include a display_name property, since all the other entities have one. Example: The state of OA: a large-scale analysis of the prevalence and impact of Open Access articles",
     "mode": "NULLABLE",
     "name": "display_name",
     "type": "STRING"
   },
   {
-    "description": "The DOI for the work.",
+    "description": "The DOI for the work. Example: 10.7717/peerj.4375 (stored without the https://doi.org/ prefix by the SUB load script)",
     "mode": "NULLABLE",
     "name": "doi",
     "type": "STRING"
   },
   {
-    "description": "",
+    "description": "Legacy field from the pre-Walden schema: DOI registration agency. No longer delivered. Possible values: Crossref | DataCite",
     "mode": "NULLABLE",
     "name": "doi_registration_agency",
     "type": "STRING"
   },
   {
-    "description": "The Field-weighted Citation Impact (FWCI), calculated for a work as the ratio of citations received / citations expected in the year of publications and three following years.",
+    "description": "The Field-weighted Citation Impact (FWCI), calculated for a work as the ratio of citations received / citations expected in the year of publications and three following years. Example: 12.7",
     "mode": "NULLABLE",
     "name": "fwci",
     "type": "FLOAT"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "ror",
-            "type": "STRING",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the funder. Example: https://openalex.org/F4320306076"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the funder. Example: National Science Foundation"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "ror",
+        "type": "STRING",
+        "description": "ROR ID of the funder. Example: https://ror.org/021nxhr62"
+      }
     ],
-        "mode": "REPEATED",
-        "name": "funders",
-        "type": "RECORD",
-        "description": "List of dehydrated Funder objects representing the funders of this work."
+    "mode": "REPEATED",
+    "name": "funders",
+    "type": "RECORD",
+    "description": "List of dehydrated Funder objects representing the funders of this work."
   },
   {
-    "description": "Set to true if the work's abstract is searchable in OpenAlex.",
+    "description": "Set to true if the work's abstract is searchable in OpenAlex. Possible values: true | false",
     "mode": "NULLABLE",
     "name": "has_abstract",
     "type": "BOOLEAN"
   },
   {
-    "description": "The OpenAlex ID for this work.",
+    "description": "The OpenAlex ID for this work. Example: https://openalex.org/W2741809807",
     "mode": "NULLABLE",
     "name": "id",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "arxiv_id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "openalex",
-            "type": "STRING",
-            "description": "The OpenAlex ID, which is also found at Work.id"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "doi",
-            "type": "STRING",
-            "description": "The DOI. This is most likely, but not necessarily, a Crossref DOI"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "mag",
-            "type": "INTEGER",
-            "description": "the Microsoft Academic Graph ID"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "pmcid",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "pmid",
-            "type": "STRING",
-            "description": "The Pubmed Identifier"
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "ids",
-        "type": "RECORD",
-        "description": "All the persistent identifiers (PIDs) that we know about for this work, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible."
+        "name": "arxiv_id",
+        "type": "STRING",
+        "description": "arXiv identifier of the work."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "openalex",
+        "type": "STRING",
+        "description": "The OpenAlex ID, which is also found at Work.id Example: https://openalex.org/W2741809807"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "doi",
+        "type": "STRING",
+        "description": "The DOI. This is most likely, but not necessarily, a Crossref DOI Example: https://doi.org/10.7717/peerj.4375"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "mag",
+        "type": "INTEGER",
+        "description": "the Microsoft Academic Graph ID Example: 2741809807"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "pmcid",
+        "type": "STRING",
+        "description": "PubMed Central ID, as a URL. Example: https://www.ncbi.nlm.nih.gov/pmc/articles/5815332"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "pmid",
+        "type": "STRING",
+        "description": "The Pubmed Identifier Example: https://pubmed.ncbi.nlm.nih.gov/29456894"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "ids",
+    "type": "RECORD",
+    "description": "Persistent identifiers OpenAlex holds for this work, keyed by namespace. IDs are expressed as URIs where possible."
   },
   {
-    "description": "The sources this work is indexed in. Possible values: arxiv, crossref, doaj, pubmed.",
+    "description": "The indexes this work appears in. Possible values: arxiv | crossref | datacite | doaj | pubmed (array, e.g. [\"crossref\", \"doaj\", \"pubmed\"])",
     "mode": "REPEATED",
     "name": "indexed_in",
     "type": "STRING"
   },
   {
-    "description": "Number of distinct institutions among the authorships for this work.",
+    "description": "Number of distinct institutions among the authorships for this work. Example: 5",
     "mode": "NULLABLE",
     "name": "institutions_distinct_count",
     "type": "INTEGER"
   },
   {
-    "description": "The raw file name of the data record.",
+    "description": "The raw file name of the data record. Example: updated_date=2026-06-24/part_0000.gz",
     "mode": "NULLABLE",
     "name": "input_file",
     "type": "STRING"
   },
   {
-    "description": "True if we think this work is paratext.",
+    "description": "Deprecated in OpenAlex: use type = 'paratext' instead. See https://help.openalex.org/data/work-types/",
     "mode": "NULLABLE",
     "name": "is_paratext",
     "type": "BOOLEAN"
   },
   {
-    "description": "True if we know this work has been retracted.",
+    "description": "True if OpenAlex knows this work has been retracted.",
     "mode": "NULLABLE",
     "name": "is_retracted",
     "type": "BOOLEAN"
@@ -735,685 +771,840 @@
   },
   {
     "fields": [
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "The keyword. Example: Open access"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the keyword. Example: https://openalex.org/keywords/open-access"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "score",
+        "type": "FLOAT",
+        "description": "Similarity score between work and keyword (0-1). Example: 0.62"
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "keywords",
+    "type": "RECORD",
+    "description": "Keywords extracted from the work's title, along with confidence scores from the extraction model."
+  },
+  {
+    "mode": "NULLABLE",
+    "name": "language",
+    "type": "STRING",
+    "description": "The language of the work in ISO 639-1 format. Example: en, de, es"
+  },
+  {
+    "mode": "NULLABLE",
+    "name": "license",
+    "type": "STRING",
+    "description": "The license applied to this work at this host. Most toll-access works don't have an explicit license (they're under all rights reserved copyright), so this field generally has content only if is_oa is true."
+  },
+  {
+    "fields": [
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "ID of this location, namespaced by where it was harvested from. Example: doi:10.7717/peerj.4375, pmh:oai:arXiv.org:2301.00001"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_accepted",
+        "type": "BOOLEAN",
+        "description": "True if this location holds the accepted manuscript or the published version."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_oa",
+        "type": "BOOLEAN",
+        "description": "True if this location is free to read."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_published",
+        "type": "BOOLEAN",
+        "description": "True if this location holds the published version (version of record)."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_unpaywall_record",
+        "type": "BOOLEAN",
+        "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "landing_page_url",
+        "type": "STRING",
+        "description": "The landing page URL for this location. Example: https://doi.org/10.7717/peerj.4375"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "license",
+        "type": "STRING",
+        "description": "The location's publishing license; null for most closed works. Observed values: cc-by | cc-by-nc-nd | cc-by-nc | cc-by-sa | cc-by-nc-sa | cc-by-nd | public-domain | other-oa"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "location_type",
+        "type": "STRING",
+        "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+      },
+      {
+        "fields": [
+          {
             "mode": "NULLABLE",
             "name": "display_name",
             "type": "STRING",
-            "description": ""
-        },
-        {
+            "description": "The name of the source. Example: PeerJ"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "host_organization",
+            "type": "STRING",
+            "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field). Example: https://openalex.org/P4310320595"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "host_organization_name",
+            "type": "STRING",
+            "description": "The display_name from the host_organization, shown for convenience. Example: PeerJ"
+          },
+          {
             "mode": "NULLABLE",
             "name": "id",
             "type": "STRING",
-            "description": ""
-        },
-        {
+            "description": "The OpenAlex ID for this source. Example: https://openalex.org/S1983995261"
+          },
+          {
             "mode": "NULLABLE",
-            "name": "score",
-            "type": "FLOAT",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "keywords",
-        "type": "RECORD",
-        "description": "Keywords extracted from the work's title, along with confidence scores from the extraction model."
-  },
-  {
-      "mode": "NULLABLE",
-      "name": "language",
-      "type": "STRING",
-      "description": "The language of the work in ISO 639-1 format."
-  },
-  {
-      "mode": "NULLABLE",
-      "name": "license",
-      "type": "STRING",
-      "description": "The license applied to this work at this host. Most toll-access works don't have an explicit license (they're under all rights reserved copyright), so this field generally has content only if is_oa is true."
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_accepted",
+            "name": "is_core",
             "type": "BOOLEAN",
-            "description": ""
-        },
-        {
+            "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world."
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "is_in_doaj",
+            "type": "BOOLEAN",
+            "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
+          },
+          {
             "mode": "NULLABLE",
             "name": "is_oa",
             "type": "BOOLEAN",
-            "description": "True if this work is Open Access (OA)."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_published",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_unpaywall_record",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "landing_page_url",
+            "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
+          },
+          {
+            "mode": "REPEATED",
+            "name": "issn",
             "type": "STRING",
-            "description": "The landing page URL for this location."
-        },
-        {
+            "description": "The ISSNs used by this source. Example: [\"2167-8359\"]"
+          },
+          {
             "mode": "NULLABLE",
-            "name": "license",
+            "name": "issn_l",
             "type": "STRING",
-            "description": "The location's publishing license."
-        },
-        {
+            "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources. Example: 2167-8359"
+          },
+          {
             "mode": "NULLABLE",
-            "name": "location_type",
+            "name": "type",
             "type": "STRING",
-            "description": ""
-        },
-        {
-            "fields": [
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": "The name of the source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization",
-                    "type": "STRING",
-                    "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field)."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization_name",
-                    "type": "STRING",
-                    "description": "The display_name from the host_organization, shown for convenience."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "id",
-                    "type": "STRING",
-                    "description": "The OpenAlex ID for this source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_core",
-                    "type": "BOOLEAN",
-                    "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world. The list of core sources can be found here."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_in_doaj",
-                    "type": "BOOLEAN",
-                    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_oa",
-                    "type": "BOOLEAN",
-                    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "issn",
-                    "type": "STRING",
-                    "description": "The ISSNs used by this source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "issn_l",
-                    "type": "STRING",
-                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type",
-                    "type": "STRING",
-                    "description": "The type of source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "raw_type",
-                    "type": "STRING",
-                    "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
-                }
-            ],
-                "mode": "NULLABLE",
-                "name": "source",
-                "type": "RECORD",
-                "description": "A dehydrated Source object."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "pdf_url",
-            "type": "STRING",
-            "description": "A URL where you can find this location as a PDF."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "provenance",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "version",
-            "type": "STRING",
-            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
-        },
-        {
+            "description": "The type of source. Possible values: journal | repository | conference | ebook platform | book series | metadata | other. Null when the location has no matched source (about 4% of 2024 works)."
+          },
+          {
             "mode": "NULLABLE",
             "name": "raw_type",
             "type": "STRING",
-            "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "raw_source_name",
+            "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+          },
+          {
+            "name": "listed_in",
             "type": "STRING",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "locations",
-        "type": "RECORD",
-        "description": "A list of Location objects describing all unique places where this work lives."
-  },
-  {
-      "mode": "NULLABLE",
-      "name": "locations_count",
-      "type": "INTEGER",
-      "description": "Number of locations for this work."
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "is_oa",
-            "type": "BOOLEAN",
-            "description": "True if this work is Open Access (OA)."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "oa_status",
+            "mode": "REPEATED",
+            "description": "Indexes and lists the source of this location appears in (e.g. DOAJ, Scopus). Example: [\"doaj\"]"
+          },
+          {
+            "name": "host_organization_lineage",
             "type": "STRING",
-            "description": "The Open Access (OA) status of this work."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "oa_url",
+            "mode": "REPEATED",
+            "description": "OpenAlex IDs of the source's host organization and all its parent organizations. Example: [\"https://openalex.org/P4310320595\"]"
+          },
+          {
+            "name": "host_organization_lineage_names",
             "type": "STRING",
-            "description": "The best Open Access (OA) URL for this work."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "any_repository_has_fulltext",
-            "type": "BOOLEAN",
-            "description": "True if any of this work's locations has location.is_oa=true and location.source.type=repository."
-        }
-    ],
+            "mode": "REPEATED",
+            "description": "Display names matching source.host_organization_lineage, in the same order."
+          }
+        ],
         "mode": "NULLABLE",
-        "name": "open_access",
+        "name": "source",
         "type": "RECORD",
-        "description": "Information about the access status of this work, as an OpenAccess object."
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_accepted",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_oa",
-            "type": "BOOLEAN",
-            "description": "True if this work is Open Access (OA)."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_published",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "is_unpaywall_record",
-            "type": "BOOLEAN",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "landing_page_url",
-            "type": "STRING",
-            "description": "The landing page URL for this location."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "license",
-            "type": "STRING",
-            "description": "The location's publishing license."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "location_type",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "fields": [
-                {
-                    "mode": "NULLABLE",
-                    "name": "display_name",
-                    "type": "STRING",
-                    "description": "The name of the source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization",
-                    "type": "STRING",
-                    "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field)."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "host_organization_name",
-                    "type": "STRING",
-                    "description": "The display_name from the host_organization, shown for convenience."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "id",
-                    "type": "STRING",
-                    "description": "The OpenAlex ID for this source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_core",
-                    "type": "BOOLEAN",
-                    "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world. The list of core sources can be found here."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_in_doaj",
-                    "type": "BOOLEAN",
-                    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "is_oa",
-                    "type": "BOOLEAN",
-                    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
-                },
-                {
-                    "mode": "REPEATED",
-                    "name": "issn",
-                    "type": "STRING",
-                    "description": "The ISSNs used by this source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "issn_l",
-                    "type": "STRING",
-                    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "type",
-                    "type": "STRING",
-                    "description": "The type of source."
-                },
-                {
-                    "mode": "NULLABLE",
-                    "name": "raw_type",
-                    "type": "STRING",
-                    "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
-                }
-            ],
-                "mode": "NULLABLE",
-                "name": "source",
-                "type": "RECORD",
-                "description": "A dehydrated Source object."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "pdf_url",
-            "type": "STRING",
-            "description": "A URL where you can find this location as a PDF."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "provenance",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "version",
-            "type": "STRING",
-            "description": "The version of the work, based on the DRIVER Guidelines versioning scheme."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "raw_type",
-            "type": "STRING",
-            "description": "The type, according to this location's source. This uses whatever controlled vocabulary that source happens to fancy. So for example: if the location is from from Crossref, you'll see a term from the Crossref type vocabulary in the location.raw_type field."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "raw_source_name",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+        "description": "A dehydrated Source object."
+      },
+      {
         "mode": "NULLABLE",
-        "name": "primary_location",
-        "type": "RECORD",
-        "description": "A Location object with the primary location of this work."
+        "name": "pdf_url",
+        "type": "STRING",
+        "description": "Direct URL of the PDF at this location, if known. Example: https://peerj.com/articles/4375.pdf"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "provenance",
+        "type": "STRING",
+        "description": "Which OpenAlex pipeline delivered this location (snapshot-only field). Observed values (2024 works): datacite | crossref | repo | pubmed | mag"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "version",
+        "type": "STRING",
+        "description": "The version of the work, based on the DRIVER Guidelines versioning scheme; often null (e.g. for DataCite records). Possible values: publishedVersion | submittedVersion | acceptedVersion"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "raw_type",
+        "type": "STRING",
+        "description": "The work type as given by the harvested source, in that source's own vocabulary (e.g. Crossref types for Crossref records). Example: journal-article (Crossref), info:eu-repo/semantics/article (repository)"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "raw_source_name",
+        "type": "STRING",
+        "description": "Name of the hosting source exactly as it appeared in the harvested metadata. Example: PeerJ"
+      },
+      {
+        "name": "doi",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "DOI of this location, if it has its own (e.g. a preprint DOI). Example: https://doi.org/10.7717/peerj.4375"
+      },
+      {
+        "name": "license_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the license of this location. Example: https://openalex.org/licenses/cc-by"
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "locations",
+    "type": "RECORD",
+    "description": "A list of Location objects describing all unique places where this work lives."
+  },
+  {
+    "mode": "NULLABLE",
+    "name": "locations_count",
+    "type": "INTEGER",
+    "description": "Number of locations for this work. Example: 7"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "is_oa",
+        "type": "BOOLEAN",
+        "description": "True if this work is Open Access (OA)."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "oa_status",
+        "type": "STRING",
+        "description": "The Open Access (OA) status of this work. Possible values: diamond | gold | hybrid | bronze | green | closed"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "oa_url",
+        "type": "STRING",
+        "description": "The best Open Access (OA) URL for this work. Example: https://peerj.com/articles/4375.pdf"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "any_repository_has_fulltext",
+        "type": "BOOLEAN",
+        "description": "True if any of this work's locations has location.is_oa=true and location.source.type=repository."
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "open_access",
+    "type": "RECORD",
+    "description": "Information about the access status of this work, as an OpenAccess object."
+  },
+  {
+    "fields": [
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "ID of this location, namespaced by where it was harvested from. Example: doi:10.7717/peerj.4375, pmh:oai:arXiv.org:2301.00001"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_accepted",
+        "type": "BOOLEAN",
+        "description": "True if this location holds the accepted manuscript or the published version."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_oa",
+        "type": "BOOLEAN",
+        "description": "True if this location is free to read."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_published",
+        "type": "BOOLEAN",
+        "description": "True if this location holds the published version (version of record)."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "is_unpaywall_record",
+        "type": "BOOLEAN",
+        "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "landing_page_url",
+        "type": "STRING",
+        "description": "The landing page URL for this location. Example: https://doi.org/10.7717/peerj.4375"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "license",
+        "type": "STRING",
+        "description": "The location's publishing license; null for most closed works. Observed values: cc-by | cc-by-nc-nd | cc-by-nc | cc-by-sa | cc-by-nc-sa | cc-by-nd | public-domain | other-oa"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "location_type",
+        "type": "STRING",
+        "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+      },
+      {
+        "fields": [
+          {
             "mode": "NULLABLE",
             "name": "display_name",
             "type": "STRING",
-            "description": ""
-        },
-        {
+            "description": "The name of the source. Example: PeerJ"
+          },
+          {
             "mode": "NULLABLE",
-            "name": "score",
-            "type": "FLOAT",
-            "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "subfield",
-              "type": "RECORD",
-              "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "field",
-              "type": "RECORD",
-              "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "domain",
-              "type": "RECORD",
-              "description": ""
-        }
-    ],
+            "name": "host_organization",
+            "type": "STRING",
+            "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field). Example: https://openalex.org/P4310320595"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "host_organization_name",
+            "type": "STRING",
+            "description": "The display_name from the host_organization, shown for convenience. Example: PeerJ"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "The OpenAlex ID for this source. Example: https://openalex.org/S1983995261"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "is_core",
+            "type": "BOOLEAN",
+            "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world."
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "is_in_doaj",
+            "type": "BOOLEAN",
+            "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ)."
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "is_oa",
+            "type": "BOOLEAN",
+            "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license."
+          },
+          {
+            "mode": "REPEATED",
+            "name": "issn",
+            "type": "STRING",
+            "description": "The ISSNs used by this source. Example: [\"2167-8359\"]"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "issn_l",
+            "type": "STRING",
+            "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources. Example: 2167-8359"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "type",
+            "type": "STRING",
+            "description": "The type of source. Possible values: journal | repository | conference | ebook platform | book series | metadata | other. Null when the location has no matched source (about 4% of 2024 works)."
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "raw_type",
+            "type": "STRING",
+            "description": "Legacy field from the pre-Walden schema; no longer delivered in OpenAlex records."
+          },
+          {
+            "name": "listed_in",
+            "type": "STRING",
+            "mode": "REPEATED",
+            "description": "Indexes and lists the source of this location appears in (e.g. DOAJ, Scopus). Example: [\"doaj\"]"
+          },
+          {
+            "name": "host_organization_lineage",
+            "type": "STRING",
+            "mode": "REPEATED",
+            "description": "OpenAlex IDs of the source's host organization and all its parent organizations. Example: [\"https://openalex.org/P4310320595\"]"
+          },
+          {
+            "name": "host_organization_lineage_names",
+            "type": "STRING",
+            "mode": "REPEATED",
+            "description": "Display names matching source.host_organization_lineage, in the same order."
+          }
+        ],
         "mode": "NULLABLE",
-        "name": "primary_topic",
+        "name": "source",
         "type": "RECORD",
-        "description": "The top ranked Topic for this work."
+        "description": "A dehydrated Source object."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "pdf_url",
+        "type": "STRING",
+        "description": "Direct URL of the PDF at this location, if known. Example: https://peerj.com/articles/4375.pdf"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "provenance",
+        "type": "STRING",
+        "description": "Which OpenAlex pipeline delivered this location (snapshot-only field). Observed values (2024 works): datacite | crossref | repo | pubmed | mag"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "version",
+        "type": "STRING",
+        "description": "The version of the work, based on the DRIVER Guidelines versioning scheme; often null (e.g. for DataCite records). Possible values: publishedVersion | submittedVersion | acceptedVersion"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "raw_type",
+        "type": "STRING",
+        "description": "The work type as given by the harvested source, in that source's own vocabulary (e.g. Crossref types for Crossref records). Example: journal-article (Crossref), info:eu-repo/semantics/article (repository)"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "raw_source_name",
+        "type": "STRING",
+        "description": "Name of the hosting source exactly as it appeared in the harvested metadata. Example: PeerJ"
+      },
+      {
+        "name": "doi",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "DOI of this location, if it has its own (e.g. a preprint DOI). Example: https://doi.org/10.7717/peerj.4375"
+      },
+      {
+        "name": "license_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the license of this location. Example: https://openalex.org/licenses/cc-by"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "primary_location",
+    "type": "RECORD",
+    "description": "A Location object with the primary location of this work."
   },
   {
-    "description": "The day when this work was published, formatted as an ISO 8601 date.",
+    "fields": [
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the topic. Example: https://openalex.org/T10102"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "score",
+        "type": "FLOAT",
+        "description": "Confidence score of the topic assignment (0-1). Example: 0.9998"
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "subfield",
+        "type": "RECORD",
+        "description": "The subfield (third level of the domain > field > subfield > topic hierarchy)."
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "field",
+        "type": "RECORD",
+        "description": "The field (second level of the topic hierarchy)."
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "domain",
+        "type": "RECORD",
+        "description": "The domain (top level of the topic hierarchy)."
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "primary_topic",
+    "type": "RECORD",
+    "description": "The top ranked Topic for this work."
+  },
+  {
+    "description": "The day when this work was published, formatted as an ISO 8601 date. Example: 2018-02-13",
     "mode": "NULLABLE",
     "name": "publication_date",
     "type": "STRING"
   },
   {
-    "description": "The year this work was published.",
+    "description": "The year this work was published. Example: 2018",
     "mode": "NULLABLE",
     "name": "publication_year",
     "type": "INTEGER"
   },
   {
-    "description": "OpenAlex IDs for works that this work cites. These are citations that go from this work out to another work: This work ➞ Other works.",
+    "description": "OpenAlex IDs for works that this work cites. These are citations that go from this work out to another work: This work ➞ Other works. Example: [\"https://openalex.org/W1491283632\"]",
     "mode": "REPEATED",
     "name": "referenced_works",
     "type": "STRING"
   },
   {
-    "description": "",
+    "description": "Number of works in referenced_works. Example: 42",
     "mode": "NULLABLE",
     "name": "referenced_works_count",
     "type": "INTEGER"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "2yr_cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "summary_stats",
-        "type": "RECORD",
-        "description": ""
+        "name": "2yr_cited_by_count",
+        "type": "INTEGER",
+        "description": "Legacy: citations in the last two years."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "cited_by_count",
+        "type": "INTEGER",
+        "description": "Legacy: total citations."
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "summary_stats",
+    "type": "RECORD",
+    "description": "Legacy field from the pre-Walden schema; no longer delivered."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "score",
-            "type": "FLOAT",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "UN metadata URI of the goal. Example: https://metadata.un.org/sdg/3"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the goal. Example: Good health and well-being"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "score",
+        "type": "FLOAT",
+        "description": "Confidence that the work relates to the goal (0-1). Example: 0.67"
+      }
     ],
-        "mode": "REPEATED",
-        "name": "sustainable_development_goals",
-        "type": "RECORD",
-        "description": "The United Nations' 17 Sustainable Development Goals are a collection of goals at the heart of a global shared blueprint for peace and prosperity for people and the planet."
+    "mode": "REPEATED",
+    "name": "sustainable_development_goals",
+    "type": "RECORD",
+    "description": "The United Nations' 17 Sustainable Development Goals are a collection of goals at the heart of a global shared blueprint for peace and prosperity for people and the planet."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the study design."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the study design."
+      }
     ],
-        "mode": "REPEATED",
-        "name": "study_designs",
-        "type": "RECORD",
-        "description": "How the research inside the work was done, as study design objects."
+    "mode": "REPEATED",
+    "name": "study_designs",
+    "type": "RECORD",
+    "description": "How the research inside the work was done, as study design objects."
   },
   {
     "fields": [
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the topic. Example: https://openalex.org/T10102"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "score",
+        "type": "FLOAT",
+        "description": "Confidence score of the topic assignment (0-1). Example: 0.9998"
+      },
+      {
+        "fields": [
+          {
             "mode": "NULLABLE",
             "name": "id",
             "type": "STRING",
-            "description": ""
-        },
-        {
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
             "mode": "NULLABLE",
             "name": "display_name",
             "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "score",
-            "type": "FLOAT",
-            "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "subfield",
-              "type": "RECORD",
-              "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "field",
-              "type": "RECORD",
-              "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "domain",
-              "type": "RECORD",
-              "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "topics",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "subfield",
         "type": "RECORD",
-        "description": "The top ranked Topics for this work. We provide up to 3 topics per work."
+        "description": "The subfield (third level of the domain > field > subfield > topic hierarchy)."
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "field",
+        "type": "RECORD",
+        "description": "The field (second level of the topic hierarchy)."
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "domain",
+        "type": "RECORD",
+        "description": "The domain (top level of the topic hierarchy)."
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "topics",
+    "type": "RECORD",
+    "description": "The top-ranked topics for this work; at most 3 per work."
   },
   {
-    "description": "",
+    "description": "Legacy field from the pre-Walden schema: number of topics. No longer delivered.",
     "mode": "NULLABLE",
     "name": "topics_count",
     "type": "INTEGER"
   },
   {
-    "description": "The title of this work.",
+    "description": "The title of this work. Example: The state of OA: a large-scale analysis of the prevalence and impact of Open Access articles",
     "mode": "NULLABLE",
     "name": "title",
     "type": "STRING"
   },
   {
-    "description": "The type of the work.",
+    "description": "The type of the work, from the OpenAlex work-type vocabulary. Traditional types (is_traditional = true): article, book, book-chapter, book-review, conference-paper, data-paper, dissertation, editorial, erratum, letter, preprint, retraction, review, software-paper. Other types: conference-abstract, dataset, libguides, other, paratext, peer-review, reference-entry, report, software, standard, study-registration, supplementary-materials. paratext marks covers, tables of contents and similar records that frame a publication rather than carry its content. book-review, conference-abstract, conference-paper, data-paper and software-paper are recent additions with low coverage so far. Definitions: https://help.openalex.org/data/work-types/",
     "mode": "NULLABLE",
     "name": "type",
     "type": "STRING"
   },
   {
-    "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
+    "description": "The last time anything in this Work object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts. Example: 2026-10-12T05:31:44.211000",
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "TIMESTAMP"
+  },
+  {
+    "name": "volume",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the volume. Example: (OpenAlex volume ID)"
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the volume. Example: 6"
+      }
+    ],
+    "description": "The volume entity this work was published in, if known."
+  },
+  {
+    "name": "institutions",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the institution. Example: https://openalex.org/I27837315"
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the institution."
+      },
+      {
+        "name": "ror",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "ROR ID of the institution. Example: https://ror.org/00jmfr291"
+      },
+      {
+        "name": "country_code",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "ISO two-letter country code of the institution. Example: DE, US, GB"
+      },
+      {
+        "name": "type",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Institution type (e.g. education, company, facility). Possible values: education | healthcare | company | archive | nonprofit | government | facility | funder | other"
+      },
+      {
+        "name": "lineage",
+        "type": "STRING",
+        "mode": "REPEATED",
+        "description": "OpenAlex IDs of this institution and all its parent institutions."
+      }
+    ],
+    "description": "Distinct institutions affiliated with the authors of this work."
+  },
+  {
+    "name": "is_traditional",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "True if the work's type is a traditional scholarly type (articles, books, chapters, theses, conference papers and similar); derived from type. Not the same as peer-reviewed: preprint, editorial and letter count as traditional; dataset, software, conference-abstract and report do not. See the type field for which types are traditional, and https://help.openalex.org/data/work-types/"
+  },
+  {
+    "name": "has_fulltext",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "True if OpenAlex has fulltext for this work that is searchable via the API."
+  },
+  {
+    "name": "has_content",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "pdf",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE",
+        "description": "True if a PDF of this work is available in the OpenAlex content archive."
+      },
+      {
+        "name": "grobid_xml",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE",
+        "description": "True if GROBID-parsed XML of this work is available in the OpenAlex content archive."
+      }
+    ],
+    "description": "Which content files OpenAlex holds for this work in its content archive."
   }
 ]
-

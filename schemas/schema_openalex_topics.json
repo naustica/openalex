@@ -6,7 +6,7 @@
     "type": "INTEGER"
   },
   {
-    "description": "The date this Topic object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "description": "The date this Topic object was created in the OpenAlex dataset, expressed as an ISO 8601 date string. Example: 2017-08-08",
     "mode": "NULLABLE",
     "name": "created_date",
     "type": "STRING"
@@ -18,105 +18,99 @@
     "type": "STRING"
   },
   {
-    "description": "The English-language label of the topic.",
+    "description": "The English-language label of the topic. Example: scientometrics and bibliometrics research",
     "mode": "NULLABLE",
     "name": "display_name",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "domain",
-        "type": "RECORD",
-        "description": "The ID and the name (display_name) for the domain of this topic. The domain is the highest level in the domain, field, subfield, topic system, which means it is the least granular."
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "domain",
+    "type": "RECORD",
+    "description": "The ID and the name (display_name) for the domain of this topic. The domain is the highest level in the domain, field, subfield, topic system, which means it is the least granular."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "field",
-        "type": "RECORD",
-        "description": "The ID and the name (display_name) for the field of this topic. The field is the second-highest level in the domain, field, subfield, topic system, which means it is the second-least granular."
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the field. Example: Computer Science, Medicine"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "field",
+    "type": "RECORD",
+    "description": "The ID and the name (display_name) for the field of this topic. The field is the second-highest level in the domain, field, subfield, topic system, which means it is the second-least granular."
   },
   {
-    "description": "The OpenAlex ID for this topic.",
+    "description": "The OpenAlex ID for this topic. Example: https://openalex.org/T10102",
     "mode": "NULLABLE",
     "name": "id",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "openalex",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "wikipedia",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "ids",
-        "type": "RECORD",
-        "description": "All the external identifiers that we know about for this topic. IDs are expressed as URIs whenever possible."
-  },
-  {
-    "description": "Keywords consisting of one or several words each, meant to represent the content of the papers in the topic. These keywords were generated as part of the AI model.",
-    "mode": "REPEATED",
-    "name": "keywords",
-    "type": "STRING"
+        "name": "openalex",
+        "type": "STRING",
+        "description": "The OpenAlex ID, same as id. Example: https://openalex.org/T10102"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "wikipedia",
+        "type": "STRING",
+        "description": "Wikipedia page URL. Example: https://en.wikipedia.org/wiki/Bibliometrics"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "ids",
+    "type": "RECORD",
+    "description": "External identifiers OpenAlex holds for this topic. IDs are expressed as URIs where possible."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "subfield",
-        "type": "RECORD",
-        "description": "The ID and the name (display_name) for the subfield of this topic. The subfield is the third-highest level in the domain, field, subfield, topic system, which means it is the third-least granular. "
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the subfield. Example: Information Systems"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "subfield",
+    "type": "RECORD",
+    "description": "The ID and the name (display_name) for the subfield of this topic. The subfield is the third-highest level in the domain, field, subfield, topic system, which means it is the third-least granular."
   },
   {
-    "description": "The last time anything in this topic object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
+    "description": "The last time anything in this topic object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts. Example: 2026-10-12T05:31:44.211000",
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "STRING"
@@ -126,5 +120,63 @@
     "mode": "NULLABLE",
     "name": "works_count",
     "type": "INTEGER"
-  } 
+  },
+  {
+    "name": "keywords",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the keyword. Example: https://openalex.org/keywords/bibliometrics"
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "The keyword. Example: Bibliometrics"
+      },
+      {
+        "name": "score",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "Relevance score of the keyword for this topic. Example: 0.83"
+      }
+    ],
+    "description": "Keywords that characterise this topic (objects; the old STRING[] column was dropped on load because the snapshot delivers objects)."
+  },
+  {
+    "name": "legacy_keywords",
+    "type": "STRING",
+    "mode": "REPEATED",
+    "description": "Keywords for this topic as plain strings, in the format used before keywords became objects. Example: [\"Citation Analysis\", \"Bibliometrics\"]"
+  },
+  {
+    "name": "siblings",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the sibling topic. Example: https://openalex.org/T..."
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the sibling topic."
+      }
+    ],
+    "description": "Other topics in the same subfield."
+  },
+  {
+    "name": "works_api_url",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "API URL listing the works tagged with this topic. Example: https://api.openalex.org/works?filter=topics.id:T10102"
+  }
 ]

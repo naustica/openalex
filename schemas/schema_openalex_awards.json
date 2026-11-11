@@ -1,6 +1,6 @@
 [
   {
-    "description": "The OpenAlex ID for this award.",
+    "description": "The OpenAlex ID for this award. Example: https://openalex.org/G1234567890",
     "mode": "NULLABLE",
     "name": "id",
     "type": "STRING"
@@ -18,354 +18,354 @@
     "type": "STRING"
   },
   {
-    "description": "The award identifier as assigned by the funder (e.g., the grant number).",
+    "description": "The award identifier as assigned by the funder (e.g., the grant number). Example: R01GM123456",
     "mode": "NULLABLE",
     "name": "funder_award_id",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": "The OpenAlex ID for the funder"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": "The name of the funder"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "ror",
-            "type": "STRING",
-            "description": "The ROR ID for the funder"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "doi",
-            "type": "STRING",
-            "description": "The DOI for the funder"
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "funder",
-        "type": "RECORD",
-        "description": "Information about the funder that issued this award. Contains:"
+        "name": "id",
+        "type": "STRING",
+        "description": "The OpenAlex ID for the funder Example: https://openalex.org/F4320306076"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "The name of the funder Example: National Science Foundation"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "ror",
+        "type": "STRING",
+        "description": "The ROR ID for the funder Example: https://ror.org/021nxhr62"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "doi",
+        "type": "STRING",
+        "description": "The DOI for the funder Example: https://doi.org/10.13039/100000001"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "funder",
+    "type": "RECORD",
+    "description": "The funder that issued this award."
   },
   {
-    "description": "A list of OpenAlex Work IDs that were funded by this award.",
+    "description": "A list of OpenAlex Work IDs that were funded by this award. Example: [\"https://openalex.org/W2741809807\"]",
     "mode": "REPEATED",
     "name": "funded_outputs",
     "type": "STRING"
   },
   {
-    "description": "The number of works funded by this award.",
+    "description": "The number of works funded by this award. Example: 12",
     "mode": "NULLABLE",
     "name": "funded_outputs_count",
     "type": "INTEGER"
   },
   {
-    "description": "The monetary amount of the award, if available.",
+    "description": "The monetary amount of the award, if available. Example: 450000.0",
     "mode": "NULLABLE",
     "name": "amount",
     "type": "FLOAT"
   },
   {
-    "description": "The currency of the award amount (e.g., USD, EUR), if available.",
+    "description": "ISO 4217 currency code of the award amount; null when no amount is known. Most frequent: USD | EUR | JPY | CAD | GBP | CNY | TWD | BRL | CHF",
     "mode": "NULLABLE",
     "name": "currency",
     "type": "STRING"
   },
   {
-    "description": "The type of funding provided (e.g., grant, fellowship), if available.",
+    "description": "The type of funding provided; null for about 45% of awards. Observed values include: research | grant | fellowship | training | program | cooperative_agreement | career_development | intramural | contract | studentship | conference | award | infrastructure | collaborative_r&d",
     "mode": "NULLABLE",
     "name": "funding_type",
     "type": "STRING"
   },
   {
-    "description": "The specific funding scheme or program under which the award was made, if available.",
+    "description": "The specific funding scheme or program under which the award was made, if available. Example: Horizon 2020, ERC Starting Grant",
     "mode": "NULLABLE",
     "name": "funder_scheme",
     "type": "STRING"
   },
   {
-    "description": "The start date of the award, formatted as an ISO 8601 date string, if available.",
+    "description": "The start date of the award, formatted as an ISO 8601 date string, if available. Example: 2020-01-01",
     "mode": "NULLABLE",
     "name": "start_date",
     "type": "DATE"
   },
   {
-    "description": "The end date of the award, formatted as an ISO 8601 date string, if available.",
+    "description": "The end date of the award, formatted as an ISO 8601 date string, if available. Example: 2024-12-31",
     "mode": "NULLABLE",
     "name": "end_date",
     "type": "DATE"
   },
   {
-    "description": "The year when the award started, if available.",
+    "description": "The year when the award started, if available. Example: 2020",
     "mode": "NULLABLE",
     "name": "start_year",
     "type": "INTEGER"
   },
   {
-    "description": "The year when the award ends or ended, if available.",
+    "description": "The year when the award ends or ended, if available. Example: 2024",
     "mode": "NULLABLE",
     "name": "end_year",
     "type": "INTEGER"
   },
   {
-    "description": "A URL for the award's landing page, if available.",
+    "description": "A URL for the award's landing page, if available. Example: https://cordis.europa.eu/project/id/101000001",
     "mode": "NULLABLE",
     "name": "landing_page_url",
     "type": "STRING"
   },
   {
-    "description": "The DOI for this award, if available.",
+    "description": "The DOI for this award, if available. Example: https://doi.org/10.3030/101000001",
     "mode": "NULLABLE",
     "name": "doi",
     "type": "STRING"
   },
   {
-    "description": "The source of this award data.",
+    "description": "The source this award record was harvested from. Observed values include: crossref_work_funders | nih_exporter | europepmc_work_funders | kaken | nsf_award_search | erasmus_plus | crossref_work.grants | nsfc_kd | usaspending | foerderkatalog | nserc_open_data | gateway_to_research | gepris | crossref_work | grb_most_projects",
     "mode": "NULLABLE",
     "name": "provenance",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "given_name",
-            "type": "STRING",
-            "description": "The given name of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "family_name",
-            "type": "STRING",
-            "description": "The family name of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "orcid",
-            "type": "STRING",
-            "description": "The ORCID identifier of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "role_start",
-            "type": "STRING",
-            "description": "When the investigator started this role"
-        },
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "given_name",
+        "type": "STRING",
+        "description": "The given name of the investigator"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "family_name",
+        "type": "STRING",
+        "description": "The family name of the investigator"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "orcid",
+        "type": "STRING",
+        "description": "The ORCID identifier of the investigator Example: https://orcid.org/0000-0003-1613-5981"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "role_start",
+        "type": "STRING",
+        "description": "When the investigator started this role Example: 2020-01-01"
+      },
+      {
         "fields": [
           {
-              "mode": "NULLABLE",
-              "name": "name",
-              "type": "STRING",
-              "description": ""
+            "mode": "NULLABLE",
+            "name": "name",
+            "type": "STRING",
+            "description": "Name of the investigator's institution."
           },
           {
-              "mode": "NULLABLE",
-              "name": "country",
-              "type": "STRING",
-              "description": ""
+            "mode": "NULLABLE",
+            "name": "country",
+            "type": "STRING",
+            "description": "Country of the investigator's institution. Example: DE"
           },
           {
-          "fields": [
-            {
+            "fields": [
+              {
                 "mode": "NULLABLE",
                 "name": "id",
                 "type": "STRING",
-                "description": ""
-            },
-            {
+                "description": "The identifier value. Example: https://ror.org/00jmfr291"
+              },
+              {
                 "mode": "NULLABLE",
                 "name": "type",
                 "type": "STRING",
-                "description": ""
-            },
-            {
+                "description": "Identifier scheme of the affiliation ID. Observed values (not normalised; note both ror and ROR): nrid | ror | ROR | rnsr | 360Giving Recipient Org:Identifier | 360giving_recipient_org | cnpj"
+              },
+              {
                 "mode": "NULLABLE",
                 "name": "asserted_by",
                 "type": "STRING",
-                "description": ""
-            }
-          ],
+                "description": "Who asserted the affiliation ID. Observed values: kaken | publisher | fct | anr | isvavai | source | sfi | funder | nhmrc"
+              }
+            ],
             "mode": "REPEATED",
             "name": "ids",
             "type": "RECORD",
-            "description": ""
+            "description": "Identifiers of the investigator's institution."
           }
         ],
-          "mode": "NULLABLE",
-          "name": "affiliation",
-          "type": "RECORD",
-          "description": "The investigator's institutional affiliation"
-        }
-    ],
         "mode": "NULLABLE",
-        "name": "lead_investigator",
+        "name": "affiliation",
         "type": "RECORD",
-        "description": "Information about the lead investigator (principal investigator) for this award, if available."
+        "description": "The investigator's institutional affiliation"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "lead_investigator",
+    "type": "RECORD",
+    "description": "Information about the lead investigator (principal investigator) for this award, if available."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "given_name",
-            "type": "STRING",
-            "description": "The given name of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "family_name",
-            "type": "STRING",
-            "description": "The family name of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "orcid",
-            "type": "STRING",
-            "description": "The ORCID identifier of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "role_start",
-            "type": "STRING",
-            "description": "When the investigator started this role"
-        },
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "given_name",
+        "type": "STRING",
+        "description": "The given name of the investigator"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "family_name",
+        "type": "STRING",
+        "description": "The family name of the investigator"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "orcid",
+        "type": "STRING",
+        "description": "The ORCID identifier of the investigator Example: https://orcid.org/0000-0003-1613-5981"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "role_start",
+        "type": "STRING",
+        "description": "When the investigator started this role Example: 2020-01-01"
+      },
+      {
         "fields": [
           {
-              "mode": "NULLABLE",
-              "name": "name",
-              "type": "STRING",
-              "description": ""
+            "mode": "NULLABLE",
+            "name": "name",
+            "type": "STRING",
+            "description": "Name of the investigator's institution."
           },
           {
-              "mode": "NULLABLE",
-              "name": "country",
-              "type": "STRING",
-              "description": ""
+            "mode": "NULLABLE",
+            "name": "country",
+            "type": "STRING",
+            "description": "Country of the investigator's institution. Example: DE"
           },
           {
-          "fields": [
-            {
+            "fields": [
+              {
                 "mode": "NULLABLE",
                 "name": "id",
                 "type": "STRING",
-                "description": ""
-            },
-            {
+                "description": "The identifier value. Example: https://ror.org/00jmfr291"
+              },
+              {
                 "mode": "NULLABLE",
                 "name": "type",
                 "type": "STRING",
-                "description": ""
-            },
-            {
+                "description": "Identifier scheme of the affiliation ID. Observed values (not normalised; note both ror and ROR): nrid | ror | ROR | rnsr | 360Giving Recipient Org:Identifier | 360giving_recipient_org | cnpj"
+              },
+              {
                 "mode": "NULLABLE",
                 "name": "asserted_by",
                 "type": "STRING",
-                "description": ""
-            }
-          ],
+                "description": "Who asserted the affiliation ID. Observed values: kaken | publisher | fct | anr | isvavai | source | sfi | funder | nhmrc"
+              }
+            ],
             "mode": "REPEATED",
             "name": "ids",
             "type": "RECORD",
-            "description": ""
+            "description": "Identifiers of the investigator's institution."
           }
         ],
-          "mode": "NULLABLE",
-          "name": "affiliation",
-          "type": "RECORD",
-          "description": "The investigator's institutional affiliation"
-        }
-    ],
         "mode": "NULLABLE",
-        "name": "co_lead_investigator",
+        "name": "affiliation",
         "type": "RECORD",
-        "description": "Information about the co-lead investigator, if available."
+        "description": "The investigator's institutional affiliation"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "co_lead_investigator",
+    "type": "RECORD",
+    "description": "Information about the co-lead investigator, if available."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "given_name",
-            "type": "STRING",
-            "description": "The given name of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "family_name",
-            "type": "STRING",
-            "description": "The family name of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "orcid",
-            "type": "STRING",
-            "description": "The ORCID identifier of the investigator"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "role_start",
-            "type": "STRING",
-            "description": "When the investigator started this role"
-        },
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "given_name",
+        "type": "STRING",
+        "description": "The given name of the investigator"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "family_name",
+        "type": "STRING",
+        "description": "The family name of the investigator"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "orcid",
+        "type": "STRING",
+        "description": "The ORCID identifier of the investigator Example: https://orcid.org/0000-0003-1613-5981"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "role_start",
+        "type": "STRING",
+        "description": "When the investigator started this role Example: 2020-01-01"
+      },
+      {
         "fields": [
           {
-              "mode": "NULLABLE",
-              "name": "name",
-              "type": "STRING",
-              "description": ""
+            "mode": "NULLABLE",
+            "name": "name",
+            "type": "STRING",
+            "description": "Name of the investigator's institution."
           },
           {
-              "mode": "NULLABLE",
-              "name": "country",
-              "type": "STRING",
-              "description": ""
+            "mode": "NULLABLE",
+            "name": "country",
+            "type": "STRING",
+            "description": "Country of the investigator's institution. Example: DE"
           },
           {
-          "fields": [
-            {
+            "fields": [
+              {
                 "mode": "NULLABLE",
                 "name": "id",
                 "type": "STRING",
-                "description": ""
-            },
-            {
+                "description": "The identifier value. Example: https://ror.org/00jmfr291"
+              },
+              {
                 "mode": "NULLABLE",
                 "name": "type",
                 "type": "STRING",
-                "description": ""
-            },
-            {
+                "description": "Identifier scheme of the affiliation ID. Observed values (not normalised; note both ror and ROR): nrid | ror | ROR | rnsr | 360Giving Recipient Org:Identifier | 360giving_recipient_org | cnpj"
+              },
+              {
                 "mode": "NULLABLE",
                 "name": "asserted_by",
                 "type": "STRING",
-                "description": ""
-            }
-          ],
+                "description": "Who asserted the affiliation ID. Observed values: kaken | publisher | fct | anr | isvavai | source | sfi | funder | nhmrc"
+              }
+            ],
             "mode": "REPEATED",
             "name": "ids",
             "type": "RECORD",
-            "description": ""
+            "description": "Identifiers of the investigator's institution."
           }
         ],
-          "mode": "NULLABLE",
-          "name": "affiliation",
-          "type": "RECORD",
-          "description": "The investigator's institutional affiliation"
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "investigators",
+        "mode": "NULLABLE",
+        "name": "affiliation",
         "type": "RECORD",
-        "description": "A list of all investigators associated with this award."
+        "description": "The investigator's institutional affiliation"
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "investigators",
+    "type": "RECORD",
+    "description": "A list of all investigators associated with this award."
   },
   {
     "description": "A URL that returns a list of works funded by this award.",
@@ -374,15 +374,231 @@
     "type": "STRING"
   },
   {
-    "description": "The date this Award object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "description": "The date this Award object was created in the OpenAlex dataset, expressed as an ISO 8601 date string. Example: 2017-08-08",
     "mode": "NULLABLE",
     "name": "created_date",
     "type": "STRING"
   },
   {
-    "description": "The last time anything in this award object changed, expressed as an ISO 8601 date string.",
+    "description": "The last time anything in this award object changed, expressed as an ISO 8601 date string. Example: 2026-10-12T05:31:44.211000",
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "STRING"
+  },
+  {
+    "name": "primary_topic",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the topic. Example: https://openalex.org/T10102"
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "name": "score",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "Relevance score of the topic for this award."
+      },
+      {
+        "name": "subfield",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ],
+        "description": "The subfield this topic belongs to."
+      },
+      {
+        "name": "field",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ],
+        "description": "The field this topic belongs to."
+      },
+      {
+        "name": "domain",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ],
+        "description": "The domain this topic belongs to."
+      }
+    ],
+    "description": "The topic most relevant to this award."
+  },
+  {
+    "name": "topics",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the topic."
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "name": "score",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "Relevance score of the topic for this award. Example: 0.95"
+      },
+      {
+        "name": "subfield",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ],
+        "description": "The subfield this topic belongs to."
+      },
+      {
+        "name": "field",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ],
+        "description": "The field this topic belongs to."
+      },
+      {
+        "name": "domain",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ],
+        "description": "The domain this topic belongs to."
+      }
+    ],
+    "description": "Topics assigned to this award."
+  },
+  {
+    "name": "institution_awarded",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the institution. Example: https://openalex.org/I27837315"
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the institution."
+      },
+      {
+        "name": "ror",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "ROR ID of the institution. Example: https://ror.org/00jmfr291"
+      },
+      {
+        "name": "country_code",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "ISO two-letter country code of the institution. Example: DE, US, GB"
+      },
+      {
+        "name": "type",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Institution type (e.g. education, company, facility)."
+      },
+      {
+        "name": "lineage",
+        "type": "STRING",
+        "mode": "REPEATED",
+        "description": "OpenAlex IDs of this institution and all its parent institutions."
+      }
+    ],
+    "description": "Institutions that received this award."
   }
 ]

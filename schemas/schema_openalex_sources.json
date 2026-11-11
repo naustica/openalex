@@ -1,38 +1,38 @@
 [
   {
-    "description": "An abbreviated title obtained from the ISSN Centre.",
+    "description": "An abbreviated title obtained from the ISSN Centre. Example: PeerJ",
     "mode": "NULLABLE",
     "name": "abbreviated_title",
     "type": "STRING"
   },
   {
-    "description": "Alternate titles for this source, as obtained from the ISSN Centre and individual work records, like Crossref DOIs, that carry the source name as a string. These are commonly abbreviations or translations of the source's canonical name.",
+    "description": "Alternate titles for this source, as obtained from the ISSN Centre and individual work records, like Crossref DOIs, that carry the source name as a string. These are commonly abbreviations or translations of the source's canonical name. Example: [\"PeerJ\", \"PeerJ (Corte Madera, CA)\"]",
     "mode": "REPEATED",
     "name": "alternate_titles",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "price",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "currency",
-            "type": "STRING",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "price",
+        "type": "INTEGER",
+        "description": "APC amount in the given currency. Example: 1395"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "currency",
+        "type": "STRING",
+        "description": "ISO 4217 currency code. Example: USD, EUR"
+      }
     ],
-        "mode": "REPEATED",
-        "name": "apc_prices",
-        "type": "RECORD",
-        "description": "List of objects, each with price (Integer) and currency (String)."
+    "mode": "REPEATED",
+    "name": "apc_prices",
+    "type": "RECORD",
+    "description": "List of objects, each with price (Integer) and currency (String)."
   },
   {
-    "description": "The source's article processing charge in US Dollars, if available from DOAJ. ",
+    "description": "The source's article processing charge in US Dollars, if available from DOAJ. Example: 1395",
     "mode": "NULLABLE",
     "name": "apc_usd",
     "type": "INTEGER"
@@ -44,116 +44,122 @@
     "type": "INTEGER"
   },
   {
-    "description": "The country that this source is associated with, represented as an ISO two-letter country code.",
+    "description": "The country that this source is associated with, represented as an ISO two-letter country code. Example: US, GB, DE",
     "mode": "NULLABLE",
     "name": "country_code",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "year",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "works_count",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "year",
+        "type": "INTEGER",
+        "description": "The year the counts refer to. Example: 2024"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "works_count",
+        "type": "INTEGER",
+        "description": "Number of works published in that year."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "cited_by_count",
+        "type": "INTEGER",
+        "description": "Number of citations received in that year."
+      },
+      {
+        "name": "oa_works_count",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Number of open access works in this source in the given year."
+      }
     ],
-        "mode": "REPEATED",
-        "name": "counts_by_year",
-        "type": "RECORD",
-        "description": "works_count and cited_by_count for each of the last ten years, binned by year."
+    "mode": "REPEATED",
+    "name": "counts_by_year",
+    "type": "RECORD",
+    "description": "works_count and cited_by_count for each of the last ten years, binned by year."
   },
   {
-    "description": "The date this Source object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "description": "The date this Source object was created in the OpenAlex dataset, expressed as an ISO 8601 date string. Example: 2017-08-08",
     "mode": "NULLABLE",
     "name": "created_date",
     "type": "STRING"
   },
   {
-    "description": "The name of the source.",
+    "description": "The name of the source. Example: PeerJ",
     "mode": "NULLABLE",
     "name": "display_name",
     "type": "STRING"
   },
   {
-    "description": "The starting page for navigating the contents of this source; the homepage for this source's website.",
+    "description": "The starting page for navigating the contents of this source; the homepage for this source's website. Example: https://peerj.com/",
     "mode": "NULLABLE",
     "name": "homepage_url",
     "type": "STRING"
   },
   {
-    "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field).",
+    "description": "The host organization for this source as an OpenAlex ID. This will be an Institution.id if the source is a repository, and a Publisher.id if the source is a journal, conference, or eBook platform (based on the type field). Example: https://openalex.org/P4310320595",
     "mode": "NULLABLE",
     "name": "host_organization",
     "type": "STRING"
   },
   {
-    "description": "The display_name from the host_organization, shown for convenience.",
+    "description": "The display_name from the host_organization, shown for convenience. Example: PeerJ",
     "mode": "NULLABLE",
     "name": "host_organization_name",
     "type": "STRING"
   },
   {
-    "description": "The OpenAlex ID for this source.",
+    "description": "The OpenAlex ID for this source. Example: https://openalex.org/S1983995261",
     "mode": "NULLABLE",
     "name": "id",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "openalex",
-            "type": "STRING",
-            "description": "This source's OpenAlex ID. Same as Source.id"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "issn_l",
-            "type": "STRING",
-            "description": "This source's ISSN-L. Same as Source.issn_l"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "mag",
-            "type": "INTEGER",
-            "description": "This source's Microsoft Academic Graph ID"
-        },
-        {
-            "mode": "REPEATED",
-            "name": "issn",
-            "type": "STRING",
-            "description": "A list of this source's ISSNs. Same as Source.issn"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "fatcat",
-            "type": "STRING",
-            "description": "This source's Fatcat ID"
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "wikidata",
-            "type": "STRING",
-            "description": "This source's Wikidata ID"
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "ids",
-        "type": "RECORD",
-        "description": "All the external identifiers that we know about for this source. IDs are expressed as URIs whenever possible."
+        "name": "openalex",
+        "type": "STRING",
+        "description": "This source's OpenAlex ID. Same as Source.id Example: https://openalex.org/S1983995261"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "issn_l",
+        "type": "STRING",
+        "description": "This source's ISSN-L. Same as Source.issn_l Example: 2167-8359"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "mag",
+        "type": "INTEGER",
+        "description": "This source's Microsoft Academic Graph ID Example: 1983995261"
+      },
+      {
+        "mode": "REPEATED",
+        "name": "issn",
+        "type": "STRING",
+        "description": "A list of this source's ISSNs. Same as Source.issn Example: [\"2167-8359\"]"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "fatcat",
+        "type": "STRING",
+        "description": "This source's Fatcat ID Example: https://fatcat.wiki/container/..."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "wikidata",
+        "type": "STRING",
+        "description": "This source's Wikidata ID Example: https://www.wikidata.org/wiki/Q230492"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "ids",
+    "type": "RECORD",
+    "description": "External identifiers OpenAlex holds for this source. IDs are expressed as URIs where possible."
   },
   {
     "description": "Whether this source is identified as a core source by CWTS, used in the Open Leiden Ranking of universities around the world.",
@@ -162,189 +168,367 @@
     "type": "BOOLEAN"
   },
   {
-    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ).",
+    "description": "Whether this is a journal listed in the Directory of Open Access Journals (DOAJ). Possible values: true | false",
     "mode": "NULLABLE",
     "name": "is_in_doaj",
     "type": "BOOLEAN"
   },
   {
-    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license.",
+    "description": "Whether this is currently fully-open-access source. This could be true for a preprint repository where everything uploaded is free to read, or for a Gold or Diamond open access journal, where all newly published Works are available for free under an open license. Possible values: true | false",
     "mode": "NULLABLE",
     "name": "is_oa",
     "type": "BOOLEAN"
   },
   {
-    "description": "The ISSNs used by this source. Many publications have multiple ISSNs (see above), so ISSN-L should be used when possible.",
+    "description": "All ISSNs of this source. Many sources have several (print, electronic), so prefer issn_l for matching. Example: [\"2167-8359\"]",
     "mode": "REPEATED",
     "name": "issn",
     "type": "STRING"
   },
   {
-    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources.",
+    "description": "The ISSN-L identifying this source. This is the Canonical External ID for sources. Example: 2167-8359",
     "mode": "NULLABLE",
     "name": "issn_l",
     "type": "STRING"
   },
   {
-    "description": "",
+    "description": "Year in which the source flipped to full open access, if it did. Example: 2019",
     "mode": "NULLABLE",
     "name": "oa_flip_year",
     "type": "INTEGER"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "url",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "organization",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "societies",
-        "type": "RECORD",
-        "description": "Societies on whose behalf the source is published and maintained, obtained from our crowdsourced list."
-  },
-  {
-    "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "2yr_mean_citedness",
-            "type": "FLOAT",
-            "description": "The 2-year mean citedness for this source. Also known as impact factor."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "h_index",
-            "type": "INTEGER",
-            "description": "The h-index for this source."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "i10_index",
-            "type": "INTEGER",
-            "description": "The i-10 index for this source."
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "summary_stats",
-        "type": "RECORD",
-        "description": "Citation metrics for this source."
+        "name": "url",
+        "type": "STRING",
+        "description": "Homepage of the society."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "organization",
+        "type": "STRING",
+        "description": "Name of the society. Example: (society name)"
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "societies",
+    "type": "RECORD",
+    "description": "Societies on whose behalf the source is published and maintained, taken from a crowdsourced list curated by OpenAlex."
   },
   {
     "fields": [
-        {
+      {
+        "mode": "NULLABLE",
+        "name": "2yr_mean_citedness",
+        "type": "FLOAT",
+        "description": "The 2-year mean citedness for this source. Also known as impact factor. Example: 3.14"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "h_index",
+        "type": "INTEGER",
+        "description": "The h-index for this source. Example: 42"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "i10_index",
+        "type": "INTEGER",
+        "description": "The i-10 index for this source. Example: 120"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "summary_stats",
+    "type": "RECORD",
+    "description": "Citation metrics for this source."
+  },
+  {
+    "fields": [
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the topic."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "score",
+        "type": "FLOAT",
+        "description": "Relevance score of the topic for this source. Example: 0.97"
+      },
+      {
+        "fields": [
+          {
             "mode": "NULLABLE",
             "name": "id",
             "type": "STRING",
-            "description": ""
-        },
-        {
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
             "mode": "NULLABLE",
             "name": "display_name",
             "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "score",
-            "type": "FLOAT",
-            "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "subfield",
-              "type": "RECORD",
-              "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "field",
-              "type": "RECORD",
-              "description": ""
-        },
-        {
-          "fields": [
-              {
-                  "mode": "NULLABLE",
-                  "name": "id",
-                  "type": "STRING",
-                  "description": ""
-              },
-              {
-                  "mode": "NULLABLE",
-                  "name": "display_name",
-                  "type": "STRING",
-                  "description": ""
-              }
-          ],
-              "mode": "NULLABLE",
-              "name": "domain",
-              "type": "RECORD",
-              "description": ""
-        }
-    ],
-        "mode": "REPEATED",
-        "name": "topics",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "subfield",
         "type": "RECORD",
-        "description": ""
+        "description": "The subfield (third level of the domain > field > subfield > topic hierarchy)."
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "field",
+        "type": "RECORD",
+        "description": "The field (second level of the topic hierarchy)."
+      },
+      {
+        "fields": [
+          {
+            "mode": "NULLABLE",
+            "name": "id",
+            "type": "STRING",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "mode": "NULLABLE",
+            "name": "display_name",
+            "type": "STRING",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ],
+        "mode": "NULLABLE",
+        "name": "domain",
+        "type": "RECORD",
+        "description": "The domain (top level of the topic hierarchy)."
+      },
+      {
+        "name": "count",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Number of the source's works tagged with the topic. Example: 812"
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "topics",
+    "type": "RECORD",
+    "description": "Topics this source publishes on most."
   },
   {
-    "description": "The type of source",
+    "description": "The type of source Possible values: journal | repository | conference | ebook platform | book series | metadata | other",
     "mode": "NULLABLE",
     "name": "type",
     "type": "STRING"
   },
   {
-    "description": "The last time anything in this Source object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
+    "description": "The last time anything in this Source object changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts. Example: 2026-10-12T05:31:44.211000",
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "STRING"
   },
   {
-    "description": "A URL that will get you a list of all this source's Works.",
+    "description": "OpenAlex API URL listing the works in this source. Example: https://api.openalex.org/works?filter=primary_location.source.id:S1983995261",
     "mode": "NULLABLE",
     "name": "works_api_url",
     "type": "STRING"
   },
   {
-    "description": "The number of Works this this source hosts.",
+    "description": "Number of works in this source.",
     "mode": "NULLABLE",
     "name": "works_count",
     "type": "INTEGER"
-  } 
+  },
+  {
+    "name": "listed_in",
+    "type": "STRING",
+    "mode": "REPEATED",
+    "description": "Indexes and lists this source appears in (e.g. DOAJ, Scopus). Example: [\"doaj\"]"
+  },
+  {
+    "name": "host_organization_lineage",
+    "type": "STRING",
+    "mode": "REPEATED",
+    "description": "OpenAlex IDs of the host organization and all its parent organizations. Example: [\"https://openalex.org/P4310320595\"]"
+  },
+  {
+    "name": "is_in_doaj_since_year",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Year from which the source has been listed in DOAJ. Example: 2013"
+  },
+  {
+    "name": "is_high_oa_rate",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "True if a high share of this source's works are open access."
+  },
+  {
+    "name": "is_high_oa_rate_since_year",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Year from which the source has had a high open access rate. Example: 2013"
+  },
+  {
+    "name": "is_in_scielo",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "True if the source is indexed in SciELO."
+  },
+  {
+    "name": "is_ojs",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "True if the source is hosted on Open Journal Systems (OJS)."
+  },
+  {
+    "name": "is_preprint_repository",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "True if the source is a preprint repository."
+  },
+  {
+    "name": "apc_usd_by_year",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "year",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Year of the APC price. Example: 2024"
+      },
+      {
+        "name": "price",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "APC price in US dollars for that year. Example: 1395"
+      }
+    ],
+    "description": "Article processing charge in US dollars for each year."
+  },
+  {
+    "name": "oa_works_count",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Number of open access works hosted by this source. Example: 20000"
+  },
+  {
+    "name": "first_publication_year",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Year of the earliest work in this source. Example: 2013"
+  },
+  {
+    "name": "last_publication_year",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Year of the most recent work in this source. Example: 2026"
+  },
+  {
+    "name": "topic_share",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the topic."
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "name": "value",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "Share of the source's works tagged with the topic. Example: 0.012"
+      },
+      {
+        "name": "subfield",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ],
+        "description": "The subfield this topic belongs to."
+      },
+      {
+        "name": "field",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ],
+        "description": "The field this topic belongs to."
+      },
+      {
+        "name": "domain",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ],
+        "description": "The domain this topic belongs to."
+      }
+    ],
+    "description": "Topics weighted by their share of this source's works."
+  }
 ]

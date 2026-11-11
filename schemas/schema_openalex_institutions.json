@@ -2,46 +2,46 @@
   {
     "fields": [
       {
-          "mode": "NULLABLE",
-          "name": "id",
-          "type": "STRING",
-          "description": ""
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the related institution."
       },
       {
-          "mode": "NULLABLE",
-          "name": "ror",
-          "type": "STRING",
-          "description": ""
+        "mode": "NULLABLE",
+        "name": "ror",
+        "type": "STRING",
+        "description": "ROR ID of the related institution."
       },
       {
-          "mode": "NULLABLE",
-          "name": "display_name",
-          "type": "STRING",
-          "description": ""
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the related institution."
       },
       {
-          "mode": "NULLABLE",
-          "name": "country_code",
-          "type": "STRING",
-          "description": ""
+        "mode": "NULLABLE",
+        "name": "country_code",
+        "type": "STRING",
+        "description": "Country of the related institution (ISO alpha-2). Example: DE, US, GB"
       },
       {
-          "mode": "NULLABLE",
-          "name": "type",
-          "type": "STRING",
-          "description": ""
+        "mode": "NULLABLE",
+        "name": "type",
+        "type": "STRING",
+        "description": "Type of the related institution. Example: healthcare, education"
       },
       {
-          "mode": "NULLABLE",
-          "name": "relationship",
-          "type": "STRING",
-          "description": ""
+        "mode": "NULLABLE",
+        "name": "relationship",
+        "type": "STRING",
+        "description": "How the related institution relates to this one. Possible values: parent | child | related"
       }
-   ],
-      "mode": "REPEATED",
-      "name": "associated_institutions",
-      "type": "RECORD",
-      "description": "Institutions related to this one."
+    ],
+    "mode": "REPEATED",
+    "name": "associated_institutions",
+    "type": "RECORD",
+    "description": "Institutions related to this one."
   },
   {
     "description": "The total number Works that cite a work created by an author affiliated with this institution. Or less formally: the number of citations this institution has collected.",
@@ -50,166 +50,172 @@
     "type": "INTEGER"
   },
   {
-    "description": "The country where this institution is located, represented as an ISO two-letter country code.",
+    "description": "The country where this institution is located, represented as an ISO two-letter country code. Example: DE, US, GB",
     "mode": "NULLABLE",
     "name": "country_code",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "year",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "works_count",
-            "type": "INTEGER",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "cited_by_count",
-            "type": "INTEGER",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "year",
+        "type": "INTEGER",
+        "description": "The year the counts refer to. Example: 2024"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "works_count",
+        "type": "INTEGER",
+        "description": "Number of works published in that year."
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "cited_by_count",
+        "type": "INTEGER",
+        "description": "Number of citations received in that year."
+      },
+      {
+        "name": "oa_works_count",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Number of open access works affiliated with this institution in the given year."
+      }
     ],
-        "mode": "REPEATED",
-        "name": "counts_by_year",
-        "type": "RECORD",
-        "description": "works_count and cited_by_count for each of the last ten years, binned by year."
+    "mode": "REPEATED",
+    "name": "counts_by_year",
+    "type": "RECORD",
+    "description": "works_count and cited_by_count for each of the last ten years, binned by year."
   },
   {
-    "description": "The date this Institution object was created in the OpenAlex dataset, expressed as an ISO 8601 date string.",
+    "description": "The date this Institution object was created in the OpenAlex dataset, expressed as an ISO 8601 date string. Example: 2017-08-08",
     "mode": "NULLABLE",
     "name": "created_date",
     "type": "STRING"
   },
   {
-    "description": "The primary name of the institution.",
+    "description": "The primary name of the institution. Example: University of Michigan–Ann Arbor",
     "mode": "NULLABLE",
     "name": "display_name",
     "type": "STRING"
   },
   {
-    "description": "Acronyms or initialisms that people sometimes use instead of the full display_name.",
+    "description": "Acronyms or initialisms that people sometimes use instead of the full display_name. Example: [\"UM\", \"U-M\"]",
     "mode": "REPEATED",
     "name": "display_name_acronyms",
     "type": "STRING"
   },
   {
-    "description": "Other names people may use for this institution.",
+    "description": "Other names people may use for this institution. Example: [\"University of Michigan\"]",
     "mode": "REPEATED",
     "name": "display_name_alternatives",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "city",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "geonames_city_id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "region",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "country_code",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "country",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "latitude",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "longitude",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "geo",
-        "type": "RECORD",
-        "description": "A bunch of stuff we know about the location of this institution."
+        "name": "city",
+        "type": "STRING",
+        "description": "City where the institution is located. Example: Ann Arbor"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "geonames_city_id",
+        "type": "STRING",
+        "description": "GeoNames ID of the city. Example: 4984247"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "region",
+        "type": "STRING",
+        "description": "Region or state, where known. Example: Michigan"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "country_code",
+        "type": "STRING",
+        "description": "Country (ISO alpha-2). Example: US"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "country",
+        "type": "STRING",
+        "description": "Country name. Example: United States"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "latitude",
+        "type": "STRING",
+        "description": "Latitude (decimal degrees, stored as string). Example: 42.27756"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "longitude",
+        "type": "STRING",
+        "description": "Longitude (decimal degrees, stored as string). Example: -83.74088"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "geo",
+    "type": "RECORD",
+    "description": "Geographic location of this institution."
   },
   {
-    "description": "The URL for institution's primary homepage.",
+    "description": "The URL for institution's primary homepage. Example: https://umich.edu",
     "mode": "NULLABLE",
     "name": "homepage_url",
     "type": "STRING"
   },
   {
-    "description": "The OpenAlex ID for this institution.",
+    "description": "The OpenAlex ID for this institution. Example: https://openalex.org/I27837315",
     "mode": "NULLABLE",
     "name": "id",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "openalex",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "ror",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "grid",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "wikipedia",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "wikidata",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "mag",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "ids",
-        "type": "RECORD",
-        "description": "All the persistent identifiers (PIDs) that we know about for this institution, as key: value pairs, where key is the PID namespace, and value is the PID. IDs are expressed as URIs where possible. They're all strings except for mag, which is a long integer."
+        "name": "openalex",
+        "type": "STRING",
+        "description": "The OpenAlex ID, same as id. Example: https://openalex.org/I27837315"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "ror",
+        "type": "STRING",
+        "description": "ROR ID, as a URL. Example: https://ror.org/00jmfr291"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "grid",
+        "type": "STRING",
+        "description": "GRID ID (legacy; GRID was superseded by ROR). Example: grid.214458.e"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "wikipedia",
+        "type": "STRING",
+        "description": "Wikipedia page URL. Example: https://en.wikipedia.org/wiki/University%20of%20Michigan"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "wikidata",
+        "type": "STRING",
+        "description": "Wikidata ID, as a URL. Example: https://www.wikidata.org/wiki/Q230492"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "mag",
+        "type": "STRING",
+        "description": "Microsoft Academic Graph ID (legacy)."
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "ids",
+    "type": "RECORD",
+    "description": "Persistent identifiers OpenAlex holds for this institution, keyed by namespace. IDs are expressed as URIs where possible."
   },
   {
     "description": "Same as image_url, but it's a smaller image.",
@@ -218,141 +224,349 @@
     "type": "STRING"
   },
   {
-    "description": "True if this institution is a super system.",
+    "description": "True if this institution is a super system. Possible values: true | false",
     "mode": "NULLABLE",
     "name": "is_super_system",
     "type": "BOOLEAN"
   },
   {
-    "description": "URL where you can get an image representing this institution. Usually this is hosted on Wikipedia, and usually it's a seal or logo.",
+    "description": "URL of an image representing this institution, usually a logo or seal hosted on Wikimedia.",
     "mode": "NULLABLE",
     "name": "image_url",
     "type": "STRING"
   },
   {
-    "description": "OpenAlex IDs of institutions. The list will include this institution's ID, as well as any parent institutions. If this institution has no parent institutions, this list will only contain its own ID.",
+    "description": "OpenAlex IDs of institutions. The list will include this institution's ID, as well as any parent institutions. If this institution has no parent institutions, this list will only contain its own ID. Example: [\"https://openalex.org/I27837315\"]",
     "mode": "REPEATED",
     "name": "lineage",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "display_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "host_organization",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "host_organization_name",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "REPEATED",
-            "name": "host_organization_lineage",
-            "type": "STRING",
-            "description": ""
-        }
-    ],
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the repository source. Example: https://openalex.org/S4306400393"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "display_name",
+        "type": "STRING",
+        "description": "Name of the repository. Example: Deep Blue (University of Michigan)"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "host_organization",
+        "type": "STRING",
+        "description": "OpenAlex ID of the repository's host institution. Example: https://openalex.org/I27837315"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "host_organization_name",
+        "type": "STRING",
+        "description": "Name of the repository's host institution."
+      },
+      {
         "mode": "REPEATED",
-        "name": "repositories",
-        "type": "RECORD",
-        "description": "Repositories (Sources with type: repository) that have this institution as their host_organization."
+        "name": "host_organization_lineage",
+        "type": "STRING",
+        "description": "OpenAlex IDs of the host institution and its parents."
+      }
+    ],
+    "mode": "REPEATED",
+    "name": "repositories",
+    "type": "RECORD",
+    "description": "Repositories (Sources with type: repository) that have this institution as their host_organization."
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "role",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "id",
-            "type": "STRING",
-            "description": ""
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "works_count",
-            "type": "INTEGER",
-            "description": ""
-        }
+      {
+        "mode": "NULLABLE",
+        "name": "role",
+        "type": "STRING",
+        "description": "Role this organisation plays in OpenAlex. Possible values: institution | funder | publisher"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "id",
+        "type": "STRING",
+        "description": "OpenAlex ID of the entity record for that role. Example: https://openalex.org/I27837315, https://openalex.org/F4320306076, https://openalex.org/P4310320595"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "works_count",
+        "type": "INTEGER",
+        "description": "Number of works linked to the organisation in that role."
+      }
     ],
-        "mode": "REPEATED",
-        "name": "roles",
-        "type": "RECORD",
-        "description": "List of role objects, which include the role (one of institution, funder, or publisher), the id (OpenAlex ID), and the works_count."
+    "mode": "REPEATED",
+    "name": "roles",
+    "type": "RECORD",
+    "description": "List of role objects, which include the role (one of institution, funder, or publisher), the id (OpenAlex ID), and the works_count."
   },
   {
-    "description": "The ROR ID for this institution.",
+    "description": "The ROR ID for this institution. Example: https://ror.org/00jmfr291",
     "mode": "NULLABLE",
     "name": "ror",
     "type": "STRING"
   },
   {
     "fields": [
-        {
-            "mode": "NULLABLE",
-            "name": "2yr_mean_citedness",
-            "type": "FLOAT",
-            "description": "The 2-year mean citedness for this institution. Also known as impact factor."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "h_index",
-            "type": "INTEGER",
-            "description": "The h-index for this institution."
-        },
-        {
-            "mode": "NULLABLE",
-            "name": "i10_index",
-            "type": "INTEGER",
-            "description": "The i-10 index for this institution."
-        }
-    ],
+      {
         "mode": "NULLABLE",
-        "name": "summary_stats",
-        "type": "RECORD",
-        "description": "Citation metrics for this institution."
+        "name": "2yr_mean_citedness",
+        "type": "FLOAT",
+        "description": "The 2-year mean citedness for this institution. Also known as impact factor. Example: 3.14"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "h_index",
+        "type": "INTEGER",
+        "description": "The h-index for this institution. Example: 42"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "i10_index",
+        "type": "INTEGER",
+        "description": "The i-10 index for this institution. Example: 120"
+      }
+    ],
+    "mode": "NULLABLE",
+    "name": "summary_stats",
+    "type": "RECORD",
+    "description": "Citation metrics for this institution."
   },
   {
-    "description": "The institution's primary type, using the ROR type controlled vocabulary. ",
+    "description": "The institution's primary type, using the ROR type controlled vocabulary. Possible values: education | healthcare | company | archive | nonprofit | government | facility | funder | other",
     "mode": "NULLABLE",
     "name": "type",
     "type": "STRING"
   },
   {
-    "description": "The last time anything in this Institution changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts.",
+    "description": "The last time anything in this Institution changed, expressed as an ISO 8601 date string. This date is updated for any change at all, including increases in various counts. Example: 2026-10-12T05:31:44.211000",
     "mode": "NULLABLE",
     "name": "updated_date",
     "type": "STRING"
   },
   {
-    "description": "A URL that will get you a list of all the Works affiliated with this institution.",
+    "description": "OpenAlex API URL listing works affiliated with this institution. Example: https://api.openalex.org/works?filter=institutions.id:I27837315",
     "mode": "NULLABLE",
     "name": "works_api_url",
     "type": "STRING"
   },
   {
-    "description": "The number of Works created by authors affiliated with this institution. Or less formally: the number of works coming out of this institution.",
+    "description": "The number of Works created by authors affiliated with this institution. Or less formally: the number of works coming out of this institution. Example: 470000",
     "mode": "NULLABLE",
     "name": "works_count",
     "type": "INTEGER"
-  } 
+  },
+  {
+    "name": "type_id",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "OpenAlex ID of the institution type. Example: https://openalex.org/institution-types/education"
+  },
+  {
+    "name": "international",
+    "type": "JSON",
+    "mode": "NULLABLE",
+    "description": "Translations of the institution's name, as a JSON object of the form {\"display_name\": {language code: name}}. Example: {\"display_name\": {\"de\": \"Universität Michigan\", \"fr\": \"Université du Michigan\"}}"
+  },
+  {
+    "name": "works_count_with_children",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Number of works affiliated with this institution or any of its child institutions. Example: 510000"
+  },
+  {
+    "name": "works_count_with_children_and_predecessors",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Number of works affiliated with this institution, its child institutions or its predecessor institutions. Example: 512000"
+  },
+  {
+    "name": "status",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Status of the institution record (e.g. active). Example: active"
+  },
+  {
+    "name": "topics",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the topic."
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "name": "count",
+        "type": "INTEGER",
+        "mode": "NULLABLE",
+        "description": "Number of the institution's works tagged with the topic. Example: 5400"
+      },
+      {
+        "name": "score",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "Relevance score of the topic for this institution. Example: 1.0"
+      },
+      {
+        "name": "subfield",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ],
+        "description": "The subfield this topic belongs to."
+      },
+      {
+        "name": "field",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ],
+        "description": "The field this topic belongs to."
+      },
+      {
+        "name": "domain",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ],
+        "description": "The domain this topic belongs to."
+      }
+    ],
+    "description": "Topics this institution publishes on most."
+  },
+  {
+    "name": "topic_share",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "OpenAlex ID of the topic."
+      },
+      {
+        "name": "display_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Name of the topic. Example: scientometrics and bibliometrics research"
+      },
+      {
+        "name": "value",
+        "type": "FLOAT",
+        "mode": "NULLABLE",
+        "description": "Share of the institution's works tagged with the topic. Example: 0.0032"
+      },
+      {
+        "name": "subfield",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the subfield. Example: https://openalex.org/subfields/1710"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the subfield. Example: Information Systems"
+          }
+        ],
+        "description": "The subfield this topic belongs to."
+      },
+      {
+        "name": "field",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the field. Example: https://openalex.org/fields/17"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the field. Example: Computer Science, Medicine"
+          }
+        ],
+        "description": "The field this topic belongs to."
+      },
+      {
+        "name": "domain",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "id",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "OpenAlex ID of the domain. Example: https://openalex.org/domains/1"
+          },
+          {
+            "name": "display_name",
+            "type": "STRING",
+            "mode": "NULLABLE",
+            "description": "Name of the domain. Possible values: Life Sciences | Social Sciences | Physical Sciences | Health Sciences"
+          }
+        ],
+        "description": "The domain this topic belongs to."
+      }
+    ],
+    "description": "Topics weighted by their share of this institution's works."
+  }
 ]
